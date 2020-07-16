@@ -19,6 +19,13 @@ const commentSchema = new Schema({
   created: { type: Date, default: Date.now }
 });
 
+commentSchema.set('toJSON', { getters: true });
+commentSchema.options.toJSON.transform = (doc, ret) => {
+  const obj = { ...ret };
+  delete obj._id;
+  return obj;
+};
+
 const answerSchema = new Schema({
   author: {
     type: Schema.Types.ObjectId,
@@ -51,6 +58,13 @@ const questionSchema = new Schema({
 
 questionSchema.set('toJSON', { getters: true });
 
+questionSchema.options.toJSON.transform = (doc, ret) => {
+  const obj = { ...ret };
+  delete obj._id;
+  delete obj.__v;
+  return obj;
+};
+
 questionSchema.methods = {
   vote: function (userId, vote) {
     const existingVote = this.votes.find((v) => v.user._id.equals(userId));
@@ -73,7 +87,37 @@ questionSchema.methods = {
     }
 
     return this.save();
+  },
+
+  addComment: function (author, body) {
+    this.comments.push({ author, body });
+    return this.save();
+  },
+
+  removeComment: function (id) {
+    const comment = this.comments.id(id);
+    if (!comment) throw new Error('Comment not found');
+    comment.remove();
+    return this.save();
   }
 };
+
+questionSchema.pre(/^find/, function () {
+  this.populate('author').populate('comments.author', '-role');
+});
+
+questionSchema.pre('save', function (next) {
+  this.wasNew = this.isNew;
+  next();
+});
+
+questionSchema.post('save', function (doc, next) {
+  if (this.wasNew) this.vote(this.author._id, 1);
+  doc
+    .populate('author')
+    .populate('comments.author', '-role')
+    .execPopulate()
+    .then(() => next());
+});
 
 module.exports = mongoose.model('Question', questionSchema);

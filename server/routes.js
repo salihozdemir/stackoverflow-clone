@@ -26,9 +26,9 @@ router.get('/question/:question/downvote', requireAuth, questions.downvote);
 router.get('/question/:question/unvote', requireAuth, questions.unvote);
 
 //comments of questions
-router.param('comment', comments.load);
-router.post('/post/:post', [requireAuth, comments.validate], comments.create);
-router.delete('/post/:post/:comment', [requireAuth, commentAuth], comments.delete);
+router.param('questionComment', comments.loadQuestionComment);
+router.post('/question/:question', [requireAuth, comments.validate], comments.createQuestionComment);
+router.delete('/question/:question/:questionComment', [requireAuth, commentAuth], comments.deleteQuestionComment);
 
 module.exports = (app) => {
   app.use('/api', router);
