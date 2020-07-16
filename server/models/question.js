@@ -99,6 +99,18 @@ questionSchema.methods = {
     if (!comment) throw new Error('Comment not found');
     comment.remove();
     return this.save();
+  },
+
+  addAnswer: function (author, text) {
+    this.answers.push({ author, text });
+    return this.save();
+  },
+
+  removeAnswer: function (id) {
+    const answer = this.answers.id(id);
+    if (!answer) throw new Error('Answer not found');
+    answer.remove();
+    return this.save();
   }
 };
 

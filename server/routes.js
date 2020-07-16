@@ -43,7 +43,7 @@ router.delete(
 //answers of questions
 router.param('answer', answers.load);
 router.post('/question/:question/answers', [requireAuth, answers.validate], answers.create);
-router.delete('/question/:question/:answer', [requireAuth, answerAuth], answers.delete);
+router.delete('/question/answers/:question/:answer', [requireAuth, answerAuth], answers.delete);
 
 //votes of answers
 router.get('/question/:question/:answer/upvote', requireAuth, answers.upvote);

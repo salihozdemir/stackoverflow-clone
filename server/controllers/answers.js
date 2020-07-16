@@ -1,3 +1,5 @@
+const { body, validationResult } = require('express-validator');
+
 exports.load = async (req, res, next, id) => {
   try {
     const answer = await req.question.answers.id(id);
@@ -10,9 +12,32 @@ exports.load = async (req, res, next, id) => {
   next();
 };
 
-exports.create = async (req, res, next) => {};
+exports.create = async (req, res, next) => {
+  const result = validationResult(req);
+  if (!result.isEmpty()) {
+    const errors = result.array({ onlyFirstError: true });
+    return res.status(422).json({ errors });
+  }
 
-exports.delete = async (req, res, next) => {};
+  try {
+    const { id } = req.user;
+    const { text } = req.body;
+    const question = await req.question.addAnswer(id, text);
+    res.status(201).json(question);
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.delete = async (req, res, next) => {
+  try {
+    const { answer } = req.params;
+    const question = await req.question.removeAnswer(answer);
+    res.json(question);
+  } catch (error) {
+    next(error);
+  }
+};
 
 exports.upvote = async (req, res, next) => {};
 
@@ -20,4 +45,15 @@ exports.downvote = async (req, res, next) => {};
 
 exports.unvote = async (req, res, next) => {};
 
-exports.validate = [];
+exports.validate = [
+  body('text')
+    .exists()
+    .trim()
+    .withMessage('is required')
+
+    .notEmpty()
+    .withMessage('cannot be blank')
+
+    .isLength({ max: 5000 })
+    .withMessage('must be at most 5000 characters long')
+];
