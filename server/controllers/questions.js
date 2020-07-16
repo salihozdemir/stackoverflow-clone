@@ -87,6 +87,24 @@ exports.delete = async (req, res, next) => {
   }
 };
 
+exports.upvote = async (req, res) => {
+  const { id } = req.user;
+  const question = await req.question.vote(id, 1);
+  res.json(question);
+};
+
+exports.downvote = async (req, res) => {
+  const { id } = req.user;
+  const question = await req.question.vote(id, -1);
+  res.json(question);
+};
+
+exports.unvote = async (req, res) => {
+  const { id } = req.user;
+  const question = await req.question.vote(id, 0);
+  res.json(question);
+};
+
 exports.validate = [
   body('title')
     .exists()

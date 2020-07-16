@@ -1,6 +1,5 @@
 const users = require('./controllers/users');
 const questions = require('./controllers/questions');
-const votes = require('./controllers/votes');
 const comments = require('./controllers/comments');
 const requireAuth = require('./middlewares/requireAuth');
 const questionAuth = require('./middlewares/questionAuth');
@@ -21,12 +20,12 @@ router.get('/questions/tags', questions.listByTags);
 router.get('/user/:username', questions.listByUser);
 router.delete('/question/:question', [requireAuth, questionAuth], questions.delete);
 
-//Post votes
-router.get('/post/:post/upvote', requireAuth, votes.upvote);
-router.get('/post/:post/downvote', requireAuth, votes.downvote);
-router.get('/post/:post/unvote', requireAuth, votes.unvote);
+//votes of questions
+router.get('/question/:question/upvote', requireAuth, questions.upvote);
+router.get('/question/:question/downvote', requireAuth, questions.downvote);
+router.get('/question/:question/unvote', requireAuth, questions.unvote);
 
-//Posts comments
+//comments of questions
 router.param('comment', comments.load);
 router.post('/post/:post', [requireAuth, comments.validate], comments.create);
 router.delete('/post/:post/:comment', [requireAuth, commentAuth], comments.delete);

@@ -29,7 +29,7 @@ const answerSchema = new Schema({
   text: { type: String, required: true },
   score: { type: Number, default: 0 },
   votes: [voteSchema],
-  comments: [commentSchema],
+  comments: [commentSchema]
 });
 
 const questionSchema = new Schema({
@@ -48,5 +48,32 @@ const questionSchema = new Schema({
   created: { type: Date, default: Date.now },
   views: { type: Number, default: 0 }
 });
+
+questionSchema.set('toJSON', { getters: true });
+
+questionSchema.methods = {
+  vote: function (userId, vote) {
+    const existingVote = this.votes.find((v) => v.user._id.equals(userId));
+
+    if (existingVote) {
+      // reset score
+      this.score -= existingVote.vote;
+      if (vote == 0) {
+        // remove vote
+        this.votes.pull(existingVote);
+      } else {
+        //change vote
+        this.score += vote;
+        existingVote.vote = vote;
+      }
+    } else if (vote !== 0) {
+      // new vote
+      this.score += vote;
+      this.votes.push({ user: userId, vote });
+    }
+
+    return this.save();
+  }
+};
 
 module.exports = mongoose.model('Question', questionSchema);
