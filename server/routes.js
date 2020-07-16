@@ -23,42 +23,42 @@ router.get('/user/:username', questions.listByUser);
 router.delete('/question/:question', [requireAuth, questionAuth], questions.delete);
 
 //votes of questions
-router.get('/question/:question/upvote', requireAuth, questions.upvote);
-router.get('/question/:question/downvote', requireAuth, questions.downvote);
-router.get('/question/:question/unvote', requireAuth, questions.unvote);
+router.get('/question/upvote/:question', requireAuth, questions.upvote);
+router.get('/question/downvote/:question', requireAuth, questions.downvote);
+router.get('/question/unvote/:question', requireAuth, questions.unvote);
 
 //comments of questions
 router.param('questionComment', comments.loadQuestionComment);
 router.post(
-  '/question/:question/comment',
+  '/question/comment/:question',
   [requireAuth, comments.validate],
   comments.createQuestionComment
 );
 router.delete(
-  '/question/:question/:questionComment',
+  '/question/comment/:question/:questionComment',
   [requireAuth, commentAuth],
   comments.deleteQuestionComment
 );
 
 //answers of questions
 router.param('answer', answers.load);
-router.post('/question/:question/answers', [requireAuth, answers.validate], answers.create);
-router.delete('/question/answers/:question/:answer', [requireAuth, answerAuth], answers.delete);
+router.post('/question/answer/:question', [requireAuth, answers.validate], answers.create);
+router.delete('/question/answer/:question/:answer', [requireAuth, answerAuth], answers.delete);
 
 //votes of answers
-router.get('/question/:question/:answer/upvote', requireAuth, answers.upvote);
-router.get('/question/:question/:answer/downvote', requireAuth, answers.downvote);
-router.get('/question/:question/:answer/unvote', requireAuth, answers.unvote);
+router.get('/question/upvote/:question/:answer', requireAuth, answers.upvote);
+router.get('/question/downvote/:question/:answer', requireAuth, answers.downvote);
+router.get('/question/unvote/:question/:answer', requireAuth, answers.unvote);
 
 //comments of answers
 router.param('answerComment', comments.loadAnswerComment);
 router.post(
-  '/question/:question/:answer/comment',
+  '/question/answer/comment/:question/:answer',
   [requireAuth, comments.validate],
   comments.createAnswerComment
 );
 router.delete(
-  '/question/:question/:answer/:answerComment',
+  '/question/answer/comment/:question/:answer/:answerComment',
   [requireAuth, commentAuth],
   comments.deleteAnswerComment
 );

@@ -66,8 +66,8 @@ questionSchema.options.toJSON.transform = (doc, ret) => {
 };
 
 questionSchema.methods = {
-  vote: function (userId, vote) {
-    const existingVote = this.votes.find((v) => v.user._id.equals(userId));
+  vote: function (user, vote) {
+    const existingVote = this.votes.find((v) => v.user._id.equals(user));
 
     if (existingVote) {
       // reset score
@@ -83,7 +83,7 @@ questionSchema.methods = {
     } else if (vote !== 0) {
       // new vote
       this.score += vote;
-      this.votes.push({ user: userId, vote });
+      this.votes.push({ user, vote });
     }
 
     return this.save();
