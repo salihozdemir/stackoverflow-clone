@@ -1,9 +1,11 @@
 const users = require('./controllers/users');
 const questions = require('./controllers/questions');
 const comments = require('./controllers/comments');
+const answers = require('./controllers/answers');
 const requireAuth = require('./middlewares/requireAuth');
 const questionAuth = require('./middlewares/questionAuth');
 const commentAuth = require('./middlewares/commentAuth');
+const answerAuth = require('./middlewares/answerAuth');
 
 const router = require('express').Router();
 
@@ -27,8 +29,39 @@ router.get('/question/:question/unvote', requireAuth, questions.unvote);
 
 //comments of questions
 router.param('questionComment', comments.loadQuestionComment);
-router.post('/question/:question', [requireAuth, comments.validate], comments.createQuestionComment);
-router.delete('/question/:question/:questionComment', [requireAuth, commentAuth], comments.deleteQuestionComment);
+router.post(
+  '/question/:question/comment',
+  [requireAuth, comments.validate],
+  comments.createQuestionComment
+);
+router.delete(
+  '/question/:question/:questionComment',
+  [requireAuth, commentAuth],
+  comments.deleteQuestionComment
+);
+
+//answers of questions
+router.param('answer', answers.load);
+router.post('/question/:question/answers', [requireAuth, answers.validate], answers.create);
+router.delete('/question/:question/:answer', [requireAuth, answerAuth], answers.delete);
+
+//votes of answers
+router.get('/question/:question/:answer/upvote', requireAuth, answers.upvote);
+router.get('/question/:question/:answer/downvote', requireAuth, answers.downvote);
+router.get('/question/:question/:answer/unvote', requireAuth, answers.unvote);
+
+//comments of answers
+router.param('answerComment', comments.loadAnswerComment);
+router.post(
+  '/question/:question/:answer/comment',
+  [requireAuth, comments.validate],
+  comments.createAnswerComment
+);
+router.delete(
+  '/question/:question/:answer/:answerComment',
+  [requireAuth, commentAuth],
+  comments.deleteAnswerComment
+);
 
 module.exports = (app) => {
   app.use('/api', router);

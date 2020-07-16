@@ -1,4 +1,5 @@
 const { body, validationResult } = require('express-validator');
+const e = require('express');
 
 exports.loadQuestionComment = async (req, res, next, id) => {
   try {
@@ -38,6 +39,14 @@ exports.deleteQuestionComment = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.loadAnswerComment = async (req, res, next, id) => {
+  next();
+};
+
+exports.createAnswerComment = async (req, res, next) => {};
+
+exports.deleteAnswerComment = async (req, res, next) => {};
 
 exports.validate = [
   body('comment')
