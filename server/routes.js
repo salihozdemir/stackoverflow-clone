@@ -1,9 +1,9 @@
 const users = require('./controllers/users');
-const posts = require('./controllers/posts');
+const questions = require('./controllers/questions');
 const votes = require('./controllers/votes');
 const comments = require('./controllers/comments');
 const requireAuth = require('./middlewares/requireAuth');
-const postAuth = require('./middlewares/postAuth');
+const questionAuth = require('./middlewares/questionAuth');
 const commentAuth = require('./middlewares/commentAuth');
 
 const router = require('express').Router();
@@ -12,14 +12,14 @@ const router = require('express').Router();
 router.post('/signup', users.validate, users.signup);
 router.post('/authenticate', users.validate, users.authenticate);
 
-//Posts
-router.param('post', posts.load);
-router.post('/posts', [requireAuth, posts.validate], posts.create);
-router.get('/post/:post', posts.show);
-router.get('/posts', posts.list);
-router.get('/posts/:category', posts.listByCategory);
-router.get('/user/:username', posts.listByUser);
-router.delete('/post/:post', [requireAuth, postAuth], posts.delete);
+//Questions
+router.param('question', questions.load);
+router.post('/questions', [requireAuth, questions.validate], questions.create);
+router.get('/question/:question', questions.show);
+router.get('/question', questions.list);
+router.get('/questions/tags', questions.listByTags);
+router.get('/user/:username', questions.listByUser);
+router.delete('/question/:question', [requireAuth, questionAuth], questions.delete);
 
 //Post votes
 router.get('/post/:post/upvote', requireAuth, votes.upvote);
@@ -29,11 +29,7 @@ router.get('/post/:post/unvote', requireAuth, votes.unvote);
 //Posts comments
 router.param('comment', comments.load);
 router.post('/post/:post', [requireAuth, comments.validate], comments.create);
-router.delete(
-  '/post/:post/:comment',
-  [requireAuth, commentAuth],
-  comments.delete
-);
+router.delete('/post/:post/:comment', [requireAuth, commentAuth], comments.delete);
 
 module.exports = (app) => {
   app.use('/api', router);
