@@ -40,12 +40,45 @@ exports.deleteQuestionComment = async (req, res, next) => {
 };
 
 exports.loadAnswerComment = async (req, res, next, id) => {
+  try {
+    const comment = await req.answer.comments.id(id);
+    if (!comment) return res.status(404).json({ message: 'Comment not found.' });
+    req.comment = comment;
+  } catch (error) {
+    if (error.name === 'CastError') return res.status(400).json({ message: 'Invalid comment id.' });
+    return next(error);
+  }
   next();
 };
 
-exports.createAnswerComment = async (req, res, next) => {};
+exports.createAnswerComment = async (req, res, next) => {
+  const result = validationResult(req);
+  if (!result.isEmpty()) {
+    const errors = result.array({ onlyFirstError: true });
+    return res.status(422).json({ errors });
+  }
 
-exports.deleteAnswerComment = async (req, res, next) => {};
+  try {
+    const { id } = req.user;
+    const { comment } = req.body;
+    const answer = await req.answer.addComment(id, comment);
+    req.question.save();
+    res.status(201).json(answer);
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.deleteAnswerComment = async (req, res, next) => {
+  try {
+    const { answerComment } = req.params;
+    const answer = await req.answer.removeComment(answerComment);
+    req.question.save();
+    res.json(answer);
+  } catch (error) {
+    next(error);
+  }
+};
 
 exports.validate = [
   body('comment')
