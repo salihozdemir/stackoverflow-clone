@@ -39,11 +39,26 @@ exports.delete = async (req, res, next) => {
   }
 };
 
-exports.upvote = async (req, res, next) => {};
+exports.upvote = async (req, res, next) => {
+  const { id } = req.user;
+  const answer = await req.answer.vote(id, 1);
+  req.question.save();
+  res.json(answer);
+};
 
-exports.downvote = async (req, res, next) => {};
+exports.downvote = async (req, res, next) => {
+  const { id } = req.user;
+  const answer = await req.answer.vote(id, -1);
+  req.question.save();
+  res.json(answer);
+};
 
-exports.unvote = async (req, res, next) => {};
+exports.unvote = async (req, res, next) => {
+  const { id } = req.user;
+  const answer = await req.answer.vote(id, 0);
+  req.question.save();
+  res.json(answer);
+};
 
 exports.validate = [
   body('text')
