@@ -1,6 +1,7 @@
 const users = require('./controllers/users');
 const questions = require('./controllers/questions');
 const answers = require('./controllers/answers');
+
 const requireAuth = require('./middlewares/requireAuth');
 const questionAuth = require('./middlewares/questionAuth');
 const commentAuth = require('./middlewares/commentAuth');
