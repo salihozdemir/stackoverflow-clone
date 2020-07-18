@@ -87,6 +87,45 @@ exports.delete = async (req, res, next) => {
   }
 };
 
+exports.loadComment = async (req, res, next, id) => {
+  try {
+    const comment = await req.question.comments.id(id);
+    if (!comment) return res.status(404).json({ message: 'Comment not found.' });
+    req.comment = comment;
+  } catch (error) {
+    if (error.name === 'CastError') return res.status(400).json({ message: 'Invalid comment id.' });
+    return next(error);
+  }
+  next();
+};
+
+exports.createComment = async (req, res, next) => {
+  const result = validationResult(req);
+  if (!result.isEmpty()) {
+    const errors = result.array({ onlyFirstError: true });
+    return res.status(422).json({ errors });
+  }
+
+  try {
+    const { id } = req.user;
+    const { comment } = req.body;
+    const question = await req.question.addComment(id, comment);
+    res.status(201).json(question);
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.deleteComment = async (req, res, next) => {
+  try {
+    const { questionComment } = req.params;
+    const question = await req.question.removeComment(questionComment);
+    res.json(question);
+  } catch (error) {
+    next(error);
+  }
+};
+
 exports.upvote = async (req, res) => {
   const { id } = req.user;
   const question = await req.question.vote(id, 1);
@@ -105,9 +144,7 @@ exports.unvote = async (req, res) => {
   res.json(question);
 };
 
-
-
-exports.validate = [
+exports.questionValidate = [
   body('title')
     .exists()
     .trim()
@@ -128,4 +165,17 @@ exports.validate = [
     .withMessage('must be at least 10 characters long'),
 
   body('tags').exists().withMessage('is required')
+];
+
+exports.commentValidate = [
+  body('comment')
+    .exists()
+    .trim()
+    .withMessage('is required')
+
+    .notEmpty()
+    .withMessage('cannot be blank')
+
+    .isLength({ max: 2000 })
+    .withMessage('must be at most 2000 characters long')
 ];
