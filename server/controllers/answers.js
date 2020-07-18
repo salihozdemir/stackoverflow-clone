@@ -110,6 +110,9 @@ exports.answerValidate = [
     .notEmpty()
     .withMessage('cannot be blank')
 
+    .isLength({ min: 10 })
+    .withMessage('must be at least 10 characters long')
+
     .isLength({ max: 5000 })
     .withMessage('must be at most 5000 characters long')
 ];
