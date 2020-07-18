@@ -1,8 +1,9 @@
+const Answer = require('../models/answer');
 const { body, validationResult } = require('express-validator');
 
 exports.load = async (req, res, next, id) => {
   try {
-    const answer = await req.question.answers.id(id);
+    const answer = await Answer.findById(id);
     if (!answer) return res.status(404).json({ message: 'Answer not found.' });
     req.answer = answer;
   } catch (error) {
@@ -22,7 +23,11 @@ exports.create = async (req, res, next) => {
   try {
     const { id } = req.user;
     const { text } = req.body;
-    const question = await req.question.addAnswer(id, text);
+    const answer = await Answer.create({
+      author: id,
+      text
+    });
+    const question = await req.question.addAnswer(answer._id);
     res.status(201).json(question);
   } catch (error) {
     next(error);
@@ -31,8 +36,8 @@ exports.create = async (req, res, next) => {
 
 exports.delete = async (req, res, next) => {
   try {
-    const { answer } = req.params;
-    const question = await req.question.removeAnswer(answer);
+    await req.answer.remove();
+    const question = await req.question.removeAnswer(req.answer._id);
     res.json(question);
   } catch (error) {
     next(error);
@@ -42,21 +47,18 @@ exports.delete = async (req, res, next) => {
 exports.upvote = async (req, res, next) => {
   const { id } = req.user;
   const answer = await req.answer.vote(id, 1);
-  req.question.save();
   res.json(answer);
 };
 
 exports.downvote = async (req, res, next) => {
   const { id } = req.user;
   const answer = await req.answer.vote(id, -1);
-  req.question.save();
   res.json(answer);
 };
 
 exports.unvote = async (req, res, next) => {
   const { id } = req.user;
   const answer = await req.answer.vote(id, 0);
-  req.question.save();
   res.json(answer);
 };
 

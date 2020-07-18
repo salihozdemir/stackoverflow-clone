@@ -4,33 +4,22 @@ const Schema = mongoose.Schema;
 const voteSchema = require('./vote');
 const commentSchema = require('./comment');
 
-const questionSchema = new Schema({
+const answerSchema = new Schema({
   author: {
     type: Schema.Types.ObjectId,
     ref: 'user',
     required: true
   },
-  title: { type: String, required: true },
+  created: { type: Date, default: Date.now },
   text: { type: String, required: true },
-  tags: [{ type: String, required: true }],
   score: { type: Number, default: 0 },
   votes: [voteSchema],
-  comments: [commentSchema],
-  answers: [{ type: Schema.Types.ObjectId, ref: 'Answer' }],
-  created: { type: Date, default: Date.now },
-  views: { type: Number, default: 0 }
+  comments: [commentSchema]
 });
 
-questionSchema.set('toJSON', { getters: true });
+answerSchema.set('toJSON', { getters: true });
 
-questionSchema.options.toJSON.transform = (doc, ret) => {
-  const obj = { ...ret };
-  delete obj._id;
-  delete obj.__v;
-  return obj;
-};
-
-questionSchema.methods = {
+answerSchema.methods = {
   vote: function (user, vote) {
     const existingVote = this.votes.find((v) => v.user._id.equals(user));
 
@@ -50,7 +39,6 @@ questionSchema.methods = {
       this.score += vote;
       this.votes.push({ user, vote });
     }
-
     return this.save();
   },
 
@@ -64,29 +52,15 @@ questionSchema.methods = {
     if (!comment) throw new Error('Comment not found');
     comment.remove();
     return this.save();
-  },
-
-  addAnswer: function (id) {
-    this.answers.push(id);
-    return this.save();
-  },
-
-  removeAnswer: function (id) {
-    this.answers.pull(id)
-    return this.save();
   }
 };
 
-questionSchema.pre(/^find/, function () {
-  this.populate('author').populate('comments.author', '-role');
-});
-
-questionSchema.pre('save', function (next) {
+answerSchema.pre('save', function (next) {
   this.wasNew = this.isNew;
   next();
 });
 
-questionSchema.post('save', function (doc, next) {
+answerSchema.post('save', function (doc, next) {
   if (this.wasNew) this.vote(this.author._id, 1);
   doc
     .populate('author')
@@ -95,4 +69,4 @@ questionSchema.post('save', function (doc, next) {
     .then(() => next());
 });
 
-module.exports = mongoose.model('Question', questionSchema);
+module.exports = mongoose.model('Answer', answerSchema);

@@ -62,7 +62,6 @@ exports.createAnswerComment = async (req, res, next) => {
     const { id } = req.user;
     const { comment } = req.body;
     const answer = await req.answer.addComment(id, comment);
-    req.question.save();
     res.status(201).json(answer);
   } catch (error) {
     next(error);
@@ -73,7 +72,6 @@ exports.deleteAnswerComment = async (req, res, next) => {
   try {
     const { answerComment } = req.params;
     const answer = await req.answer.removeComment(answerComment);
-    req.question.save();
     res.json(answer);
   } catch (error) {
     next(error);
