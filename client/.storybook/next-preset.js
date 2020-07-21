@@ -1,9 +1,9 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
   webpackFinal: async (baseConfig, options) => {
     // Modify or replace config. Mutating the original reference object can cause unexpected bugs.
-    const { module = {} } = baseConfig;
+    const { module = {} } = baseConfig
 
     const newConfig = {
       ...baseConfig,
@@ -11,7 +11,7 @@ module.exports = {
         ...module,
         rules: [...(module.rules || [])]
       }
-    };
+    }
 
     //
     // CSS Modules
@@ -20,8 +20,8 @@ module.exports = {
 
     // First we prevent webpack from using Storybook CSS rules to process CSS modules
     newConfig.module.rules.find(
-      rule => rule.test.toString() === '/\\.css$/'
-    ).exclude = /\.module\.css$/;
+      (rule) => rule.test.toString() === '/\\.css$/'
+    ).exclude = /\.module\.css$/
 
     // Then we tell webpack what to do with CSS modules
     newConfig.module.rules.push({
@@ -35,10 +35,19 @@ module.exports = {
             importLoaders: 1,
             modules: true
           }
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            sourceMap: true,
+            config: {
+              path: './.storybook/'
+            }
+          }
         }
       ]
-    });
+    })
 
-    return newConfig;
+    return newConfig
   }
-};
+}
