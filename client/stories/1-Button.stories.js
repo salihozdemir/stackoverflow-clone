@@ -1,16 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import Button from "../components/button";
+import Button from '../components/button'
 
 export default {
-  title: "Button",
-  component: Button,
-};
+  title: 'Buttons'
+}
 
-export const Emoji = () => (
-  <Button>
-    <span role="img" aria-label="so cool">
-      😀 😎 👍 💯
-    </span>
-  </Button>
-);
+export const Normal = () => <Button>Save</Button>

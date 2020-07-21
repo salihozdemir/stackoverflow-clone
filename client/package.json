@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "icon": "svgr icons -d components/icons --icon --replace-attr-values \"#000=currentColor\""
   },
   "keywords": [],
   "author": "",
@@ -24,8 +25,10 @@
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
+    "@svgr/cli": "^5.4.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.6.0",
+    "prettier": "^2.0.5",
     "style-loader": "^1.2.1"
   }
 }
