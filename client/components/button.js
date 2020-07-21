@@ -1,13 +1,11 @@
-import React from "react";
+import styles from './button.module.css'
 
-import styles from "./button.module.css";
-
-function Button({ children }) {
+function Button({ children, ...props }) {
   return (
-    <button type="button" className={styles.button}>
+    <button type="button" className={styles.button} {...props}>
       {children}
     </button>
-  );
+  )
 }
 
-export default Button;
+export default Button
