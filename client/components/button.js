@@ -1,11 +1,27 @@
 import styles from './button.module.css'
 import cn from 'classnames'
 
-function Button({ children, className, ...props }) {
+function Button({
+  primary,
+  secondary,
+  full = false,
+  children,
+  className,
+  ...props
+}) {
   return (
-    <button type="button" className={cn(styles.button, className)} {...props}>
+    <a
+      className={cn(
+        styles.button,
+        primary && styles.primary,
+        secondary && styles.secondary,
+        full && styles.fullWidth,
+        className
+      )}
+      {...props}
+    >
       {children}
-    </button>
+    </a>
   )
 }
 

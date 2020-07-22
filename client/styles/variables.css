@@ -11,7 +11,12 @@
   --blue-600: #0077cc;
   --blue-700: #0064bd;
   --powder-100: #e1ecf4;
+  --powder-300: #b3d3ea;
+  --powder-400: #a0c7e4;
+  --powder-500: #7aa7c7;
+  --powder-600: #5b8db1;
   --powder-700: #39739d;
+  --powder-800: #2c5777;
 
   --fade: 120ms;
 }
