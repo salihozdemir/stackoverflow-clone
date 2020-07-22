@@ -1,23 +1,23 @@
-import NavButton from './nav-button'
+import NavItem from './nav-item'
 import { World } from './icons'
 
 import styles from './navigation.module.css'
 
-function Navigation() {
+function Navigation({ selectedKey }) {
   return (
     <nav className={styles.nav}>
-      <NavButton>
-        <World></World>
+      <NavItem selected={selectedKey == 0}>
+        <World />
         <span>Stack Overflow</span>
-      </NavButton>
+      </NavItem>
 
-      <NavButton>
+      <NavItem selected={selectedKey == 1}>
         <span>Tags</span>
-      </NavButton>
+      </NavItem>
 
-      <NavButton>
+      <NavItem selected={selectedKey == 2}>
         <span>Users</span>
-      </NavButton>
+      </NavItem>
     </nav>
   )
 }
