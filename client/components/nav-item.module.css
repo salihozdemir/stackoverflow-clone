@@ -5,6 +5,7 @@
   align-items: center;
   cursor: pointer;
   background-color: transparent;
+  transition: var(--fade);
 
   &:hover {
     color: var(--black-900);
