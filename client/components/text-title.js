@@ -1,3 +1,5 @@
+import React from 'react'
+
 import cn from 'classnames'
 
 import styles from './text-title.module.css'

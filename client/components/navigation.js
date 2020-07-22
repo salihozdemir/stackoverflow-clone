@@ -1,3 +1,5 @@
+import React from 'react'
+
 import NavItem from './nav-item'
 import { World } from './icons'
 
