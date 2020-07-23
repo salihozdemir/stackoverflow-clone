@@ -1,9 +1,11 @@
 :root {
   --white: #fff;
   --orange: #f48024;
-  --black-50: #eff0f1;
+  --black-025: #fafafb;
+  --black-050: #eff0f1;
+  --black-100: #d6d9dc;
   --black-350: #9199a1;
-  --black-400: #0064bd;
+  --black-400: #848d95;
   --black-600: #535a60;
   --black-800: #242729;
   --black-900: #0c0d0e;
