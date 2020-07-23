@@ -1,17 +1,20 @@
 import React from 'react'
+import Link from 'next/link'
 
 import cn from 'classnames'
 
 import styles from './nav-item.module.css'
 
-function NavItem({ children, selected, ...props }) {
+function NavItem({ href, children, selected, ...props }) {
   return (
-    <a
-      className={cn(styles.navItem, selected && styles.navItemSelected)}
-      {...props}
-    >
-      {children}
-    </a>
+    <Link href={href}>
+      <a
+        className={cn(styles.navItem, selected && styles.navItemSelected)}
+        {...props}
+      >
+        {children}
+      </a>
+    </Link>
   )
 }
 

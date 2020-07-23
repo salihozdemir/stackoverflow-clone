@@ -1,23 +1,302 @@
-import CONST from '../constants'
-
-import Layout from '../components/layout'
-import Header from '../components/header'
-import Body from '../components/body'
-
-import useWindowSize from '../hooks/useWindowSize'
+import Layout from '../components/Layout/layout'
 
 function HomePage() {
-  const size = useWindowSize()
   return (
     <Layout>
-      <Header>
-        <div>header</div>
-      </Header>
-      <Body>
-        {size.width > CONST.MOBILE_SIZE && <div>sidebar</div>}
-        <div>main {JSON.stringify(size)}</div>
-        {size.width > CONST.TABLET_SIZE && <div>extra</div>}
-      </Body>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
+      <p>
+        lorem ipsum d lorem ipsum dolor sit am lorem ipsum Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Culpa quod maiores fuga natus fugiat
+        dolorem error perferendis, distinctio enim unde dicta consequuntur
+        voluptas molestiae velit soluta, vitae nihil, repellat ab!
+      </p>
     </Layout>
   )
 }

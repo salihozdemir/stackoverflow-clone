@@ -1,0 +1,17 @@
+.layout {
+  min-height: 100vh;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: 164px 1fr;
+
+  @media (--t) {
+    grid-template-columns: 164px 1fr 230px;
+  }
+}
+
+.container {
+  max-width: 1264px;
+  margin: 0 auto;
+}

@@ -1,11 +1,13 @@
 .navItem {
   color: var(--black-600);
-  padding: 8px 6px 8px 0;
+  padding: 8px 6px 8px 8px;
   display: flex;
   align-items: center;
   cursor: pointer;
   background-color: transparent;
   transition: var(--fade);
+  text-decoration: none;
+  line-height: 1.5;
 
   &:hover {
     color: var(--black-900);
