@@ -1,9 +1,5 @@
 .nav {
-    margin-top: 50px;
-    padding-left: 20px;
-    top: 50px;
-    max-height: calc(100vh - 50px);
+    top: 74px;
     position: sticky;
     width: auto;
-    margin-bottom: 8px;
 }

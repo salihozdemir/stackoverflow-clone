@@ -8,9 +8,9 @@ import Navigation from '../navigation'
 
 function Sidebar({ className, ...props }) {
   return (
-    <div className={cn(styles.sidebar, className)} {...props}>
+    <nav className={cn(styles.sidebar, className)} {...props}>
       <Navigation></Navigation>
-    </div>
+    </nav>
   )
 }
 
