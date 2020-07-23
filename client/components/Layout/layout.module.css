@@ -1,17 +1,19 @@
-.layout {
-  min-height: 100vh;
-}
-
 .body {
   display: grid;
-  grid-template-columns: 164px 1fr;
+  grid-template-columns: 1fr;
+  min-height: calc(100vh - 50px);
+  
+  @media (--m) {
+    grid-template-columns: 164px 1fr;
+  }
 
   @media (--t) {
-    grid-template-columns: 164px 1fr 230px;
+    grid-template-columns: 164px 1fr 324px;
   }
 }
 
 .container {
   max-width: 1264px;
   margin: 0 auto;
+  padding-top: 50px;
 }

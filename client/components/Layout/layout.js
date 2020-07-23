@@ -15,7 +15,7 @@ function Layout({ children }) {
   const size = useWindowSize()
   return (
     <div className={cn(styles.layout)}>
-      <Header>Header</Header>
+      <Header />
       <div className={styles.container}>
         <div className={styles.body}>
           {size.width > CONST.MOBILE_SIZE && <Sidebar>sidebar</Sidebar>}
