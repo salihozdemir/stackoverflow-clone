@@ -41,10 +41,10 @@ function Header({ className, ...props }) {
         </Button>
         <div style={{ flex: 1 }}></div>
         <Button className={styles.auth} secondary>
-          Login
+          Log in
         </Button>
         <Button className={styles.auth} primary>
-          Sign Up
+          Sign up
         </Button>
       </div>
       <div ref={ref}>{isComponentVisible && <NavigationDropdown />}</div>
