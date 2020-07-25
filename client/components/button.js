@@ -13,7 +13,8 @@ function Button({
   ...props
 }) {
   return (
-    <a
+    <button
+      type="button"
       className={cn(
         styles.button,
         primary && styles.primary,
@@ -24,7 +25,7 @@ function Button({
       {...props}
     >
       {children}
-    </a>
+    </button>
   )
 }
 
