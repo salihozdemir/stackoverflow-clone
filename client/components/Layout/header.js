@@ -15,6 +15,7 @@ import { Menu, Close } from '../icons'
 function Header({ className, ...props }) {
   const {
     ref,
+    toggleRef,
     isComponentVisible,
     setIsComponentVisible
   } = useComponentVisible(false)
@@ -29,13 +30,14 @@ function Header({ className, ...props }) {
   return (
     <header className={cn(styles.header, className)} {...props}>
       <div className={styles.container}>
-        <Button className={styles.menu}>
-          {isComponentVisible ? (
-            <Close onClick={() => setIsComponentVisible(false)} />
-          ) : (
-            <Menu onClick={() => setIsComponentVisible(true)} />
-          )}
-        </Button>
+        <div ref={toggleRef} className={styles.menuContainer}>
+          <Button
+            className={styles.menu}
+            onClick={() => setIsComponentVisible((isOpen) => !isOpen)}
+          >
+            {isComponentVisible ? <Close /> : <Menu />}
+          </Button>
+        </div>
         <Button className={styles.logo}>
           <span></span>
         </Button>

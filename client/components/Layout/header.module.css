@@ -22,6 +22,10 @@
   align-items: center;
 }
 
+.menuContainer {
+  height: 100%;
+}
+
 .menu {
   width: 44px;
   display: flex;
@@ -36,7 +40,7 @@
 
   svg {
     font-size: 20px;
-    transition: all ease-in-out .1s;
+    transition: all ease-in-out 0.1s;
   }
 }
 .logo {
