@@ -6,7 +6,7 @@ export default {
   title: 'Buttons'
 }
 
-export const Normal = () => <Button>Normal Button</Button>
+export const Default = () => <Button>Default Button</Button>
 
 export const PrimaryButton = () => <Button primary>Sign Up</Button>
 

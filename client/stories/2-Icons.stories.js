@@ -10,5 +10,7 @@ export const Icon = () => (
   <div className="icons">
     <Icons.World />
     <Icons.Logo />
+    <Icons.Menu />
+    <Icons.Close />
   </div>
 )

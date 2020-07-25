@@ -6,6 +6,13 @@
   padding: 20px
 }
 
+.navItems {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 164px;
+}
+
 body {
   padding: 30px
 }

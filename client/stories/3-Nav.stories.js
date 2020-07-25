@@ -9,18 +9,16 @@ export default {
 }
 
 export const NavigationItem = () => (
-  <>
-    <label>Unselected</label>
-    <NavItem>
+  <div className="navItems">
+    <NavItem href="/" selected={false}>
       <World />
       <span>Stack Overflow</span>
     </NavItem>
-    <label>Selected</label>
-    <NavItem selected={true}>
+    <NavItem href="/" selected={true}>
       <World />
       <span>Stack Overflow</span>
     </NavItem>
-  </>
+  </div>
 )
 
-export const Nav = () => <Navigation selectedKey="0" />
+export const Nav = () => <Navigation />
