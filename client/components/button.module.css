@@ -36,6 +36,8 @@
   &:focus {
     color: #fff;
     background-color: var(--blue-600);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0,149,255,0.15);
   }
 }
 
