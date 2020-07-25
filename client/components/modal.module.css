@@ -1,0 +1,26 @@
+.modal {
+  visibility: visible;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(12, 13, 14, 0.5);
+}
+
+.modalDialog {
+  visibility: visible;
+  z-index: 9000;
+  max-width: 600px;
+  min-width: 292px;
+  max-height: 100%;
+  padding: 24px;
+  border-radius: 7px;
+  background-color: var(--white);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.09), 0 3px 8px rgba(0, 0, 0, 0.09),
+    0 4px 13px rgba(0, 0, 0, 0.13);
+}
