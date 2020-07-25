@@ -18,7 +18,7 @@ function Button({
         styles.button,
         primary && styles.primary,
         secondary && styles.secondary,
-        full && styles.fullWidth,
+        full && styles.full,
         className
       )}
       {...props}
