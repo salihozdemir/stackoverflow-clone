@@ -10,6 +10,10 @@
   cursor: pointer;
   color: var(--black-400);
   transition: var(--fade);
+
+  &:hover {
+    background-color: var(--black-075);
+  }
 }
 
 .primary {
