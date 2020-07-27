@@ -2,7 +2,7 @@ import React from 'react'
 
 import cn from 'classnames'
 
-import { Alert } from './icons'
+import { Alert } from '../icons'
 
 import styles from './form-input.module.css'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import TextTitle from '../components/text-title'
+import TextTitle from '../components/Common/text-title'
 
 export default {
   title: 'Typography'

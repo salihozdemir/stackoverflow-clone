@@ -1,7 +1,7 @@
 import React from 'react'
 
-import FormInput from './form-input'
-import Button from './button'
+import FormInput from '../Common/form-input'
+import Button from '../Common/button'
 
 import styles from './signup-form.module.css'
 

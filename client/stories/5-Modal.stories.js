@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Modal from '../components/modal'
-import LoginForm from '../components/login-form'
-import SignupForm from '../components/signup-form'
-import AuthModal from '../components/auth-modal'
+import Modal from '../components/Modals/modal'
+import LoginForm from '../components/Forms/login-form'
+import SignupForm from '../components/Forms/signup-form'
+import AuthModal from '../components/Modals/auth-modal'
 
 export default {
   title: 'Modal'

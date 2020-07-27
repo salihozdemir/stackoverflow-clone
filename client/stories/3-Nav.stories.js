@@ -1,7 +1,7 @@
 import React from 'react'
 
-import NavItem from '../components/nav-item'
-import Navigation from '../components/navigation'
+import NavItem from '../components/Navigation/nav-item'
+import Navigation from '../components/Navigation/navigation'
 import { World } from '../components/icons'
 
 export default {

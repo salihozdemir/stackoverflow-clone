@@ -9,8 +9,8 @@ import useWindowSize from '../../hooks/useWindowSize'
 import CONST from '../../constants'
 import ModalContext from '../../store/modal'
 
-import Button from '../button'
-import NavigationDropdown from '../navigation-dropdown'
+import Button from '../Common/button'
+import NavigationDropdown from '../Navigation/navigation-dropdown'
 import { Menu, Close } from '../icons'
 
 function Header({ className, ...props }) {

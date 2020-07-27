@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-import { Logo } from './icons'
+import { Logo } from '../icons'
 import Modal from './modal'
-import LoginForm from '../components/login-form'
-import SignUpForm from '../components/signup-form'
+import LoginForm from '../Forms/login-form'
+import SignUpForm from '../Forms/signup-form'
 
 import styles from './auth-modal.module.css'
 
