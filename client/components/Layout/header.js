@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 
 import styles from './header.module.css'
 
@@ -7,12 +7,15 @@ import cn from 'classnames'
 import useComponentVisible from '../../hooks/useComponentVisible'
 import useWindowSize from '../../hooks/useWindowSize'
 import CONST from '../../constants'
+import ModalContext from '../../store/modal'
 
 import Button from '../button'
 import NavigationDropdown from '../navigation-dropdown'
 import { Menu, Close } from '../icons'
 
 function Header({ className, ...props }) {
+  const { handleComponentVisible } = useContext(ModalContext)
+
   const {
     ref,
     toggleRef,
@@ -42,10 +45,18 @@ function Header({ className, ...props }) {
           <span></span>
         </Button>
         <div style={{ flex: 1 }}></div>
-        <Button className={styles.auth} secondary>
+        <Button
+          className={styles.auth}
+          secondary
+          onClick={() => handleComponentVisible(true, 'login')}
+        >
           Log in
         </Button>
-        <Button className={styles.auth} primary>
+        <Button
+          className={styles.auth}
+          primary
+          onClick={() => handleComponentVisible(true, 'signup')}
+        >
           Sign up
         </Button>
       </div>

@@ -21,8 +21,4 @@ export const SignupModal = () => (
   </Modal>
 )
 
-export const AuthModalScreen = () => (
-  <Modal>
-    <AuthModal />
-  </Modal>
-)
+export const AuthModalScreen = () => <AuthModal />

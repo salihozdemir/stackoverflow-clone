@@ -14,7 +14,7 @@
 
 .modalDialog {
   visibility: visible;
-  z-index: 9000;
+  z-index: 9001;
   max-width: 600px;
   min-width: 292px;
   max-height: 100%;
