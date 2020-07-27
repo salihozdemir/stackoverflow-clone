@@ -19,3 +19,14 @@ body {
   line-height: 1.3;
   background-color: var(--white);
 }
+
+a {
+  color: var(--blue-600);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--fade);
+  
+  &:hover {
+    color: var(--blue-500);
+  }
+}
