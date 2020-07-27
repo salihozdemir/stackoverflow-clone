@@ -10,6 +10,16 @@
   bottom: 0;
   left: 0;
   background-color: rgba(12, 13, 14, 0.5);
+  animation: modal 0.3s ease;
+}
+
+@keyframes modal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .modalDialog {
@@ -23,4 +33,16 @@
   background-color: var(--white);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.09), 0 3px 8px rgba(0, 0, 0, 0.09),
     0 4px 13px rgba(0, 0, 0, 0.13);
+  animation: modalDialog 0.5s ease;
+}
+
+@keyframes modalDialog {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
