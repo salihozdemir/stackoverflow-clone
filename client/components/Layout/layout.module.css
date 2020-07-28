@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr;
   min-height: calc(100vh - 50px);
-  
+
   @media (--m) {
     grid-template-columns: 164px 1fr;
   }
@@ -10,6 +10,11 @@
   @media (--t) {
     grid-template-columns: 164px 1fr 324px;
   }
+}
+
+.main {
+  grid-template-columns: 164px 1fr;
+  color: var(--black-700);
 }
 
 .container {

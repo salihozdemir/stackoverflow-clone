@@ -10,6 +10,7 @@
   cursor: pointer;
   color: var(--black-400);
   transition: var(--fade);
+  max-height: 36px;
 
   &:hover {
     background-color: var(--black-075);
