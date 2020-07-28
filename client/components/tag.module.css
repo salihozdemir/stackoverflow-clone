@@ -1,0 +1,22 @@
+.tag {
+  display: inline-block;
+  background-color: var(--powder-100);
+  color: var(--powder-700);
+  font-size: 12px;
+  padding: 5px 6px;
+  border: 1px solid transparent;
+  margin: 2px 5px 2px 0;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: 3px;
+
+  &:active {
+    color: var(--blue-500);
+  }
+
+  &:hover {
+    color: var(--powder-800);
+    background-color: var(--powder-200);
+    border-color: transparent;
+  }
+}
