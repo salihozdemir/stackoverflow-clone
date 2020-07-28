@@ -1,10 +1,12 @@
 import React from 'react'
 
 import Layout from '../../components/Layout/layout'
+import PageTitle from '../../components/Common/page-title'
 
 const Detail = ({ slug }) => {
   return (
-    <Layout>
+    <Layout extra={false}>
+      <PageTitle title={slug} button />
       <div>{slug}</div>
     </Layout>
   )

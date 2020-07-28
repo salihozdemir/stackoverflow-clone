@@ -11,16 +11,16 @@ import Main from './main'
 import Tags from './tags'
 import Header from './header'
 
-function Layout({ children }) {
+function Layout({ extra = true, children }) {
   const size = useWindowSize()
   return (
-    <div className={cn(styles.layout)}>
+    <div className={styles.layout}>
       <Header />
       <div className={styles.container}>
-        <div className={styles.body}>
+        <div className={cn(styles.body, !extra && styles.main)}>
           {size.width > CONST.MOBILE_SIZE && <Sidebar>sidebar</Sidebar>}
           <Main>{children}</Main>
-          {size.width > CONST.TABLET_SIZE && <Tags>extra</Tags>}
+          {size.width > CONST.TABLET_SIZE && extra && <Tags>extra</Tags>}
         </div>
       </div>
     </div>

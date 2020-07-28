@@ -1,0 +1,24 @@
+.container {
+  border-bottom: 1px solid var(--black-100);
+  padding: 24px 12px 24px 24px;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+
+  h1 {
+    font-size: 27px;
+  }
+
+  button {
+    min-width: 105px;
+    margin-left: 20px;
+  }
+}
+
+.summary {
+  margin-top: 20px;
+  font-size: 15px;
+  max-width: 630px;
+}
