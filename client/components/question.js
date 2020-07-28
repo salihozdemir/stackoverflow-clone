@@ -45,7 +45,9 @@ function Question() {
     <div className={styles.container}>
       <QuestionStats voteCount={21} answerCount={32} view={112} />
       <QuestionSummary
-        title={'lorem ipsum'}
+        title={
+          'his is a free online calculator which counts the number of characters or letters in a text, useful for your tweets on Twitter, as well as a multitudee'
+        }
         text={
           'lorem ipsum question question question question question question question question'
         }
