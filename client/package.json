@@ -19,7 +19,8 @@
     "classnames": "^2.2.6",
     "next": "^9.4.4",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "slug": "^3.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
