@@ -1,0 +1,40 @@
+.container {
+  width: 100%;
+  padding-left: 24px;
+  padding-top: 24px;
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.card {
+  color: var(--black-500);
+  display: flex;
+  padding: 6px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+
+  a {
+      font-size: 14px;
+  }
+
+  p {
+      font-size: 12px;
+  }
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 3px;
+
+  img {
+    width: 48px;
+    height: 48px;
+    border-radius: 3px;
+  }
+}
