@@ -13,7 +13,7 @@ function PageTitle({ title, button, borderBottom = true, children }) {
         <h1>{title}</h1>
         {button && <Button primary>Ask Question</Button>}
       </div>
-      <p className={styles.summary}>{children}</p>
+      {children && <p className={styles.summary}>{children}</p>}
     </div>
   )
 }
