@@ -1,5 +1,6 @@
 import Layout from '../components/Layout/layout'
 import PageTitle from '../components/Common/page-title'
+import TagList from '../components/tag-list'
 
 function TagsPage() {
   return (
@@ -9,6 +10,7 @@ function TagsPage() {
         similar questions. Using the right tags makes it easier for others to
         find and answer your question.
       </PageTitle>
+      <TagList />
     </Layout>
   )
 }

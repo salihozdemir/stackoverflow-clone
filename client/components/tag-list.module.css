@@ -1,0 +1,29 @@
+.container {
+  width: 100%;
+  padding-left: 24px;
+  padding-top: 24px;
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  border: 1px solid var(--black-100);
+  border-radius: 3px;
+  background-color: var(--white);
+
+  .header {
+    margin-bottom: 12px;
+  }
+
+  p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: var(--black-500);
+  }
+}
