@@ -5,7 +5,7 @@ import TagList from '../components/tag-list'
 function TagsPage() {
   return (
     <Layout extra={false}>
-      <PageTitle title="Tags">
+      <PageTitle title="Tags" borderBottom={false}>
         A tag is a keyword or label that categorizes your question with other,
         similar questions. Using the right tags makes it easier for others to
         find and answer your question.

@@ -4,7 +4,7 @@ import PageTitle from '../components/Common/page-title'
 function UsersPage() {
   return (
     <Layout extra={false}>
-      <PageTitle title="Users" />
+      <PageTitle title="Users" borderBottom={false} />
     </Layout>
   )
 }

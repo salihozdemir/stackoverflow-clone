@@ -1,6 +1,9 @@
 .container {
-  border-bottom: 1px solid var(--black-100);
   padding: 24px 12px 24px 24px;
+}
+
+.borderBottom {
+  border-bottom: 1px solid var(--black-100);
 }
 
 .title {
