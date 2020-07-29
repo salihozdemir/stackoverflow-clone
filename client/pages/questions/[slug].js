@@ -2,12 +2,13 @@ import React from 'react'
 
 import Layout from '../../components/Layout/layout'
 import PageTitle from '../../components/Common/page-title'
+import QuestiondDetailContainer from '../../components/question-detail-container'
 
-const Detail = ({ slug }) => {
+const QuestionDetail = ({ slug }) => {
   return (
     <Layout extra={false}>
       <PageTitle title={slug} button />
-      <div>{slug}</div>
+      <QuestiondDetailContainer>Detail</QuestiondDetailContainer>
     </Layout>
   )
 }
@@ -22,4 +23,4 @@ export async function getServerSideProps(context) {
   }
 }
 
-export default Detail
+export default QuestionDetail
