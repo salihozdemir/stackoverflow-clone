@@ -1,4 +1,7 @@
 import React from 'react'
+import Link from 'next/link'
+
+import slug from 'slug'
 
 import Tag from '../components/tag'
 
@@ -23,7 +26,9 @@ function QuestionStats({ voteCount, answerCount, view }) {
 function QuestionSummary({ title, text, tags, author, createdTime }) {
   return (
     <div className={styles.summaryContainer}>
-      <a className={styles.questionLink}>{title}</a>
+      <Link href="/questions/[slug]" as={`/questions/${slug(title)}`}>
+        <a className={styles.questionLink}>{title}</a>
+      </Link>
       <p className={styles.excerpt}>{text}</p>
       <div className={styles.footer}>
         <div className={styles.tagContainer}>
@@ -33,7 +38,9 @@ function QuestionSummary({ title, text, tags, author, createdTime }) {
         </div>
         <div className={styles.userDetails}>
           <span>asked {createdTime}</span>
-          <a>{author}</a>
+          <Link href="/users/[user]" as={`/users/${author}`}>
+            <a>{author}</a>
+          </Link>
         </div>
       </div>
     </div>
