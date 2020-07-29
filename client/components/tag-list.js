@@ -10,7 +10,7 @@ const tagList = () => {
   return (
     <div className={styles.container}>
       {TAGS.map((tag) => (
-        <div className={styles.card}>
+        <div className={styles.card} key={tag}>
           <div className={styles.header}>
             <Tag>{tag}</Tag>
           </div>

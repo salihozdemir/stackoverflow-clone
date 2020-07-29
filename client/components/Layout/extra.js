@@ -13,7 +13,7 @@ function Extra() {
       <h4>Tags</h4>
       <div>
         {TAGS.map((tag) => (
-          <Tag>{tag}</Tag>
+          <Tag key={tag}>{tag}</Tag>
         ))}
       </div>
     </div>

@@ -33,7 +33,7 @@ function QuestionSummary({ title, text, tags, author, createdTime }) {
       <div className={styles.footer}>
         <div className={styles.tagContainer}>
           {tags.map((tag) => (
-            <Tag>{tag}</Tag>
+            <Tag key={tag}>{tag}</Tag>
           ))}
         </div>
         <div className={styles.userDetails}>

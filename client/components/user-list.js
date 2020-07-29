@@ -9,7 +9,7 @@ const UserList = () => {
   return (
     <div className={styles.container}>
       {USERS.map((user) => (
-        <div className={styles.card}>
+        <div className={styles.card} key={user}>
           <div className={styles.avatar}>
             <Link href="/users/[username]" as={`/users/${user}`}>
               <a>
