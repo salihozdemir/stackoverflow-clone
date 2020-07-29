@@ -2,21 +2,21 @@ import React from 'react'
 
 import Layout from '../../components/Layout/layout'
 
-const User = ({ user }) => {
+const UserDetail = ({ username }) => {
   return (
     <Layout>
-      <div>{JSON.stringify(user)}</div>
+      <div>{JSON.stringify(username)}</div>
     </Layout>
   )
 }
 
 export async function getServerSideProps(context) {
-  const user = context.params.user
+  const username = context.params.username
   return {
     props: {
-      user
+      username
     }
   }
 }
 
-export default User
+export default UserDetail
