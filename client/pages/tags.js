@@ -1,6 +1,7 @@
 import Layout from '../components/Layout/layout'
 import PageTitle from '../components/Common/page-title'
 import TagList from '../components/tag-list'
+import SearchInput from '../components/Common/search-input'
 
 function TagsPage() {
   return (
@@ -10,6 +11,7 @@ function TagsPage() {
         similar questions. Using the right tags makes it easier for others to
         find and answer your question.
       </PageTitle>
+      <SearchInput placeholder="Filter by tag name" />
       <TagList />
     </Layout>
   )
