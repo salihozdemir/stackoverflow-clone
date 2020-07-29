@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+
+  h4 {
+    color: var(--black-700);
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 1em;
+  }
+}
