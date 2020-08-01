@@ -8,7 +8,15 @@ import NavItem from './nav-item'
 import { World } from '../icons'
 
 function Navigation() {
-  const router = useRouter()
+  let router = useRouter()
+
+  //For storybook
+  if (router == null) {
+    router = {
+      pathname: '/'
+    }
+  }
+
   return (
     <nav className={styles.nav}>
       <NavItem

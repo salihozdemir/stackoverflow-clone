@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Button from '../components/Common/button'
 import * as Icons from '../components/icons'
 
 export default {
@@ -12,5 +13,7 @@ export const Icon = () => (
     <Icons.Logo />
     <Icons.Menu />
     <Icons.Close />
+    <Icons.Alert />
+    <Icons.Search />
   </div>
 )
