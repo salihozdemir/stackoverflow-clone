@@ -7,7 +7,7 @@ function UsersPage() {
   return (
     <Layout extra={false}>
       <PageTitle title="Users" borderBottom={false} />
-      <SearchInput placeholder="Search by user" />
+      <SearchInput placeholder="Search by user" autoFocus />
       <UserList />
     </Layout>
   )

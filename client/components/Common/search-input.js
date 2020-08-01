@@ -6,16 +6,18 @@ import { Search } from '../icons'
 
 import styles from './search-input.module.css'
 
-function SearchInput({ ...props }) {
+function SearchInput({ fullWidth, autoFocus, className, ...props }) {
   const ref = useRef(null)
 
   useEffect(() => {
-    ref.current.focus()
+    if (autoFocus) {
+      ref.current.focus()
+    }
   }, [ref])
 
   return (
-    <div className={styles.container}>
-      <input ref={ref} className={styles.input} {...props} />
+    <div className={cn(styles.container, fullWidth && styles.fullWidth)}>
+      <input ref={ref} className={cn(styles.input, className)} {...props} />
       <Search className={styles.search} />
     </div>
   )

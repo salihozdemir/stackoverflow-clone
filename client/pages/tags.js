@@ -11,7 +11,7 @@ function TagsPage() {
         similar questions. Using the right tags makes it easier for others to
         find and answer your question.
       </PageTitle>
-      <SearchInput placeholder="Filter by tag name" />
+      <SearchInput placeholder="Filter by tag name" autoFocus />
       <TagList />
     </Layout>
   )

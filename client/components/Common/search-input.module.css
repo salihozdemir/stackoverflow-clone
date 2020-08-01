@@ -1,7 +1,6 @@
 .container {
   position: relative;
   margin: 2px 0;
-  margin-left: 24px;
   width: 220px;
   height: 36px;
 }
@@ -35,4 +34,8 @@
   color: var(--black-200);
   left: 9px;
   top: 9px;
+}
+
+.fullWidth {
+  width: 100%
 }
