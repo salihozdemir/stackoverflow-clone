@@ -1,9 +1,9 @@
 import React from 'react'
 
 import cn from 'classnames'
-import TAGS from '../../constants/tags'
+import TAGS from '../../../constants/tags'
 
-import Tag from '../tag'
+import Tag from '../../Tag/tag'
 
 import styles from './extra.module.css'
 

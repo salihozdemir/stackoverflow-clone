@@ -2,7 +2,7 @@ import React from 'react'
 
 import cn from 'classnames'
 
-import Button from './button'
+import Button from '../Button/button'
 
 import styles from './page-title.module.css'
 

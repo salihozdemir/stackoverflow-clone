@@ -4,14 +4,14 @@ import styles from './header.module.css'
 
 import cn from 'classnames'
 
-import useComponentVisible from '../../hooks/useComponentVisible'
-import useWindowSize from '../../hooks/useWindowSize'
-import CONST from '../../constants'
-import ModalContext from '../../store/modal'
+import useComponentVisible from '../../../hooks/useComponentVisible'
+import useWindowSize from '../../../hooks/useWindowSize'
+import CONST from '../../../constants'
+import ModalContext from '../../../store/modal'
 
-import Button from '../Common/button'
-import NavigationDropdown from '../Navigation/navigation-dropdown'
-import { Menu, Close } from '../icons'
+import Button from '../../Button/button'
+import NavigationDropdown from '../../Navigation/NavigationDropdown/navigation-dropdown'
+import { Menu, Close } from '../../Icons'
 
 function Header({ className, ...props }) {
   const { handleComponentVisible } = useContext(ModalContext)

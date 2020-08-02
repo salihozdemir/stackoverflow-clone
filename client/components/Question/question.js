@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import slug from 'slug'
 
-import Tag from '../components/tag'
+import Tag from '../Tag/tag'
 
 import styles from './question.module.css'
 

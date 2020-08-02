@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Extra from './Layout/extra'
-import Main from './Layout/main'
+import Extra from '../Layout/Extra/extra'
+import Main from '../Layout/Main/main'
 
 import styles from './question-detail-container.module.css'
 

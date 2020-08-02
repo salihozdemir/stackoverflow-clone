@@ -1,8 +1,8 @@
 import React from 'react'
 
 import Layout from '../../components/Layout/layout'
-import PageTitle from '../../components/Common/page-title'
-import QuestiondDetailContainer from '../../components/question-detail-container'
+import PageTitle from '../../components/PageTitle/page-title'
+import QuestiondDetailContainer from '../../components/DetailPageContainer/question-detail-container'
 
 const QuestionDetail = ({ slug }) => {
   return (

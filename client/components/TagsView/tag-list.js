@@ -1,8 +1,8 @@
 import React from 'react'
 
-import TAGS from '../constants/tags'
+import TAGS from '../../constants/tags'
 
-import Tag from './tag'
+import Tag from '../Tag/tag'
 
 import styles from './tag-list.module.css'
 

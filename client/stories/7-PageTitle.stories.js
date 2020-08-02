@@ -1,6 +1,6 @@
 import React from 'react'
 
-import TopPageTitle from '../components/Common/page-title'
+import TopPageTitle from '../components/PageTitle/page-title'
 
 export default {
   title: 'Page Title'

@@ -1,6 +1,6 @@
 import Layout from '../components/Layout/layout'
-import Question from '../components/question'
-import PageTitle from '../components/Common/page-title'
+import Question from '../components/Question/question'
+import PageTitle from '../components/PageTitle/page-title'
 
 function HomePage() {
   return (

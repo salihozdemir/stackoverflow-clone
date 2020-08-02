@@ -2,11 +2,17 @@ import React, { useEffect, useRef } from 'react'
 
 import cn from 'classnames'
 
-import { Search } from '../icons'
+import { Search } from '../Icons'
 
 import styles from './search-input.module.css'
 
-function SearchInput({ fullWidth, autoFocus, className, ...props }) {
+function SearchInput({
+  fullWidth,
+  autoFocus,
+  marginLeft = true,
+  className,
+  ...props
+}) {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -16,7 +22,13 @@ function SearchInput({ fullWidth, autoFocus, className, ...props }) {
   }, [ref])
 
   return (
-    <div className={cn(styles.container, fullWidth && styles.fullWidth)}>
+    <div
+      className={cn(
+        styles.container,
+        fullWidth && styles.fullWidth,
+        marginLeft && styles.ml24
+      )}
+    >
       <input ref={ref} className={cn(styles.input, className)} {...props} />
       <Search className={styles.search} />
     </div>

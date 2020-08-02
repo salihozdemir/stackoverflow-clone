@@ -4,8 +4,8 @@ import styles from './navigation.module.css'
 
 import { useRouter } from 'next/router'
 
-import NavItem from './nav-item'
-import { World } from '../icons'
+import NavItem from './NavItem/nav-item'
+import { World } from '../Icons'
 
 function Navigation() {
   let router = useRouter()

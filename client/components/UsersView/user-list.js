@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-import USERS from '../constants/users'
+import USERS from '../../constants/users'
 
 import styles from './user-list.module.css'
 

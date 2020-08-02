@@ -1,7 +1,6 @@
 import React from 'react'
 
-import Button from '../components/Common/button'
-import * as Icons from '../components/icons'
+import * as Icons from '../components/Icons'
 
 export default {
   title: 'Icons'

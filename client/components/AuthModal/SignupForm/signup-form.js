@@ -1,20 +1,21 @@
 import React from 'react'
 
-import FormInput from '../Common/form-input'
-import Button from '../Common/button'
+import FormInput from '../../FormInput/form-input'
+import Button from '../../Button/button'
 
-import styles from './login-form.module.css'
+import styles from './signup-form.module.css'
 
-function LoginForm() {
+function SignupForm() {
   return (
     <form>
       <FormInput label="Username" errorMessage="Invalid username" hasError />
       <FormInput label="Password" errorMessage="Invalid password" />
+      <FormInput label="Confirm Password" errorMessage="Invalid password" />
       <Button primary full className={styles.submitButton}>
-        Log in
+        Sign up
       </Button>
     </form>
   )
 }
 
-export default LoginForm
+export default SignupForm

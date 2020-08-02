@@ -6,10 +6,10 @@ import cn from 'classnames'
 
 import CONST from '../../constants'
 import useWindowSize from '../../hooks/useWindowSize'
-import Sidebar from './sidebar'
-import Main from './main'
-import Extra from './extra'
-import Header from './header'
+import Sidebar from './Sidebar/sidebar'
+import Main from './Main/main'
+import Extra from './Extra/extra'
+import Header from './Header/header'
 
 function Layout({ extra = true, children }) {
   const size = useWindowSize()

@@ -1,7 +1,7 @@
 import Layout from '../components/Layout/layout'
-import PageTitle from '../components/Common/page-title'
-import TagList from '../components/tag-list'
-import SearchInput from '../components/Common/search-input'
+import PageTitle from '../components/PageTitle/page-title'
+import TagList from '../components/TagsView/tag-list'
+import SearchInput from '../components/SearchInput/search-input'
 
 function TagsPage() {
   return (

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import useComponentVisible from '../hooks/useComponentVisible'
 import ModalContext from '../store/modal'
 
-import AuthModal from '../components/Modals/auth-modal'
+import AuthModal from '../components/AuthModal/auth-modal'
 
 import '../styles/app.css'
 
