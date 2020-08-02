@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Tag from '../components/tag'
+import Tag from '../components/Tag/tag'
 
 export default {
   title: 'Tag'

@@ -1,8 +1,8 @@
 import React from 'react'
 
-import TopHeader from '../components/Layout/header'
-import Sidebar from '../components/Layout/sidebar'
-import Extra from '../components/Layout/extra'
+import TopHeader from '../components/Layout/Header/header'
+import Sidebar from '../components/Layout/Sidebar/sidebar'
+import Extra from '../components/Layout/Extra/extra'
 
 export default {
   title: 'Layout'
