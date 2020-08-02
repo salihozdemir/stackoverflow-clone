@@ -18,7 +18,7 @@ function Layout({ extra = true, children }) {
       <Header />
       <div className={styles.container}>
         <div className={cn(styles.body, !extra && styles.main)}>
-          {size.width > CONST.MOBILE_SIZE && <Sidebar>sidebar</Sidebar>}
+          {size.width > CONST.MOBILE_SIZE && <Sidebar />}
           <Main>{children}</Main>
           {size.width > CONST.TABLET_SIZE && extra && <Extra />}
         </div>
