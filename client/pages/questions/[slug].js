@@ -7,7 +7,7 @@ import QuestiondDetailContainer from '../../components/DetailPageContainer/quest
 import AnswerWrapper from '../../components/Answer/answer-wrapper'
 import AnswerVote from '../../components/Answer/AnswerVote/answer-vote'
 import AnswerSummary from '../../components/Answer/AnswerSummary/answer-summary'
-import Comment from '../../components/Answer/Comment/comment'
+import CommentList from '../../components/Answer/CommentList/comment-list'
 
 const QuestionDetail = ({ slug }) => {
   return (
@@ -17,7 +17,7 @@ const QuestionDetail = ({ slug }) => {
         <AnswerWrapper>
           <AnswerVote score={12} />
           <AnswerSummary></AnswerSummary>
-          <Comment />
+          <CommentList />
         </AnswerWrapper>
       </QuestiondDetailContainer>
     </Layout>

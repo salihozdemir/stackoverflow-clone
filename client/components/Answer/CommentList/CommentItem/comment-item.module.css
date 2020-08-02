@@ -1,0 +1,9 @@
+.commentContainer {
+  padding: 6px;
+  display: flex;
+  border-bottom: 1px solid var(--black-050);
+
+  &:first-child {
+    border-top: 1px solid var(--black-050);
+  }
+}
