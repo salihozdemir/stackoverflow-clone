@@ -30,7 +30,7 @@ const AnswerSummary = () => {
       </div>
       <div className={styles.footer}>
         <div className={styles.tagContainer}>
-          {['javascript', 'css', 'html', 'html'].map((tag) => (
+          {['javascript', 'css', 'html'].map((tag) => (
             <Tag key={tag}>{tag}</Tag>
           ))}
         </div>

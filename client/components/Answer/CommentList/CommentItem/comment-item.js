@@ -3,13 +3,12 @@ import Link from 'next/link'
 
 import styles from './comment-item.module.css'
 
-const CommentItem = () => {
+const CommentItem = ({ owner, children }) => {
   return (
     <div className={styles.commentContainer}>
-      <p>asdasdasda</p>
-      <span>–</span>
+      <p>{children}</p> – &nbsp;
       <Link href="/users/[user]" as={`/users/salih`}>
-        <a>salih</a>
+        <a className={owner && styles.owner}>salih</a>
       </Link>
     </div>
   )

@@ -1,6 +1,6 @@
 .commentCell {
   width: auto;
-  padding-right: 16px;
+  padding: 0 16px;
   vertical-align: top;
   grid-column: 2;
   margin-top: 12px;
@@ -9,6 +9,31 @@
   flex-direction: column;
 }
 
+.animation {
+  div {
+    animation: background-fade 3s ease-in-out;
+  }
+}
 
+@keyframes background-fade {
+  0% {
+    background-color: var(--yellow);
+  }
+  100% {
+    opacity: transparent;
+  }
+}
 
+.addComment {
+  color: var(--black-400);
+  opacity: 0.6;
+  padding: 0 3px 2px 3px;
+  margin-top: 10px;
+  width: 100px;
+}
 
+.showMore {
+  width: 175px;
+  padding: 0 3px 2px 3px;
+  margin-top: 10px;
+}
