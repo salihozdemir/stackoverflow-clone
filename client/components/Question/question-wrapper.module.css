@@ -1,0 +1,6 @@
+.container {
+  display: flex;
+  width: 100%;
+  padding: 8px 12px 20px 12px;
+  border-bottom: 1px solid var(--black-050);
+}

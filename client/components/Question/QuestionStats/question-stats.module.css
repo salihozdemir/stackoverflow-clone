@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 58px;
+  margin-right: 12px;
+  color: var(--black-500);
+  font-size: 11px;
+
+  @media (--m) {
+    margin-left: 4px;
+    margin-right: 16px;
+  }
+}
+
+.vote {
+  width: 58px;
+  text-align: center;
+
+  span {
+    font-size: 20px;
+    color: var(--black-500);
+  }
+}
+
+.answer {
+  width: 58px;
+  text-align: center;
+  margin-bottom: 5px;
+
+  span {
+    font-size: 20px;
+    color: var(--black-500);
+  }
+}
+
+.view {
+  padding-top: 10px;
+}
