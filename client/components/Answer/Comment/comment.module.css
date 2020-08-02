@@ -1,0 +1,6 @@
+.commentCell {
+  width: auto;
+  padding-right: 16px;
+  vertical-align: top;
+  grid-column: 2;
+}

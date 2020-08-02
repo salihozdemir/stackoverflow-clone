@@ -8,7 +8,7 @@ import styles from './question-detail-container.module.css'
 const QuestiondDetailContainer = ({ children }) => {
   return (
     <div className={styles.container}>
-      <Main>{children}</Main>
+      <Main border={false}>{children}</Main>
       <Extra />
     </div>
   )

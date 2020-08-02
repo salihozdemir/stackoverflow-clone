@@ -1,4 +1,6 @@
 .container {
   display: grid;
   grid-template-columns: 1fr 324px;
+  padding-left: 24px;
+  padding-top: 24px;
 }
