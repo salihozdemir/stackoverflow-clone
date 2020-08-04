@@ -1,12 +1,16 @@
 .commentCell {
   width: auto;
-  padding: 0 16px;
+  padding-left: 8px;
   vertical-align: top;
   grid-column: 2;
   margin-top: 12px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
+
+  @media (--m) {
+    padding-left: 16px;
+  }
 }
 
 .animation {

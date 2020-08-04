@@ -13,8 +13,13 @@
 }
 
 .main {
-  grid-template-columns: 164px 1fr;
+  grid-template-columns: 1fr;
   color: var(--black-700);
+
+  @media (--m) {
+    grid-template-columns: 164px 1fr;
+  }
+
 }
 
 .container {

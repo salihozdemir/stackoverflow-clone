@@ -1,6 +1,17 @@
 .container {
   display: grid;
-  grid-template-columns: 1fr 324px;
-  padding-left: 24px;
+  grid-template-columns: 1fr;
+  padding-left: 6px;
+  padding-right: 6px;
   padding-top: 24px;
+
+  @media (--m) {
+    padding-left: 12px;
+  }
+
+  @media (--t) {
+    padding-left: 24px;
+    padding-right: 0;
+    grid-template-columns: 1fr 250px;
+  }
 }

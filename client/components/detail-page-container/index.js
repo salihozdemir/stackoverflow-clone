@@ -1,17 +1,21 @@
 import React from 'react'
 
+import CONST from '../../constants'
+import useWindowSize from '../../hooks/useWindowSize'
+
 import Extra from '../layout/extra'
 import Main from '../layout/main'
 
 import styles from './style.module.css'
 
-const QuestiondDetailContainer = ({ children }) => {
+const DetailPageContainer = ({ children }) => {
+  const size = useWindowSize()
   return (
     <div className={styles.container}>
       <Main border={false}>{children}</Main>
-      <Extra />
+      {size.width > CONST.TABLET_SIZE && <Extra />}
     </div>
   )
 }
 
-export default QuestiondDetailContainer
+export default DetailPageContainer

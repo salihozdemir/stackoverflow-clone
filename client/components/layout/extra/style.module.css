@@ -1,7 +1,14 @@
 .container {
+  position: relative;
+}
+
+.tagContainer {
+  position: sticky;
+  top: 74px;
   display: flex;
   flex-direction: column;
   margin-top: 24px;
+  padding-left: 24px;
 
   h4 {
     color: var(--black-700);

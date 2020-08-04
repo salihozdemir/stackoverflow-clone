@@ -17,6 +17,7 @@
   button {
     min-width: 105px;
     margin-left: 20px;
+    max-height: 36px;
   }
 }
 
