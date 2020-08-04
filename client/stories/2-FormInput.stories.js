@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FormInput from '../components/FormInput/form-input'
+import FormInput from '../components/form-input'
 
 export default {
   title: 'Form Input'

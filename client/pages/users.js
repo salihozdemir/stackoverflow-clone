@@ -1,7 +1,7 @@
-import Layout from '../components/Layout/layout'
-import PageTitle from '../components/PageTitle/page-title'
-import SearchInput from '../components/SearchInput/search-input'
-import UserList from '../components/UsersView/user-list'
+import Layout from '../components/layout'
+import PageTitle from '../components/page-title'
+import SearchInput from '../components/search-input'
+import UserList from '../components/users-view'
 
 function UsersPage() {
   return (

@@ -1,0 +1,22 @@
+import React, { useContext } from 'react'
+
+import cn from 'classnames'
+
+import ModalContext from '../../store/modal'
+
+import styles from './style.module.css'
+
+function Modal({ children, className, ...props }) {
+  const { ref } = useContext(ModalContext)
+  return (
+    <>
+      <div className={cn(styles.modal, className)} {...props}>
+        <div ref={ref} className={styles.modalDialog}>
+          {children}
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default Modal

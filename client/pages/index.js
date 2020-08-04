@@ -1,8 +1,8 @@
-import Layout from '../components/Layout/layout'
-import QuestionWrapper from '../components/Question/question-wrapper'
-import QuestionStats from '../components/Question/QuestionStats/question-stats'
-import QuestionSummary from '../components/Question/QuestionSummary/question-summary'
-import PageTitle from '../components/PageTitle/page-title'
+import Layout from '../components/layout'
+import QuestionWrapper from '../components/question/question-wrapper'
+import QuestionStats from '../components/question/question-stats'
+import QuestionSummary from '../components/question/question-summary'
+import PageTitle from '../components/page-title'
 
 function HomePage() {
   return (

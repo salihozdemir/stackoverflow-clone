@@ -1,6 +1,6 @@
 import React from 'react'
 
-import AuthenticationModal from '../components/AuthModal/auth-modal'
+import AuthenticationModal from '../components/auth-modal'
 
 export default {
   title: 'Forms'

@@ -1,8 +1,8 @@
 import React from 'react'
 
-import QuestionWrapper from '../components/Question/question-wrapper'
-import QuestionStats from '../components/Question/QuestionStats/question-stats'
-import QuestionSummary from '../components/Question/QuestionSummary/question-summary'
+import QuestionWrapper from '../components/question/question-wrapper'
+import QuestionStats from '../components/question/question-stats'
+import QuestionSummary from '../components/question/question-summary'
 
 export default {
   title: 'Question'

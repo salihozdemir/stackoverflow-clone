@@ -1,6 +1,6 @@
 import React from 'react'
 
-import SearchInput from '../components/SearchInput/search-input'
+import SearchInput from '../components/search-input'
 
 export default {
   title: 'Search Input'

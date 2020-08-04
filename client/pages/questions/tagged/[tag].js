@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Layout from '../../../components/Layout/layout'
+import Layout from '../../../components/layout'
 
 const Tag = ({ tag }) => {
   return (
