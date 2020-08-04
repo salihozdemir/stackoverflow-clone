@@ -2,7 +2,7 @@ import React from 'react'
 
 import ButtonGroup from '../button-group'
 
-import styles from './style.module.css'
+import styles from './answer-container.module.css'
 
 const AnswerContainer = ({ answerCount, children }) => {
   return (

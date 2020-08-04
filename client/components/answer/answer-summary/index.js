@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import Tag from '../../tag'
 
-import styles from './style.module.css'
+import styles from './answer-summary.module.css'
 
 const AnswerSummary = () => {
   return (

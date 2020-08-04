@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import USERS from '../../constants/users'
 
-import styles from './style.module.css'
+import styles from './user-view.module.css'
 
 const UserList = () => {
   return (

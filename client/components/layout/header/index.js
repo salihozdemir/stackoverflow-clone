@@ -11,7 +11,7 @@ import Button from '../../button'
 import NavigationDropdown from '../../navigation-dropdown'
 import { Menu, Close } from '../../icons'
 
-import styles from './style.module.css'
+import styles from './header.module.css'
 
 function Header({ className, ...props }) {
   const { handleComponentVisible } = useContext(ModalContext)

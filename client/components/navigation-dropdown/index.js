@@ -2,7 +2,7 @@ import React from 'react'
 
 import Navigation from '../navigation'
 
-import styles from './style.module.css'
+import styles from './navigation-dropdown.module.css'
 
 function NavigationDropdown() {
   return (

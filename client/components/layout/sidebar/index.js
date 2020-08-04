@@ -4,7 +4,7 @@ import cn from 'classnames'
 
 import Navigation from '../../navigation'
 
-import styles from './style.module.css'
+import styles from './sidebar.module.css'
 
 function Sidebar({ className, ...props }) {
   return (

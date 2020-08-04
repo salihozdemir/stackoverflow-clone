@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './style.module.css'
+import styles from './question-stats.module.css'
 
 function QuestionStats({ voteCount, answerCount, view }) {
   return (

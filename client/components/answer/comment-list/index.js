@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import styles from './style.module.css'
+import styles from './comment-list.module.css'
 
 const CommentList = ({ children }) => {
   const [visibleComments, setVisibleComments] = useState(children.slice(0, 3))

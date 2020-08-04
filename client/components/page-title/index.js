@@ -4,7 +4,7 @@ import cn from 'classnames'
 
 import Button from '../button'
 
-import styles from './style.module.css'
+import styles from './page-title.module.css'
 
 function PageTitle({ title, button, borderBottom = true, children }) {
   return (

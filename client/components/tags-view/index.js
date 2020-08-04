@@ -4,7 +4,7 @@ import TAGS from '../../constants/tags'
 
 import Tag from '../tag'
 
-import styles from './style.module.css'
+import styles from './tags-view.module.css'
 
 const tagList = () => {
   return (

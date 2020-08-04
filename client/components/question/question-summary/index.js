@@ -5,7 +5,7 @@ import slug from 'slug'
 
 import Tag from '../../tag'
 
-import styles from './style.module.css'
+import styles from './question-summary.module.css'
 
 function QuestionSummary({ title, tags, author, createdTime, children }) {
   return (

@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import cn from 'classnames'
 
-import styles from './style.module.css'
+import styles from './tag.module.css'
 
 const Tag = ({ children, className, ...props }) => {
   return (

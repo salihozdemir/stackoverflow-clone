@@ -10,7 +10,7 @@ import Main from './main'
 import Extra from './extra'
 import Header from './header'
 
-import styles from './style.module.css'
+import styles from './layout.module.css'
 
 function Layout({ extra = true, children }) {
   const size = useWindowSize()

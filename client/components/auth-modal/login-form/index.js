@@ -3,7 +3,7 @@ import React from 'react'
 import FormInput from '../../form-input'
 import Button from '../../button'
 
-import styles from './style.module.css'
+import styles from './login-form.module.css'
 
 function LoginForm() {
   return (

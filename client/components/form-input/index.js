@@ -4,7 +4,7 @@ import cn from 'classnames'
 
 import { Alert } from '../icons'
 
-import styles from './style.module.css'
+import styles from './form-input.module.css'
 
 function FormInput({ label, hasError = false, errorMessage }) {
   return (

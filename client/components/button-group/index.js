@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import Button from '../button'
 
-import styles from './style.module.css'
+import styles from './button-group.module.css'
 
 const ButtonGroup = ({ buttons }) => {
   const [selected, setSelected] = useState(buttons[0])

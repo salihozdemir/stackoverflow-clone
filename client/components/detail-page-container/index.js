@@ -6,7 +6,7 @@ import useWindowSize from '../../hooks/useWindowSize'
 import Extra from '../layout/extra'
 import Main from '../layout/main'
 
-import styles from './style.module.css'
+import styles from './detail-page-container.module.css'
 
 const DetailPageContainer = ({ children }) => {
   const size = useWindowSize()

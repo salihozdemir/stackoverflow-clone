@@ -5,7 +5,7 @@ import Modal from '../modal'
 import LoginForm from './login-form'
 import SignUpForm from './signup-form/signup-form'
 
-import styles from './style.module.css'
+import styles from './auth-modal.module.css'
 
 function AuthModal({ screen = 'signup' }) {
   const [form, setForm] = useState(screen)

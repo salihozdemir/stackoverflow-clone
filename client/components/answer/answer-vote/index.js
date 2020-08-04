@@ -3,7 +3,7 @@ import React from 'react'
 import Button from '../../button'
 import { ArrowUp, ArrowDown } from '../../icons'
 
-import styles from './style.module.css'
+import styles from './answer-vote.module.css'
 
 function AnswerVote({ score }) {
   return (

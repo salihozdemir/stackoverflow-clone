@@ -2,7 +2,7 @@ import React from 'react'
 
 import cn from 'classnames'
 
-import styles from './style.module.css'
+import styles from './button.module.css'
 
 function Button({
   primary,

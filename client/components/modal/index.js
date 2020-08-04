@@ -4,7 +4,7 @@ import cn from 'classnames'
 
 import ModalContext from '../../store/modal'
 
-import styles from './style.module.css'
+import styles from './modal.module.css'
 
 function Modal({ children, className, ...props }) {
   const { ref } = useContext(ModalContext)

@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import NavItem from './nav-item'
 import { World } from '../icons'
 
-import styles from './style.module.css'
+import styles from './navigation.module.css'
 
 function Navigation() {
   let router = useRouter()

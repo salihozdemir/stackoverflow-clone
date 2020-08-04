@@ -4,7 +4,7 @@ import cn from 'classnames'
 
 import { Search } from '../icons'
 
-import styles from './style.module.css'
+import styles from './search-input.module.css'
 
 function SearchInput({
   fullWidth,
