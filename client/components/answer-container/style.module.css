@@ -1,0 +1,20 @@
+.container {
+  padding-top: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.fill {
+  flex: 1;
+
+  h2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--black-800)
+  }
+}
