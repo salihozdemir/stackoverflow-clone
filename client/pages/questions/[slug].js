@@ -16,7 +16,7 @@ const QuestionDetail = ({ slug }) => {
     <Layout extra={false}>
       <PageTitle title={slug} button />
       <DetailPageContainer>
-        <AnswerWrapper>
+        <AnswerWrapper borderBottom={false}>
           <AnswerVote score={12} />
           <AnswerSummary></AnswerSummary>
           <CommentList>
