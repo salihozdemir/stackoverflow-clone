@@ -3,7 +3,6 @@
   grid-template-columns: 1fr;
   padding-left: 6px;
   padding-right: 6px;
-  padding-top: 24px;
 
   @media (--m) {
     padding-left: 12px;

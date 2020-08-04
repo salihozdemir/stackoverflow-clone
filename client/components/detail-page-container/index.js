@@ -13,7 +13,7 @@ const DetailPageContainer = ({ children }) => {
   return (
     <div className={styles.container}>
       <Main border={false}>{children}</Main>
-      {size.width > CONST.TABLET_SIZE && <Extra />}
+      {size.width > CONST.TABLET_SIZE && <Extra marginTop={16} />}
     </div>
   )
 }
