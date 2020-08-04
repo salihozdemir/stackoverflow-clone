@@ -15,6 +15,14 @@
   &:hover {
     background-color: var(--black-075);
   }
+
+  &:focus {
+    box-shadow: 0 0 0 2.5px rgba(36, 39, 41, 0.1);
+  }
+
+  &:active {
+    background: var(--black-050);
+  }
 }
 
 .primary {
@@ -38,7 +46,7 @@
     color: #fff;
     background-color: var(--blue-600);
     outline: none;
-    box-shadow: 0 0 0 4px rgba(0,149,255,0.15);
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
   }
 }
 
