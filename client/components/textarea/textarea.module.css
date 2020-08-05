@@ -1,0 +1,32 @@
+.textarea {
+  padding: 10px;
+  height: 100px;
+  width: 100%;
+  font-size: 14px;
+  border: 1px solid var(--black-200);
+  background-color: var(--white);
+  color: var(--black-800);
+  resize: vertical;
+
+  &:focus {
+    border-color: var(--blue-300);
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+    color: var(--black);
+    outline: 0;
+  }
+}
+
+.hasError {
+  border-color: var(--red-400);
+
+  &:focus {
+    border-color: var(--red-400);
+    box-shadow: 0 0 0 4px rgba(192, 45, 46, 0.15);
+  }
+}
+
+.errorMessage {
+  color: var(--red-500);
+  padding: 2px;
+  font-size: 12px;
+}
