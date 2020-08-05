@@ -9,9 +9,11 @@ const AddComment = () => {
   return (
     <div className={styles.container}>
       <TextArea />
-      <Button className={styles.button} primary full>
-        Add Comment
-      </Button>
+      <div>
+        <Button className={styles.button} primary>
+          Add Comment
+        </Button>
+      </div>
     </div>
   )
 }
