@@ -1,0 +1,21 @@
+.container {
+  display: grid;
+  grid-template-rows: 30px 1fr 40px 50px;;
+  padding: 20px;
+  grid-gap: 10px;
+
+  h2 {
+    color: var(--black-800);
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  h3 {
+    font-size: 16px;
+    padding-top: 10px;
+  }
+}
+
+.textarea {
+  height: 200px;
+}

@@ -10,6 +10,7 @@ import AnswerSummary from '../../components/answer/answer-summary'
 import CommentList from '../../components/answer/comment-list'
 import CommentItem from '../../components/answer/comment-list/comment-item'
 import AnswerContainer from '../../components/answer-container'
+import AddAnswer from '../../components/answer/add-answer'
 
 const QuestionDetail = ({ slug }) => {
   return (
@@ -146,6 +147,7 @@ const QuestionDetail = ({ slug }) => {
             </CommentList>
           </AnswerWrapper>
         </AnswerContainer>
+        <AddAnswer tags={['php', 'javascript']} />
       </DetailPageContainer>
     </Layout>
   )
