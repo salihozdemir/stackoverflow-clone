@@ -11,7 +11,9 @@ function PageTitle({ title, button, borderBottom = true, children }) {
     <div className={cn(styles.container, borderBottom && styles.borderBottom)}>
       <div className={styles.title}>
         <h1>{title}</h1>
-        {button && <Button primary>Ask Question</Button>}
+        <div className={styles.buttonContainer}>
+          {button && <Button primary>Ask Question</Button>}
+        </div>
       </div>
       {children && <p className={styles.summary}>{children}</p>}
     </div>

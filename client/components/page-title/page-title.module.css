@@ -8,16 +8,12 @@
 
 .title {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  align-items: center;
 
   h1 {
     font-size: 27px;
-  }
-
-  button {
-    min-width: 105px;
-    margin-left: 20px;
-    max-height: 36px;
+    max-width: 950px;
   }
 }
 
@@ -25,4 +21,17 @@
   margin-top: 20px;
   font-size: 15px;
   max-width: 630px;
+}
+
+.buttonContainer {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+
+  button {
+    flex-shrink: 0;
+    @media (max-width: 1200px) {
+      margin-bottom: 10px;
+    }
+  }
 }
