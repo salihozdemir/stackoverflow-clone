@@ -18,7 +18,7 @@ const AddAnswer = ({ tags }) => {
       <h3>
         Browse other questions tagged &nbsp;
         {tags.map((tag) => (
-          <Tag>{tag}</Tag>
+          <Tag key={tag}>{tag}</Tag>
         ))}
         or &nbsp;
         <Link href="/questions/ask" as="/questions/ask">
