@@ -1,0 +1,10 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 110px;
+    grid-gap: 20px;
+    margin-top: 10px;
+}
+
+.button {
+    max-height: 34px;
+}

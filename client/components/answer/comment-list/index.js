@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 
+import AddComment from '../add-comment'
+
 import styles from './comment-list.module.css'
 
 const CommentList = ({ children }) => {
+  const [showAddComment, setShowAddComment] = useState(false)
   const [visibleComments, setVisibleComments] = useState(children.slice(0, 3))
   const difference = children.length - visibleComments.length
 
@@ -18,8 +21,17 @@ const CommentList = ({ children }) => {
           show <b>{difference}</b> more comments
         </a>
       ) : (
-        <a className={styles.addComment}>add comment</a>
+        !showAddComment && (
+          <a
+            className={styles.addComment}
+            onClick={() => setShowAddComment(true)}
+          >
+            add comment
+          </a>
+        )
       )}
+
+      {showAddComment && <AddComment />}
     </div>
   )
 }
