@@ -4,9 +4,18 @@ import cn from 'classnames'
 
 import styles from './textarea.module.css'
 
-const TextArea = ({ hasError, errorMessage, className, ...props }) => {
+const TextArea = ({
+  label,
+  inputInfo,
+  hasError,
+  errorMessage,
+  className,
+  ...props
+}) => {
   return (
-    <div>
+    <div className={styles.container}>
+      <label className={styles.label}>{label}</label>
+      {inputInfo && <p className={styles.inputInfo}>{inputInfo}</p>}
       <textarea
         className={cn(styles.textarea, className, hasError && styles.hasError)}
         {...props}

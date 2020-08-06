@@ -1,3 +1,10 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 6px 0;
+  width: 100%;
+}
+
 .textarea {
   padding: 10px;
   height: 100px;
@@ -7,6 +14,7 @@
   background-color: var(--white);
   color: var(--black-800);
   resize: vertical;
+  margin: 2px 0;
 
   &:focus {
     border-color: var(--blue-300);
@@ -28,5 +36,21 @@
 .errorMessage {
   color: var(--red-500);
   padding: 2px;
+  font-size: 12px;
+}
+
+.label {
+  margin: 2px 0;
+  padding: 0 2px;
+  color: var(--black-900);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.inputInfo {
+  padding: 0 2px;
+  margin-top: 2px;
+  color: var(--black-700);
   font-size: 12px;
 }
