@@ -5,6 +5,7 @@ import ModalContext from '../store/modal'
 
 import AuthModal from '../components/auth-modal'
 
+import 'react-tagsinput/react-tagsinput.css'
 import '../styles/app.css'
 
 function MyApp({ Component, pageProps }) {
