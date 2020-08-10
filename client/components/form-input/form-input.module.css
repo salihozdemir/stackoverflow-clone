@@ -37,6 +37,10 @@
   line-height: 1.15;
   box-sizing: border-box;
 
+  &::placeholder {
+    color: var(--black-200);
+  }
+
   &:focus {
     border-color: var(--blue-300);
     box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);

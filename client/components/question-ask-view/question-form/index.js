@@ -16,7 +16,7 @@ const QuestionForm = () => {
         <FormInput
           label="Title"
           inputInfo="Be specific and imagine you’re asking a question to another person"
-          placeholder="asdasd asdasd asd"
+          placeholder="e.g Is there an R function for finding the index of an element in a vendor?"
         />
         <Textarea
           label="Body"

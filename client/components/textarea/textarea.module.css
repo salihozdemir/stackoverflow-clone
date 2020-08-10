@@ -22,6 +22,10 @@
     color: var(--black);
     outline: 0;
   }
+
+  &::placeholder {
+    color: var(--black-200);
+  }
 }
 
 .hasError {
