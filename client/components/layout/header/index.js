@@ -41,7 +41,7 @@ function Header({ className, ...props }) {
             {isComponentVisible ? <Close /> : <Menu />}
           </Button>
         </div>
-        <Button className={styles.logo}>
+        <Button className={styles.logo} href="/">
           <span></span>
         </Button>
         <div style={{ flex: 1 }}></div>

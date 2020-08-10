@@ -58,7 +58,7 @@
   span {
     width: 25px;
     height: 30px;
-    background-image: url('https://cdn.sstatic.net/Img/unified/sprites.svg?v=fcc0ea44ba27');
+    background-image: url('/images/sprites.svg');
     background-position: 0 -500px;
 
     @media (--m) {

@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 import cn from 'classnames'
 
@@ -12,7 +13,11 @@ function PageTitle({ title, button, borderBottom = true, children }) {
       <div className={styles.title}>
         <h1>{title}</h1>
         <div className={styles.buttonContainer}>
-          {button && <Button primary>Ask Question</Button>}
+          {button && (
+            <Button href="/questions/ask" primary>
+              Ask Question
+            </Button>
+          )}
         </div>
       </div>
       {children && <p className={styles.summary}>{children}</p>}

@@ -1,8 +1,24 @@
 import React from 'react'
-
+import Link from 'next/link'
 import cn from 'classnames'
 
 import styles from './button.module.css'
+
+function LinkButton({ href, children, ...props }) {
+  return (
+    <Link href={href}>
+      <a {...props}>{children}</a>
+    </Link>
+  )
+}
+
+function BaseButton({ children, ...props }) {
+  return (
+    <button type="button" {...props}>
+      {children}
+    </button>
+  )
+}
 
 function Button({
   primary,
@@ -12,9 +28,9 @@ function Button({
   className,
   ...props
 }) {
+  const Comp = props.href ? LinkButton : BaseButton
   return (
-    <button
-      type="button"
+    <Comp
       className={cn(
         styles.button,
         primary && styles.primary,
@@ -25,7 +41,7 @@ function Button({
       {...props}
     >
       {children}
-    </button>
+    </Comp>
   )
 }
 
