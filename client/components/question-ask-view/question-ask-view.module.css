@@ -12,13 +12,23 @@
 }
 
 .topForm {
-  height: 130px;
+  height: 60px;
   display: flex;
   align-items: center;
-  background-image: url('http://localhost:3000/images/background.svg');
-  background-repeat: no-repeat;
-  background-position: right bottom;
+  transition: var(--fade);
+
+  @media (--m) {
+    height: 130px;
+    background-image: url('http://localhost:3000/images/background.svg');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+  }
+
   h1 {
-    font-size: 27px;
+    font-size: 22px;
+
+    @media (--m) {
+      font-size: 27px;
+    }
   }
 }

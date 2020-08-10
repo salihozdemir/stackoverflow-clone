@@ -50,15 +50,13 @@
   font-size: 12px;
 }
 
-
-
-
 .alert {
   position: absolute;
   color: var(--red-400);
   font-size: 15px;
   right: 11px;
-  top: 11.5px;
+  height: 100%;
+  top: 0;
 }
 
 .tagContainer {
