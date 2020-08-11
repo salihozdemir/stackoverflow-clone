@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import useComponentVisible from '../hooks/useComponentVisible'
 import ModalContext from '../store/modal'
+import { AuthProvider } from '../store/auth'
+import { FetchProvider } from '../store/fetch'
 
 import AuthModal from '../components/auth-modal'
 
@@ -24,8 +26,12 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ModalContext.Provider value={{ ref, handleComponentVisible }}>
-      <Component {...pageProps} />
-      {isComponentVisible && <AuthModal screen={authScreen} />}
+      <AuthProvider>
+        <FetchProvider>
+          <Component {...pageProps} />
+          {isComponentVisible && <AuthModal screen={authScreen} />}
+        </FetchProvider>
+      </AuthProvider>
     </ModalContext.Provider>
   )
 }

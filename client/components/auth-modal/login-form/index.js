@@ -1,7 +1,10 @@
-import React from 'react'
-
+import React, { useContext } from 'react'
+import { useRouter } from 'next/router'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
+
+import { publicFetch } from '../../../util/fetcher'
+import { AuthContext } from '../../../store/auth'
 
 import FormInput from '../../form-input'
 import Button from '../../button'
@@ -9,11 +12,22 @@ import Button from '../../button'
 import styles from './login-form.module.css'
 
 function LoginForm() {
+  const router = useRouter()
+  const { setAuthState } = useContext(AuthContext)
+
   return (
     <Formik
       initialValues={{ username: '', password: '' }}
       onSubmit={async (values, { setStatus, resetForm }) => {
-        console.log(values)
+        try {
+          const { data } = await publicFetch.post('authenticate', values)
+          const { token, expiresAt, userInfo } = data
+          setAuthState({token, expiresAt, userInfo})
+          router.reload()
+          resetForm({})
+        } catch (error) {
+          setStatus(error.response.data.message)
+        }
       }}
       validationSchema={Yup.object({
         username: Yup.string()
@@ -30,6 +44,7 @@ function LoginForm() {
         values,
         errors,
         touched,
+        status,
         handleChange,
         handleBlur,
         handleSubmit,
@@ -58,7 +73,14 @@ function LoginForm() {
             hasError={touched.password && errors.password}
             errorMessage={errors.password && errors.password}
           />
-          <Button primary full className={styles.submitButton} type="submit" disabled={isSubmitting}>
+          <p className={styles.status}>{status}</p>
+          <Button
+            primary
+            full
+            className={styles.submitButton}
+            type="submit"
+            disabled={isSubmitting}
+          >
             Log in
           </Button>
         </form>
