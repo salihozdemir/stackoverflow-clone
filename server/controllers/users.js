@@ -2,11 +2,7 @@ const User = require('../models/user');
 const jwtDecode = require('jwt-decode');
 const { body, validationResult } = require('express-validator');
 
-const {
-  createToken,
-  hashPassword,
-  verifyPassword
-} = require('../utils/authentication');
+const { createToken, hashPassword, verifyPassword } = require('../utils/authentication');
 
 exports.signup = async (req, res) => {
   const result = validationResult(req);
@@ -27,7 +23,7 @@ exports.signup = async (req, res) => {
 
     const existingUsername = await User.findOne({
       username: userData.username
-    }).lean();
+    });
 
     if (existingUsername) {
       return res.status(400).json({
@@ -43,11 +39,13 @@ exports.signup = async (req, res) => {
       const decodedToken = jwtDecode(token);
       const expiresAt = decodedToken.exp;
 
-      const { username, role, id } = savedUser;
+      const { username, role, id, created, profilePhoto } = savedUser;
       const userInfo = {
         username,
         role,
         id,
+        created,
+        profilePhoto
       };
 
       return res.json({
@@ -92,8 +90,8 @@ exports.authenticate = async (req, res) => {
       const token = createToken(user);
       const decodedToken = jwtDecode(token);
       const expiresAt = decodedToken.exp;
-      const { username, role, id } = user;
-      const userInfo = { username, role, id };
+      const { username, role, id, created, profilePhoto } = user;
+      const userInfo = { username, role, id, created, profilePhoto };
 
       res.json({
         message: 'Authentication successful!',
