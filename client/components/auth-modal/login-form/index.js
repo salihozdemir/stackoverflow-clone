@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { useRouter } from 'next/router'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
@@ -15,19 +15,23 @@ function LoginForm() {
   const router = useRouter()
   const { setAuthState } = useContext(AuthContext)
 
+  const [loading, setLoading] = useState(false)
+
   return (
     <Formik
       initialValues={{ username: '', password: '' }}
       onSubmit={async (values, { setStatus, resetForm }) => {
+        setLoading(true)
         try {
           const { data } = await publicFetch.post('authenticate', values)
           const { token, expiresAt, userInfo } = data
-          setAuthState({token, expiresAt, userInfo})
+          setAuthState({ token, expiresAt, userInfo })
           router.reload()
           resetForm({})
         } catch (error) {
           setStatus(error.response.data.message)
         }
+        setLoading(false)
       }}
       validationSchema={Yup.object({
         username: Yup.string()
@@ -79,6 +83,7 @@ function LoginForm() {
             full
             className={styles.submitButton}
             type="submit"
+            isLoading={loading}
             disabled={isSubmitting}
           >
             Log in
