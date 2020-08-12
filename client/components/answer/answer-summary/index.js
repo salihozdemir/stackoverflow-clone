@@ -5,7 +5,7 @@ import Tag from '../../tag'
 
 import styles from './answer-summary.module.css'
 
-const AnswerSummary = () => {
+const AnswerSummary = ({ author = 'salih', createdTime = '11.11.1231' }) => {
   return (
     <div className={styles.postCell}>
       <div className={styles.text}>
@@ -35,10 +35,19 @@ const AnswerSummary = () => {
           ))}
         </div>
         <div className={styles.userDetails}>
-          <span>asked 11.25.1234</span>
-          <Link href="/users/[user]" as={`/users/salih`}>
-            <a>salih</a>
+          <Link href="/users/[user]" as={`/users/${author}`}>
+            <a>
+              <img
+                src={`https://secure.gravatar.com/avatar/${author}?s=32&d=identicon`}
+              />
+            </a>
           </Link>
+          <div className={styles.info}>
+            <span>asked {createdTime}</span>
+            <Link href="/users/[user]" as={`/users/${author}`}>
+              <a>{author}</a>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -33,12 +33,23 @@
 
 .userDetails {
   display: flex;
-  flex-direction: column;
   flex-shrink: 0;
-  justify-content: flex-end;
   font-size: 12px;
+  align-items: center;
+
+  img {
+    width: 32px;
+    height: 32px;
+    border-radius: 1px;
+  }
 
   span {
     color: var(--black-400);
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
   }
 }
