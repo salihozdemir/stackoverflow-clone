@@ -6,3 +6,10 @@
   min-width: 250px;
   min-height: 260px;
 }
+
+.status {
+  color: var(--red-500);
+  margin-top: 12px;
+  font-size: 12px;
+  text-align: center;
+}

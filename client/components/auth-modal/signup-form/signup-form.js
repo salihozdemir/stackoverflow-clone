@@ -1,7 +1,10 @@
-import React from 'react'
-
+import React, { useState, useContext } from 'react'
+import { useRouter } from 'next/router'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
+
+import { publicFetch } from '../../../util/fetcher'
+import { AuthContext } from '../../../store/auth'
 
 import FormInput from '../../form-input'
 import Button from '../../button'
@@ -9,11 +12,25 @@ import Button from '../../button'
 import styles from './signup-form.module.css'
 
 function SignupForm() {
+  const router = useRouter()
+  const { setAuthState } = useContext(AuthContext)
+
+  const [loading, setLoading] = useState(false)
   return (
     <Formik
       initialValues={{ username: '', password: '', passwordConfirmation: '' }}
       onSubmit={async (values, { setStatus, resetForm }) => {
-        console.log(values)
+        setLoading(true)
+        try {
+          const { data } = await publicFetch.post('signup', values)
+          const { token, expiresAt, userInfo } = data
+          setAuthState({ token, expiresAt, userInfo })
+          router.reload()
+          resetForm({})
+        } catch (error) {
+          setStatus(error.response.data.message)
+        }
+        setLoading(false)
       }}
       validationSchema={Yup.object({
         username: Yup.string()
@@ -34,6 +51,7 @@ function SignupForm() {
         values,
         errors,
         touched,
+        status,
         handleChange,
         handleBlur,
         handleSubmit,
@@ -70,14 +88,20 @@ function SignupForm() {
             value={values.passwordConfirmation}
             onChange={handleChange}
             onBlur={handleBlur}
-            hasError={touched.passwordConfirmation && errors.passwordConfirmation}
-            errorMessage={errors.passwordConfirmation && errors.passwordConfirmation}
+            hasError={
+              touched.passwordConfirmation && errors.passwordConfirmation
+            }
+            errorMessage={
+              errors.passwordConfirmation && errors.passwordConfirmation
+            }
           />
+          <p className={styles.status}>{status}</p>
           <Button
             primary
             full
             className={styles.submitButton}
             disabled={isSubmitting}
+            isLoading={loading}
             type="submit"
           >
             Sign up
