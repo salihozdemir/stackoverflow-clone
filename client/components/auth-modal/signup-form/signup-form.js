@@ -35,7 +35,7 @@ function SignupForm() {
       validationSchema={Yup.object({
         username: Yup.string()
           .required('Required')
-          .max(32, 'Must be at most 32 characters long')
+          .max(16, 'Must be at most 16 characters long')
           .matches(/^[a-zA-Z0-9_-]+$/, 'Contains invalid characters'),
         password: Yup.string()
           .required('Required')

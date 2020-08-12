@@ -122,8 +122,8 @@ exports.validate = [
     .notEmpty()
     .withMessage('cannot be blank')
 
-    .isLength({ max: 32 })
-    .withMessage('must be at most 32 characters long')
+    .isLength({ max: 16 })
+    .withMessage('must be at most 16 characters long')
 
     .matches(/^[a-zA-Z0-9_-]+$/)
     .withMessage('contains invalid characters'),
