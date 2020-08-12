@@ -24,6 +24,7 @@ function Button({
   primary,
   secondary,
   full = false,
+  isLoading = false,
   children,
   className,
   ...props
@@ -36,6 +37,7 @@ function Button({
         primary && styles.primary,
         secondary && styles.secondary,
         full && styles.full,
+        isLoading && styles.isLoading,
         className
       )}
       {...props}

@@ -80,3 +80,42 @@
   justify-content: center;
   align-items: center;
 }
+
+.isLoading {
+  padding-left: 2.2em;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    opacity: 0.3;
+    left: 0.5em;
+    width: 1em;
+    height: 1em;
+    border-width: 2px;
+    border-style: solid;
+    border-color: currentColor;
+    border-radius: 50%;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0.5em;
+    width: 1em;
+    height: 1em;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    border-left-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.9s infinite cubic-bezier(0.5, 0.1, 0.5, 0.9);
+    filter: invert(0);
+    transform-origin: 50% 50% 1px;
+  }
+
+  @keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+}
