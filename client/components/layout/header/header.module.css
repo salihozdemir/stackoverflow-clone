@@ -73,3 +73,14 @@
   margin-right: 10px;
   white-space: nowrap;
 }
+
+.userInfo {
+  display: grid;
+  grid-template-columns: 1fr 43px;
+  grid-gap: 5px;
+
+  p {
+    padding-right: 5px;
+    border-right: 1px solid var(--black-200)
+  }
+}
