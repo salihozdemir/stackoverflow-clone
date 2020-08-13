@@ -52,7 +52,20 @@ a {
 
 .react-tagsinput-input {
   color: var(--black-900);
-    &::placeholder {
+  &::placeholder {
     color: var(--black-200);
+  }
+}
+
+.loading {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    color: var(--black-200);
+    height: 40px;
+    width: 40px;
   }
 }
