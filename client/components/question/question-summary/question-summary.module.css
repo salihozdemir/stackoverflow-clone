@@ -17,6 +17,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin-bottom: 5px;
+  white-space: pre-wrap;
 }
 
 .footer {

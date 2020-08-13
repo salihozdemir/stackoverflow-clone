@@ -13,7 +13,7 @@ function QuestionSummary({ title, tags, author, createdTime, children }) {
       <Link href="/questions/[slug]" as={`/questions/${slug(title)}`}>
         <a className={styles.link}>{title}</a>
       </Link>
-      <p className={styles.excerpt}>{children}</p>
+      <div className={styles.excerpt}>{children}</div>
       <div className={styles.footer}>
         <div className={styles.tagContainer}>
           {tags.map((tag) => (
