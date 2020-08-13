@@ -1,125 +1,62 @@
+import React, { useState, useEffect } from 'react'
+import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
+
+import { publicFetch } from '../util/fetcher'
+
 import Layout from '../components/layout'
 import QuestionWrapper from '../components/question/question-wrapper'
 import QuestionStats from '../components/question/question-stats'
 import QuestionSummary from '../components/question/question-summary'
 import PageTitle from '../components/page-title'
+import { Spinner } from '../components/icons'
 
-function HomePage() {
+const HomePage = () => {
+  const [questions, setQuestions] = useState(null)
+
+  useEffect(() => {
+    const fetchQuestion = async () => {
+      try {
+        const { data } = await publicFetch.get('/question')
+        setQuestions(data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    fetchQuestion()
+  }, [])
+
   return (
     <Layout>
       <PageTitle title="All Questions" button />
-      <QuestionWrapper>
-        <QuestionStats voteCount={21} answerCount={32} view={112} />
-        <QuestionSummary
-          title={
-            'his is a free online calculator which counts the number of characters or letters in a text, useful for your tweets on Twitter, as well as a multitudee'
-          }
-          tags={['javascript', 'text']}
-          author={'salihozdemir'}
-          createdTime={'1 min ago'}
-        >
-          lorem ipsum question question question question question question
-          question question'
-        </QuestionSummary>
-      </QuestionWrapper>
-      <QuestionWrapper>
-        <QuestionStats voteCount={21} answerCount={32} view={112} />
-        <QuestionSummary
-          title={
-            'his is a free online calculator which counts the number of characters or letters in a text, useful for your tweets on Twitter, as well as a multitudee'
-          }
-          tags={['javascript', 'text']}
-          author={'salihozdemir'}
-          createdTime={'1 min ago'}
-        >
-          lorem ipsum question question question question question question
-          question question'
-        </QuestionSummary>
-      </QuestionWrapper>
-      <QuestionWrapper>
-        <QuestionStats voteCount={21} answerCount={32} view={112} />
-        <QuestionSummary
-          title={
-            'his is a free online calculator which counts the number of characters or letters in a text, useful for your tweets on Twitter, as well as a multitudee'
-          }
-          tags={['javascript', 'text']}
-          author={'salihozdemir'}
-          createdTime={'1 min ago'}
-        >
-          lorem ipsum question question question question question question
-          question question'
-        </QuestionSummary>
-      </QuestionWrapper>
-      <QuestionWrapper>
-        <QuestionStats voteCount={21} answerCount={32} view={112} />
-        <QuestionSummary
-          title={
-            'his is a free online calculator which counts the number of characters or letters in a text, useful for your tweets on Twitter, as well as a multitudee'
-          }
-          tags={['javascript', 'text']}
-          author={'salihozdemir'}
-          createdTime={'1 min ago'}
-        >
-          lorem ipsum question question question question question question
-          question question'
-        </QuestionSummary>
-      </QuestionWrapper>
-      <QuestionWrapper>
-        <QuestionStats voteCount={21} answerCount={32} view={112} />
-        <QuestionSummary
-          title={
-            'his is a free online calculator which counts the number of characters or letters in a text, useful for your tweets on Twitter, as well as a multitudee'
-          }
-          tags={['javascript', 'text']}
-          author={'salihozdemir'}
-          createdTime={'1 min ago'}
-        >
-          lorem ipsum question question question question question question
-          question question'
-        </QuestionSummary>
-      </QuestionWrapper>
-      <QuestionWrapper>
-        <QuestionStats voteCount={21} answerCount={32} view={112} />
-        <QuestionSummary
-          title={
-            'his is a free online calculator which counts the number of characters or letters in a text, useful for your tweets on Twitter, as well as a multitudee'
-          }
-          tags={['javascript', 'text']}
-          author={'salihozdemir'}
-          createdTime={'1 min ago'}
-        >
-          lorem ipsum question question question question question question
-          question question'
-        </QuestionSummary>
-      </QuestionWrapper>
-      <QuestionWrapper>
-        <QuestionStats voteCount={21} answerCount={32} view={112} />
-        <QuestionSummary
-          title={
-            'his is a free online calculator which counts the number of characters or letters in a text, useful for your tweets on Twitter, as well as a multitudee'
-          }
-          tags={['javascript', 'text']}
-          author={'salihozdemir'}
-          createdTime={'1 min ago'}
-        >
-          lorem ipsum question question question question question question
-          question question'
-        </QuestionSummary>
-      </QuestionWrapper>
-      <QuestionWrapper>
-        <QuestionStats voteCount={21} answerCount={32} view={112} />
-        <QuestionSummary
-          title={
-            'his is a free online calculator which counts the number of characters or letters in a text, useful for your tweets on Twitter, as well as a multitudee'
-          }
-          tags={['javascript', 'text']}
-          author={'salihozdemir'}
-          createdTime={'1 min ago'}
-        >
-          lorem ipsum question question question question question question
-          question question'
-        </QuestionSummary>
-      </QuestionWrapper>
+
+      {!questions && (
+        <div className="loading">
+          <Spinner />
+        </div>
+      )}
+
+      {questions?.map(
+        ({ id, votes, answers, views, title, text, tags, author, created }) => (
+          <QuestionWrapper key={id}>
+            <QuestionStats
+              voteCount={votes.length}
+              answerCount={answers.length}
+              view={views}
+            />
+            <QuestionSummary
+              title={title}
+              tags={tags}
+              author={author.username}
+              createdTime={formatDistanceToNowStrict(new Date(created), {
+                addSuffix: true
+              })}
+            >
+              {text}
+            </QuestionSummary>
+          </QuestionWrapper>
+        )
+      )}
     </Layout>
   )
 }
