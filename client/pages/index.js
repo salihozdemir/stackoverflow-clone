@@ -47,7 +47,7 @@ const HomePage = () => {
             <QuestionSummary
               title={title}
               tags={tags}
-              author={author.username}
+              author={author}
               createdTime={formatDistanceToNowStrict(new Date(created), {
                 addSuffix: true
               })}

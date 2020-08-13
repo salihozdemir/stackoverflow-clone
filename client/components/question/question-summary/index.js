@@ -21,17 +21,17 @@ function QuestionSummary({ title, tags, author, createdTime, children }) {
           ))}
         </div>
         <div className={styles.userDetails}>
-          <Link href="/users/[user]" as={`/users/${author}`}>
+          <Link href="/users/[user]" as={`/users/${author.username}`}>
             <a>
               <img
-                src={`https://secure.gravatar.com/avatar/${author}?s=32&d=identicon`}
+                src={`https://secure.gravatar.com/avatar/${author.id}?s=32&d=identicon`}
               />
             </a>
           </Link>
           <div className={styles.info}>
             <span>asked {createdTime}</span>
-            <Link href="/users/[user]" as={`/users/${author}`}>
-              <a>{author}</a>
+            <Link href="/users/[user]" as={`/users/${author.username}`}>
+              <a>{author.username}</a>
             </Link>
           </div>
         </div>
