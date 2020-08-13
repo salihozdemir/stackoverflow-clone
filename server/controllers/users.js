@@ -111,6 +111,16 @@ exports.authenticate = async (req, res) => {
   }
 };
 
+exports.list = async (req, res, next) => {
+  try {
+    const { sortType = '-created' } = req.body;
+    const users = await User.find().sort(sortType);
+    res.json(users);
+  } catch (error) {
+    next(error);
+  }
+};
+
 exports.validate = [
   body('username')
     .exists()

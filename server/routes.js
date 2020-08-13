@@ -13,6 +13,9 @@ const router = require('express').Router();
 router.post('/signup', users.validate, users.signup);
 router.post('/authenticate', users.validate, users.authenticate);
 
+//Users
+router.get('/users', users.list);
+
 //questions
 router.param('question', questions.load);
 router.post('/questions', [requireAuth, questions.questionValidate], questions.create);
