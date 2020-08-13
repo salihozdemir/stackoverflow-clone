@@ -1,12 +1,3 @@
-.container {
-  width: 100%;
-  padding-left: 24px;
-  padding-top: 24px;
-  display: grid;
-  grid-gap: 12px;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-}
-
 .card {
   color: var(--black-500);
   display: flex;
@@ -19,11 +10,11 @@
   margin-left: 10px;
 
   a {
-      font-size: 14px;
+    font-size: 14px;
   }
 
   p {
-      font-size: 12px;
+    font-size: 12px;
   }
 }
 
