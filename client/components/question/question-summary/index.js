@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-
+import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 import slug from 'slug'
 
 import Tag from '../../tag'
@@ -29,7 +29,12 @@ function QuestionSummary({ title, tags, author, createdTime, children }) {
             </a>
           </Link>
           <div className={styles.info}>
-            <span>asked {createdTime}</span>
+            <span>
+              asked{' '}
+              {formatDistanceToNowStrict(new Date(createdTime), {
+                addSuffix: true
+              })}
+            </span>
             <Link href="/users/[user]" as={`/users/${author.username}`}>
               <a>{author.username}</a>
             </Link>

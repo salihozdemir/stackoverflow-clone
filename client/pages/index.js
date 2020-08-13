@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 
 import { publicFetch } from '../util/fetcher'
 
@@ -48,9 +47,7 @@ const HomePage = () => {
               title={title}
               tags={tags}
               author={author}
-              createdTime={formatDistanceToNowStrict(new Date(created), {
-                addSuffix: true
-              })}
+              createdTime={created}
             >
               {text}
             </QuestionSummary>
