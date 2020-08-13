@@ -11,8 +11,7 @@ function FormInput({
   inputInfo,
   hasError = false,
   errorMessage,
-  tags,
-  setTags
+  ...props
 }) {
   return (
     <div className={styles.container}>
@@ -20,11 +19,10 @@ function FormInput({
       {inputInfo && <p className={styles.inputInfo}>{inputInfo}</p>}
       <div className={styles.inputContainer}>
         <TagsInput
-          value={tags}
-          onChange={setTags}
           onlyUnique
           className={cn('react-tagsinput', hasError && styles.error)}
           focusedClassName={styles.inputFocused}
+          {...props}
         />
         {hasError && <Alert className={styles.alert} />}
       </div>
