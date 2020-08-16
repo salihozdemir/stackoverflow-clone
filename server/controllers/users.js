@@ -121,6 +121,15 @@ exports.list = async (req, res, next) => {
   }
 };
 
+exports.search = async (req, res, next) => {
+  try {
+    const users = await User.find({ username: { $regex: req.params.search, $options: 'i' } });
+    res.json(users);
+  } catch (error) {
+    next(error);
+  }
+};
+
 exports.validate = [
   body('username')
     .exists()

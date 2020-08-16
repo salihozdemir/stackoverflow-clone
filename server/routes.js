@@ -15,6 +15,7 @@ router.post('/authenticate', users.validate, users.authenticate);
 
 //Users
 router.get('/users', users.list);
+router.get('/users/:search', users.search);
 
 //questions
 router.param('question', questions.load);
