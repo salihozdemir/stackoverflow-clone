@@ -12,21 +12,37 @@ import { Spinner } from '../components/icons'
 function UsersPage() {
   const [searchTerm, setSearchTerm] = useState(null)
   const [users, setUsers] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const delayDebounceFn = setTimeout(async () => {
-      setLoading(true)
-      try {
-        const { data } = await publicFetch.get(searchTerm ? `/users/${searchTerm}` : `/users`)
-        setUsers(data)
-      } catch (error) {
-        console.log(error)
+    setLoading(true)
+    if (searchTerm === null) {
+      const fetchUser = async () => {
+        try {
+          const { data } = await publicFetch('/users')
+          setUsers(data)
+        } catch (error) {
+          console.log(error)
+        }
+        setLoading(false)
       }
-      setLoading(false)
-    }, 500)
 
-    return () => clearTimeout(delayDebounceFn)
+      fetchUser()
+    } else {
+      const delayDebounceFn = setTimeout(async () => {
+        try {
+          const { data } = await publicFetch.get(
+            searchTerm ? `/users/${searchTerm}` : `/users`
+          )
+          setUsers(data)
+        } catch (error) {
+          console.log(error)
+        }
+        setLoading(false)
+      }, 500)
+
+      return () => clearTimeout(delayDebounceFn)
+    }
   }, [searchTerm])
 
   return (
@@ -34,19 +50,20 @@ function UsersPage() {
       <PageTitle title="Users" borderBottom={false} />
       <SearchInput
         placeholder="Search by user"
+        isLoading={loading}
         autoFocus
         autoComplete="off"
         type="text"
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      {loading && (
+      {!users && (
         <div className="loading">
           <Spinner />
         </div>
       )}
 
-      {!loading && (
+      {users && (
         <UserList>
           {users?.map(({ username, profilePhoto, created, id }) => (
             <UserItem
