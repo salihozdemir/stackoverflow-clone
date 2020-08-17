@@ -12,10 +12,9 @@ import { Spinner } from '../components/icons'
 function UsersPage() {
   const [searchTerm, setSearchTerm] = useState(null)
   const [users, setUsers] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    setLoading(true)
     if (searchTerm === null) {
       const fetchUser = async () => {
         try {
@@ -24,12 +23,12 @@ function UsersPage() {
         } catch (error) {
           console.log(error)
         }
-        setLoading(false)
       }
 
       fetchUser()
     } else {
       const delayDebounceFn = setTimeout(async () => {
+        setLoading(true)
         try {
           const { data } = await publicFetch.get(
             searchTerm ? `/users/${searchTerm}` : `/users`
