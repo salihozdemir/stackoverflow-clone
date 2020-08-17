@@ -37,9 +37,57 @@
 }
 
 .fullWidth {
-  width: 100%
+  width: 100%;
 }
 
 .ml24 {
   margin-left: 24px;
+}
+
+.isLoading {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    opacity: 0.3;
+    right: 0.5em;
+    width: 1em;
+    height: 1em;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--black-200);
+    border-radius: 50%;
+    top: 9.5px;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0.5em;
+    width: 1em;
+    height: 1em;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    border-left-color: var(--black-200);
+    border-radius: 50%;
+    animation: spin 0.9s infinite cubic-bezier(0.5, 0.1, 0.5, 0.9);
+    filter: invert(0);
+    transform-origin: 50% 50% 1px;
+    top: 9.5px;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.paddingRight {
+  padding-right: 27px;
 }

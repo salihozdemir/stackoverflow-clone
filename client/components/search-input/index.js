@@ -10,6 +10,7 @@ function SearchInput({
   fullWidth,
   autoFocus,
   marginLeft = true,
+  isLoading = false,
   className,
   ...props
 }) {
@@ -26,10 +27,11 @@ function SearchInput({
       className={cn(
         styles.container,
         fullWidth && styles.fullWidth,
-        marginLeft && styles.ml24
+        marginLeft && styles.ml24,
+        isLoading && styles.isLoading
       )}
     >
-      <input ref={ref} className={cn(styles.input, className)} {...props} />
+      <input ref={ref} className={cn(styles.input, isLoading && styles.paddingRight, className)} {...props} />
       <Search className={styles.search} />
     </div>
   )
