@@ -10,7 +10,7 @@ const TagProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchPopularTags = async () => {
-      const { data } = await publicFetch.get('/questions/populertags')
+      const { data } = await publicFetch.get('/tags/populertags')
       setTagState(data)
     }
 
