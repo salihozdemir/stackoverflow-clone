@@ -18,7 +18,7 @@ function UsersPage() {
     if (searchTerm === null) {
       const fetchUser = async () => {
         try {
-          const { data } = await publicFetch('/users')
+          const { data } = await publicFetch.get('/users')
           setUsers(data)
         } catch (error) {
           console.log(error)
