@@ -4,6 +4,7 @@ import useComponentVisible from '../hooks/useComponentVisible'
 import ModalContext from '../store/modal'
 import { AuthProvider } from '../store/auth'
 import { FetchProvider } from '../store/fetch'
+import { TagProvider } from '../store/tag'
 
 import AuthModal from '../components/auth-modal'
 
@@ -28,8 +29,10 @@ function MyApp({ Component, pageProps }) {
     <ModalContext.Provider value={{ ref, handleComponentVisible }}>
       <AuthProvider>
         <FetchProvider>
-          <Component {...pageProps} />
-          {isComponentVisible && <AuthModal screen={authScreen} />}
+          <TagProvider>
+            <Component {...pageProps} />
+            {isComponentVisible && <AuthModal screen={authScreen} />}
+          </TagProvider>
         </FetchProvider>
       </AuthProvider>
     </ModalContext.Provider>

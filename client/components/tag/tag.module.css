@@ -20,3 +20,12 @@
     border-color: transparent;
   }
 }
+
+.multiplier {
+  color: var(--black-400);
+}
+
+.count {
+  color: var(--black-500);
+  font-size: 11px;
+}

@@ -1,22 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-import TAGS from '../../../constants/tags'
+import { TagContext } from '../../../store/tag'
 
 import Tag from '../../tag'
 
 import styles from './extra.module.css'
 
 function Extra({ marginTop = 24 }) {
+  const { tagState } = useContext(TagContext)
+
   return (
     <div className={styles.container}>
       <div
         className={styles.tagContainer}
         style={{ marginTop: `${marginTop}px` }}
       >
-        <h4>Tags</h4>
+        <h4>Popular Tags</h4>
         <div>
-          {TAGS.map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
+          {tagState.map((tag) => (
+            <Tag key={tag._id} count={tag.count}>{tag._id}</Tag>
           ))}
         </div>
       </div>
