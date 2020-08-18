@@ -6,7 +6,7 @@ const TagContext = createContext()
 const { Provider } = TagContext
 
 const TagProvider = ({ children }) => {
-  const [tagState, setTagState] = useState([])
+  const [tagState, setTagState] = useState(null)
 
   useEffect(() => {
     const fetchPopularTags = async () => {

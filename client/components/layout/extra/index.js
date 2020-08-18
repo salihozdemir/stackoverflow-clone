@@ -3,12 +3,13 @@ import React, { useContext } from 'react'
 import { TagContext } from '../../../store/tag'
 
 import Tag from '../../tag'
+import { Spinner } from '../../icons'
 
 import styles from './extra.module.css'
 
 function Extra({ marginTop = 24 }) {
   const { tagState } = useContext(TagContext)
-
+  
   return (
     <div className={styles.container}>
       <div
@@ -17,8 +18,16 @@ function Extra({ marginTop = 24 }) {
       >
         <h4>Popular Tags</h4>
         <div>
-          {tagState.map((tag) => (
-            <Tag key={tag._id} count={tag.count}>{tag._id}</Tag>
+          {!tagState && (
+            <div className="loading">
+              <Spinner />
+            </div>
+          )}
+
+          {tagState?.map((tag) => (
+            <Tag key={tag._id} count={tag.count}>
+              {tag._id}
+            </Tag>
           ))}
         </div>
       </div>
