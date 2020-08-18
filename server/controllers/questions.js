@@ -58,39 +58,9 @@ exports.list = async (req, res, next) => {
 
 exports.listByTags = async (req, res, next) => {
   try {
-    const { sortType = '-score', tags } = req.body;
+    const { sortType = '-score', tags } = req.params;
     const questions = await Question.find({ tags: { $all: tags } }).sort(sortType);
     res.json(questions);
-  } catch (error) {
-    next(error);
-  }
-};
-
-exports.listPopulerTags = async (req, res, next) => {
-  try {
-    const tags = await Question.aggregate([
-      { $project: { tags: 1 } },
-      { $unwind: '$tags' },
-      { $group: { _id: '$tags', count: { $sum: 1 } } },
-      { $sort: { count: -1 } },
-      { $limit: 25 }
-    ]);
-    res.json(tags);
-  } catch (error) {
-    next(error);
-  }
-};
-
-exports.searchTags = async (req, res, next) => {
-  try {
-    const tags = await Question.aggregate([
-      { $project: { tags: 1 } },
-      { $unwind: '$tags' },
-      { $group: { _id: '$tags', count: { $sum: 1 } } },
-      { $match: { _id: { $regex: req.params.tag, $options: 'i' } } },
-      { $sort: { count: -1 } }
-    ]);
-    res.json(tags);
   } catch (error) {
     next(error);
   }

@@ -1,6 +1,7 @@
 const users = require('./controllers/users');
 const questions = require('./controllers/questions');
 const answers = require('./controllers/answers');
+const tags = require('./controllers/tags');
 
 const requireAuth = require('./middlewares/requireAuth');
 const questionAuth = require('./middlewares/questionAuth');
@@ -23,10 +24,13 @@ router.post('/questions', [requireAuth, questions.questionValidate], questions.c
 router.get('/question/:question', questions.show);
 router.get('/question', questions.list);
 router.get('/questions/tags', questions.listByTags);
-router.get('/questions/populertags', questions.listPopulerTags);
-router.get('/questions/:tag', questions.searchTags);
 router.get('/user/:username', questions.listByUser);
 router.delete('/question/:question', [requireAuth, questionAuth], questions.delete);
+
+//Tags
+router.get('/tags/populertags', tags.listPopulerTags);
+router.get('/tags/:tag', tags.searchTags);
+router.get('/tags', tags.list);
 
 //votes of questions
 router.get('/question/upvote/:question', requireAuth, questions.upvote);
