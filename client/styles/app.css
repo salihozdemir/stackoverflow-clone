@@ -51,6 +51,7 @@ a {
 }
 
 .react-tagsinput-input {
+  width: 200px;
   color: var(--black-900);
   &::placeholder {
     color: var(--black-200);

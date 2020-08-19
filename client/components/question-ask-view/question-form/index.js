@@ -44,6 +44,7 @@ const QuestionForm = () => {
         tags: Yup.array()
           .required('Please enter at least one tag.')
           .max(5, 'Please enter no more than 5 tags.')
+          .of(Yup.string().max(20, 'Tag cannot be longer than 20 characters. '))
       })}
     >
       {({

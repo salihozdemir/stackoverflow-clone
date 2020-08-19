@@ -1,6 +1,6 @@
 .layout {
   background-color: var(--black-050);
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .container {
