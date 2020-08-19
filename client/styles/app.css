@@ -70,3 +70,19 @@ a {
     width: 40px;
   }
 }
+
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--black-050);
+
+  .card {
+    padding: 50px;
+    border-radius: 7px;
+    background-color: var(--white);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.09), 0 3px 8px rgba(0, 0, 0, 0.09),
+      0 4px 13px rgba(0, 0, 0, 0.13);
+  }
+}
