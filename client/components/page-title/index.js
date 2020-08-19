@@ -1,20 +1,22 @@
-import React from 'react'
-import Link from 'next/link'
-
+import React, { useContext } from 'react'
 import cn from 'classnames'
+
+import { AuthContext } from '../../store/auth'
 
 import Button from '../button'
 
 import styles from './page-title.module.css'
 
 function PageTitle({ title, button, borderBottom = true, children }) {
+  const { isAuthenticated } = useContext(AuthContext)
+
   return (
     <div className={cn(styles.container, borderBottom && styles.borderBottom)}>
       <div className={styles.title}>
         <h1>{title}</h1>
         <div className={styles.buttonContainer}>
           {button && (
-            <Button href="/questions/ask" primary>
+            <Button href={isAuthenticated() ? '/questions/ask' : '/auth'} primary>
               Ask Question
             </Button>
           )}

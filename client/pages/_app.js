@@ -6,7 +6,8 @@ import { AuthProvider } from '../store/auth'
 import { FetchProvider } from '../store/fetch'
 import { TagProvider } from '../store/tag'
 
-import AuthModal from '../components/auth-modal'
+import Modal from '../components/modal'
+import AuthForms from '../components/auth-forms'
 
 import 'react-tagsinput/react-tagsinput.css'
 import '../styles/app.css'
@@ -31,7 +32,11 @@ function MyApp({ Component, pageProps }) {
         <FetchProvider>
           <TagProvider>
             <Component {...pageProps} />
-            {isComponentVisible && <AuthModal screen={authScreen} />}
+            {isComponentVisible && (
+              <Modal>
+                <AuthForms screen={authScreen} />
+              </Modal>
+            )}
           </TagProvider>
         </FetchProvider>
       </AuthProvider>
