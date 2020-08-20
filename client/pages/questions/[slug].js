@@ -68,30 +68,7 @@ const QuestionDetail = ({ id, title }) => {
               </CommentList>
             </AnswerWrapper>
 
-            {question.answers.length > 0 && (
-              <AnswerContainer answerCount={question.answers.length}>
-                {question.answers.map(({ score, author, created, comments, text }) => (
-                  <AnswerWrapper>
-                    <AnswerVote score={score} />
-                    <AnswerSummary author={author} created={created}>
-                      {text}
-                    </AnswerSummary>
-                    <CommentList>
-                      {comments.map(({ id, author, created, body }) => (
-                        <CommentItem
-                          key={id}
-                          author={author.username}
-                          isOwner={author.username === question.author.username}
-                          created={created}
-                        >
-                          {body}
-                        </CommentItem>
-                      ))}
-                    </CommentList>
-                  </AnswerWrapper>
-                ))}
-              </AnswerContainer>
-            )}
+            {question.answers.length > 0 && <AnswerContainer answers={question.answers} />}
             <AddAnswer tags={question.tags} id={id} />
           </>
         )}

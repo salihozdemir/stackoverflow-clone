@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import Button from '../button'
 
 import styles from './button-group.module.css'
 
-const ButtonGroup = ({ buttons }) => {
-  const [selected, setSelected] = useState(buttons[0])
+const ButtonGroup = ({ buttons, selected, setSelected }) => {
   return (
     <div className={styles.container}>
       {buttons.map((button) => (
