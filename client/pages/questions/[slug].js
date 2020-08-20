@@ -49,7 +49,7 @@ const QuestionDetail = ({ id, title }) => {
               <AnswerVote score={question.score} />
               <AnswerSummary
                 tags={question.tags}
-                author={question.author.username}
+                author={question.author}
                 created={question.created}
               >
                 {question.text}
@@ -73,7 +73,7 @@ const QuestionDetail = ({ id, title }) => {
                 {question.answers.map(({ score, author, created, comments, text }) => (
                   <AnswerWrapper>
                     <AnswerVote score={score} />
-                    <AnswerSummary author={author.username} created={created}>
+                    <AnswerSummary author={author} created={created}>
                       {text}
                     </AnswerSummary>
                     <CommentList>
