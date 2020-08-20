@@ -9,7 +9,7 @@ import CommentItem from '../answer/comment-list/comment-item'
 
 import styles from './answer-container.module.css'
 
-const AnswerContainer = ({ answerCount, answers, isUpVoted, isDownVoted }) => {
+const AnswerContainer = ({ answerCount, answers, questionId }) => {
   const [selected, setSelected] = useState('Votes')
 
   const handleSorting = () => {
@@ -36,26 +36,28 @@ const AnswerContainer = ({ answerCount, answers, isUpVoted, isDownVoted }) => {
           setSelected={setSelected}
         />
       </div>
-      {answers.sort(handleSorting()).map(({ id, score, author, created, comments, text, votes }) => (
-        <AnswerWrapper key={id}>
-          <AnswerVote score={score} isUpVoted={isUpVoted(votes)} isDownVoted={isDownVoted(votes)}/>
-          <AnswerSummary author={author} created={created}>
-            {text}
-          </AnswerSummary>
-          <CommentList>
-            {comments.map(({ id, author, created, body }) => (
-              <CommentItem
-                key={id}
-                author={author.username}
-                isOwner={author.username === question.author.username}
-                created={created}
-              >
-                {body}
-              </CommentItem>
-            ))}
-          </CommentList>
-        </AnswerWrapper>
-      ))}
+      {answers
+        .sort(handleSorting())
+        .map(({ id, score, author, created, comments, text, votes }) => (
+          <AnswerWrapper key={id}>
+            <AnswerVote score={score} votes={votes} answerId={id} questionId={questionId} />
+            <AnswerSummary author={author} created={created}>
+              {text}
+            </AnswerSummary>
+            <CommentList>
+              {comments.map(({ id, author, created, body }) => (
+                <CommentItem
+                  key={id}
+                  author={author.username}
+                  isOwner={author.username === question.author.username}
+                  created={created}
+                >
+                  {body}
+                </CommentItem>
+              ))}
+            </CommentList>
+          </AnswerWrapper>
+        ))}
     </div>
   )
 }
