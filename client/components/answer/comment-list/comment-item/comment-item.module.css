@@ -17,3 +17,7 @@
   border-radius: 3px;
   background-color: var(--powder-100);
 }
+
+.dateText {
+  color: var(--black-350);
+}

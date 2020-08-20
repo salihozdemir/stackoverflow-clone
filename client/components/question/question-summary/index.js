@@ -7,10 +7,10 @@ import Tag from '../../tag'
 
 import styles from './question-summary.module.css'
 
-function QuestionSummary({ title, tags, author, createdTime, children }) {
+function QuestionSummary({ id, title, tags, author, createdTime, children }) {
   return (
     <div className={styles.container}>
-      <Link href="/questions/[slug]" as={`/questions/${slug(title)}`}>
+      <Link href="/questions/[slug]" as={`/questions/${id}-${slug(title)}`}>
         <a className={styles.link}>{title}</a>
       </Link>
       <div className={styles.excerpt}>{children}</div>

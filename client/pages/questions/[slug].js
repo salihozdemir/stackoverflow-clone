@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
+import { publicFetch } from '../../util/fetcher'
 
 import Layout from '../../components/layout'
 import PageTitle from '../../components/page-title'
 import DetailPageContainer from '../../components/detail-page-container'
-
 import AnswerWrapper from '../../components/answer/answer-wrapper'
 import AnswerVote from '../../components/answer/answer-vote'
 import AnswerSummary from '../../components/answer/answer-summary'
@@ -11,143 +12,89 @@ import CommentList from '../../components/answer/comment-list'
 import CommentItem from '../../components/answer/comment-list/comment-item'
 import AnswerContainer from '../../components/answer-container'
 import AddAnswer from '../../components/answer/add-answer'
+import { Spinner } from '../../components/icons'
 
-const QuestionDetail = ({ slug }) => {
+const QuestionDetail = ({ id, title }) => {
+  const [question, setQuestion] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchQuestion = async () => {
+      setLoading(true)
+      try {
+        const { data } = await publicFetch.get(`/question/${id}`)
+        setQuestion(data)
+      } catch (error) {
+        console.log(error)
+      }
+      setLoading(false)
+    }
+
+    fetchQuestion()
+  }, [])
+
   return (
     <Layout extra={false}>
-      <PageTitle title={slug} button />
+      <PageTitle title={title} button />
       <DetailPageContainer>
-        <AnswerWrapper borderBottom={false}>
-          <AnswerVote score={12} />
-          <AnswerSummary></AnswerSummary>
-          <CommentList>
-            <CommentItem key={1}>
-              Don't forget to do a git fetch --all --prune on other machines
-              after deleting the remote branch on the server. ||| After deleting
-              the local branch with git branch -d and deleting the remote branch
-              with git push origin --delete other machines may still have
-              "obsolete tracking branches" (to see them do git branch -a). To
-              get rid of these do git fetch --all --prune
-            </CommentItem>
-            <CommentItem key={2}>
-              deneme Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Laboriosam explicabo pariatur deserunt facere earum perferendis
-              architecto natus, minima qui commodi inventore veritatis nesciunt
-              sed at dolorum consectetur rem iste. Vero.
-            </CommentItem>
-            <CommentItem key={3}>
-              deneme Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Laboriosam explicabo pariatur deserunt facere earum perferendis
-              architecto natus, minima qui commodi inventore veritatis nesciunt
-              sed at dolorum consectetur rem iste. Vero.
-            </CommentItem>
-            <CommentItem key={4}>
-              deneme Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Laboriosam explicabo pariatur deserunt facere earum perferendis
-              architecto natus, minima qui commodi inventore veritatis nesciunt
-              sed at dolorum consectetur rem iste. Vero.
-            </CommentItem>
-          </CommentList>
-        </AnswerWrapper>
-        <AnswerContainer answerCount={10}>
-          <AnswerWrapper>
-            <AnswerVote score={12} />
-            <AnswerSummary></AnswerSummary>
-            <CommentList>
-              <CommentItem key={1}>
-                Don't forget to do a git fetch --all --prune on other machines
-                after deleting the remote branch on the server. ||| After
-                deleting the local branch with git branch -d and deleting the
-                remote branch with git push origin --delete other machines may
-                still have "obsolete tracking branches" (to see them do git
-                branch -a). To get rid of these do git fetch --all --prune
-              </CommentItem>
-              <CommentItem key={2}>
-                deneme Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Laboriosam explicabo pariatur deserunt facere earum perferendis
-                architecto natus, minima qui commodi inventore veritatis
-                nesciunt sed at dolorum consectetur rem iste. Vero.
-              </CommentItem>
-              <CommentItem key={3}>
-                deneme Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Laboriosam explicabo pariatur deserunt facere earum perferendis
-                architecto natus, minima qui commodi inventore veritatis
-                nesciunt sed at dolorum consectetur rem iste. Vero.
-              </CommentItem>
-              <CommentItem key={4}>
-                deneme Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Laboriosam explicabo pariatur deserunt facere earum perferendis
-                architecto natus, minima qui commodi inventore veritatis
-                nesciunt sed at dolorum consectetur rem iste. Vero.
-              </CommentItem>
-            </CommentList>
-          </AnswerWrapper>
-          <AnswerWrapper>
-            <AnswerVote score={12} />
-            <AnswerSummary></AnswerSummary>
-            <CommentList>
-              <CommentItem key={1}>
-                Don't forget to do a git fetch --all --prune on other machines
-                after deleting the remote branch on the server. ||| After
-                deleting the local branch with git branch -d and deleting the
-                remote branch with git push origin --delete other machines may
-                still have "obsolete tracking branches" (to see them do git
-                branch -a). To get rid of these do git fetch --all --prune
-              </CommentItem>
-              <CommentItem key={2}>
-                deneme Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Laboriosam explicabo pariatur deserunt facere earum perferendis
-                architecto natus, minima qui commodi inventore veritatis
-                nesciunt sed at dolorum consectetur rem iste. Vero.
-              </CommentItem>
-              <CommentItem key={3}>
-                deneme Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Laboriosam explicabo pariatur deserunt facere earum perferendis
-                architecto natus, minima qui commodi inventore veritatis
-                nesciunt sed at dolorum consectetur rem iste. Vero.
-              </CommentItem>
-              <CommentItem key={4}>
-                deneme Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Laboriosam explicabo pariatur deserunt facere earum perferendis
-                architecto natus, minima qui commodi inventore veritatis
-                nesciunt sed at dolorum consectetur rem iste. Vero.
-              </CommentItem>
-            </CommentList>
-          </AnswerWrapper>
-          <AnswerWrapper>
-            <AnswerVote score={12} />
-            <AnswerSummary></AnswerSummary>
-            <CommentList>
-              <CommentItem key={1}>
-                Don't forget to do a git fetch --all --prune on other machines
-                after deleting the remote branch on the server. ||| After
-                deleting the local branch with git branch -d and deleting the
-                remote branch with git push origin --delete other machines may
-                still have "obsolete tracking branches" (to see them do git
-                branch -a). To get rid of these do git fetch --all --prune
-              </CommentItem>
-              <CommentItem key={2}>
-                deneme Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Laboriosam explicabo pariatur deserunt facere earum perferendis
-                architecto natus, minima qui commodi inventore veritatis
-                nesciunt sed at dolorum consectetur rem iste. Vero.
-              </CommentItem>
-              <CommentItem key={3}>
-                deneme Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Laboriosam explicabo pariatur deserunt facere earum perferendis
-                architecto natus, minima qui commodi inventore veritatis
-                nesciunt sed at dolorum consectetur rem iste. Vero.
-              </CommentItem>
-              <CommentItem key={4}>
-                deneme Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Laboriosam explicabo pariatur deserunt facere earum perferendis
-                architecto natus, minima qui commodi inventore veritatis
-                nesciunt sed at dolorum consectetur rem iste. Vero.
-              </CommentItem>
-            </CommentList>
-          </AnswerWrapper>
-        </AnswerContainer>
-        <AddAnswer tags={['php', 'javascript']} />
+        {loading && (
+          <div className="loading">
+            <Spinner />
+          </div>
+        )}
+
+        {!loading && (
+          <>
+            <AnswerWrapper borderBottom={false}>
+              <AnswerVote score={question.score} />
+              <AnswerSummary
+                tags={question.tags}
+                author={question.author.username}
+                created={question.created}
+              >
+                {question.text}
+              </AnswerSummary>
+              <CommentList>
+                {question.comments.map(({ id, author, created, body }) => (
+                  <CommentItem
+                    key={id}
+                    author={author.username}
+                    isOwner={author.username === question.author.username}
+                    created={created}
+                  >
+                    {body}
+                  </CommentItem>
+                ))}
+              </CommentList>
+            </AnswerWrapper>
+
+            {question.answers.length > 0 && (
+              <AnswerContainer answerCount={question.answers.length}>
+                {question.answers.map(({ tags, score, author, created, comments, text }) => (
+                  <AnswerWrapper>
+                    <AnswerVote score={score} />
+                    <AnswerSummary tags={tags} author={author.username} created={created}>
+                      {text}
+                    </AnswerSummary>
+                    <CommentList>
+                      {comments.map(({ id, author, created, body }) => (
+                        <CommentItem
+                          key={id}
+                          author={author.username}
+                          isOwner={author.username === question.author.username}
+                          created={created}
+                        >
+                          {body}
+                        </CommentItem>
+                      ))}
+                    </CommentList>
+                  </AnswerWrapper>
+                ))}
+              </AnswerContainer>
+            )}
+            <AddAnswer tags={question.tags} />
+          </>
+        )}
       </DetailPageContainer>
     </Layout>
   )
@@ -155,10 +102,16 @@ const QuestionDetail = ({ slug }) => {
 
 export async function getServerSideProps(context) {
   const slug = context.params.slug
+  const id = slug.split('-').shift()
+  const title = slug
+    ?.substr(slug.indexOf('-') + 1)
+    .split('-')
+    .join(' ')
 
   return {
     props: {
-      slug
+      id,
+      title
     }
   }
 }

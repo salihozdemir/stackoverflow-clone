@@ -44,6 +44,7 @@ const HomePage = () => {
               view={views}
             />
             <QuestionSummary
+              id={id}
               title={title}
               tags={tags}
               author={author}
