@@ -70,10 +70,10 @@ const QuestionDetail = ({ id, title }) => {
 
             {question.answers.length > 0 && (
               <AnswerContainer answerCount={question.answers.length}>
-                {question.answers.map(({ tags, score, author, created, comments, text }) => (
+                {question.answers.map(({ score, author, created, comments, text }) => (
                   <AnswerWrapper>
                     <AnswerVote score={score} />
-                    <AnswerSummary tags={tags} author={author.username} created={created}>
+                    <AnswerSummary author={author.username} created={created}>
                       {text}
                     </AnswerSummary>
                     <CommentList>
@@ -92,7 +92,7 @@ const QuestionDetail = ({ id, title }) => {
                 ))}
               </AnswerContainer>
             )}
-            <AddAnswer tags={question.tags} />
+            <AddAnswer tags={question.tags} id={id} />
           </>
         )}
       </DetailPageContainer>

@@ -39,7 +39,7 @@ exports.create = async (req, res, next) => {
 exports.show = async (req, res, next) => {
   try {
     const { id } = req.question;
-    const question = await Question.findByIdAndUpdate(id, { $inc: { views: 1 } }, { new: true });
+    const question = await Question.findByIdAndUpdate(id, { $inc: { views: 1 } }, { new: true }).populate('answers');
     res.json(question);
   } catch (error) {
     next(error);

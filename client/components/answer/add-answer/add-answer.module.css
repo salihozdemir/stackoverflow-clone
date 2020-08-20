@@ -19,3 +19,8 @@
 .textarea {
   height: 200px;
 }
+
+.status {
+  color: var(--red-500);
+  font-size: 12px;
+}

@@ -55,6 +55,10 @@ answerSchema.methods = {
   }
 };
 
+answerSchema.pre(/^find/, function () {
+  this.populate('author').populate('comments.author', '-role');
+});
+
 answerSchema.pre('save', function (next) {
   this.wasNew = this.isNew;
   next();
