@@ -90,6 +90,8 @@ questionSchema.post('save', function (doc, next) {
   if (this.wasNew) this.vote(this.author._id, 1);
   doc
     .populate('author')
+    .populate('answers')
+    .populate('answers.author', '-role')
     .populate('comments.author', '-role')
     .execPopulate()
     .then(() => next());

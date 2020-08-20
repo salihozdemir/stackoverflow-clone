@@ -16,6 +16,7 @@ import { Spinner } from '../../components/icons'
 
 const QuestionDetail = ({ id, title }) => {
   const [question, setQuestion] = useState(null)
+  const [answers, setAnswers] = useState(null);
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -24,6 +25,7 @@ const QuestionDetail = ({ id, title }) => {
       try {
         const { data } = await publicFetch.get(`/question/${id}`)
         setQuestion(data)
+        setAnswers(data.answers)
       } catch (error) {
         console.log(error)
       }
@@ -68,8 +70,8 @@ const QuestionDetail = ({ id, title }) => {
               </CommentList>
             </AnswerWrapper>
 
-            {question.answers.length > 0 && <AnswerContainer answers={question.answers} questionId={id} />}
-            <AddAnswer tags={question.tags} id={id} />
+            {answers.length > 0 && <AnswerContainer answers={answers} questionId={id} />}
+            <AddAnswer tags={question.tags} setAnswers={setAnswers} id={id} />
           </>
         )}
       </DetailPageContainer>

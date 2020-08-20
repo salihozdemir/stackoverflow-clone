@@ -11,7 +11,7 @@ import Tag from '../../tag'
 
 import styles from './add-answer.module.css'
 
-const AddAnswer = ({ id, tags }) => {
+const AddAnswer = ({ id, tags, setAnswers }) => {
   const { authAxios } = useContext(FetchContext)
 
   const [loading, setLoading] = useState(false)
@@ -22,9 +22,9 @@ const AddAnswer = ({ id, tags }) => {
       onSubmit={async (values, { setStatus, resetForm }) => {
         setLoading(true)
         try {
-          await authAxios.post(`/answer/${id}`, values)
+          const { data } = await authAxios.post(`/answer/${id}`, values)
+          setAnswers(data.answers)
           resetForm({})
-          // router.r
         } catch (error) {
           setStatus(error.response.data.message)
         }
