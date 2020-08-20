@@ -12,12 +12,16 @@
   &:hover {
     background-color: transparent;
   }
-
+  
   svg {
     color: var(--black-200);
     width: 36px;
     height: 36px;
   }
+}
+
+.voted {
+  color: var(--orange) !important;
 }
 
 .score {

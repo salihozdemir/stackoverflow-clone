@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 
 import { publicFetch } from '../../util/fetcher'
+import { AuthContext } from '../../store/auth'
 
 import Layout from '../../components/layout'
 import PageTitle from '../../components/page-title'
@@ -15,6 +16,8 @@ import AddAnswer from '../../components/answer/add-answer'
 import { Spinner } from '../../components/icons'
 
 const QuestionDetail = ({ id, title }) => {
+  const { authState } = useContext(AuthContext)
+
   const [question, setQuestion] = useState(null)
   const [loading, setLoading] = useState(true)
 
@@ -33,6 +36,14 @@ const QuestionDetail = ({ id, title }) => {
     fetchQuestion()
   }, [])
 
+  const isUpVoted = (votes) => {
+    return votes.find((v) => v.user === authState.userInfo?.id)?.vote === 1
+  }
+
+  const isDownVoted = (votes) => {
+    return votes.find((v) => v.user === authState.userInfo?.id)?.vote === -1
+  }
+
   return (
     <Layout extra={false}>
       <PageTitle title={title} button />
@@ -46,7 +57,11 @@ const QuestionDetail = ({ id, title }) => {
         {!loading && (
           <>
             <AnswerWrapper borderBottom={false}>
-              <AnswerVote score={question.score} />
+              <AnswerVote
+                score={question.score}
+                isUpVoted={isUpVoted(question.votes)}
+                isDownVoted={isDownVoted(question.votes)}
+              />
               <AnswerSummary
                 tags={question.tags}
                 author={question.author}
@@ -68,7 +83,13 @@ const QuestionDetail = ({ id, title }) => {
               </CommentList>
             </AnswerWrapper>
 
-            {question.answers.length > 0 && <AnswerContainer answers={question.answers} />}
+            {question.answers.length > 0 && (
+              <AnswerContainer
+                answers={question.answers}
+                isUpVoted={isUpVoted}
+                isDownVoted={isDownVoted}
+              />
+            )}
             <AddAnswer tags={question.tags} id={id} />
           </>
         )}
