@@ -4,7 +4,7 @@ import Navigation from '../navigation'
 
 import styles from './navigation-dropdown.module.css'
 
-function NavigationDropdown() {
+const NavigationDropdown = () => {
   return (
     <div className={styles.dialog}>
       <div className={styles.sidebar}>

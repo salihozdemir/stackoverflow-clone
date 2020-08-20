@@ -7,7 +7,14 @@ import Tag from '../../tag'
 
 import styles from './question-summary.module.css'
 
-function QuestionSummary({ id, title, tags, author, createdTime, children }) {
+const QuestionSummary = ({
+  id,
+  title,
+  tags,
+  author,
+  createdTime,
+  children
+}) => {
   return (
     <div className={styles.container}>
       <Link href="/questions/[slug]" as={`/questions/${id}-${slug(title)}`}>

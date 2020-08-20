@@ -7,9 +7,9 @@ import { Spinner } from '../../icons'
 
 import styles from './extra.module.css'
 
-function Extra({ marginTop = 24 }) {
+const Extra = ({ marginTop = 24 }) => {
   const { tagState } = useContext(TagContext)
-  
+
   return (
     <div className={styles.container}>
       <div

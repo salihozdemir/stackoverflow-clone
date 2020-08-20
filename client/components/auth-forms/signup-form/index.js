@@ -11,7 +11,7 @@ import Button from '../../button'
 
 import styles from './signup-form.module.css'
 
-function SignupForm() {
+const SignupForm = () => {
   const router = useRouter()
   const { setAuthState } = useContext(AuthContext)
 

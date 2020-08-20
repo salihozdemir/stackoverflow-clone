@@ -4,7 +4,7 @@ import cn from 'classnames'
 
 import styles from './button.module.css'
 
-function LinkButton({ href, children, ...props }) {
+const LinkButton = ({ href, children, ...props }) => {
   return (
     <Link href={href}>
       <a {...props}>{children}</a>
@@ -12,7 +12,7 @@ function LinkButton({ href, children, ...props }) {
   )
 }
 
-function BaseButton({ children, ...props }) {
+const BaseButton = ({ children, ...props }) => {
   return (
     <button type="button" {...props}>
       {children}
@@ -20,7 +20,7 @@ function BaseButton({ children, ...props }) {
   )
 }
 
-function Button({
+const Button = ({
   primary,
   secondary,
   full = false,
@@ -28,7 +28,7 @@ function Button({
   children,
   className,
   ...props
-}) {
+}) => {
   const Comp = props.href ? LinkButton : BaseButton
   return (
     <Comp

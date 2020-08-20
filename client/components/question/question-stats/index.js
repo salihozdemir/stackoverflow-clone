@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './question-stats.module.css'
 
-function QuestionStats({ voteCount, answerCount, view }) {
+const QuestionStats = ({ voteCount, answerCount, view }) => {
   return (
     <div className={styles.container}>
       <div className={styles.vote}>

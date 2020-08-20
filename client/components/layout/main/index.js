@@ -1,10 +1,9 @@
 import React from 'react'
-
 import cn from 'classnames'
 
 import styles from './main.module.css'
 
-function Main({ border = true, children }) {
+const Main = ({ border = true, children }) => {
   return (
     <div className={cn(styles.main, border && styles.border)}>{children}</div>
   )
