@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Link from 'next/link'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 
@@ -19,7 +20,9 @@ const AnswerSummary = ({ tags, author, created, children }) => {
         <div className={styles.userDetails}>
           <Link href="/users/[user]" as={`/users/${author.username}`}>
             <a>
-              <img src={`https://secure.gravatar.com/avatar/${author.id}?s=32&d=identicon`} />
+              <img
+                src={`https://secure.gravatar.com/avatar/${author.id}?s=32&d=identicon`}
+              />
             </a>
           </Link>
           <div className={styles.info}>
@@ -37,6 +40,13 @@ const AnswerSummary = ({ tags, author, created, children }) => {
       </div>
     </div>
   )
+}
+
+AnswerSummary.propTypes = {
+  tags: PropTypes.array,
+  author: PropTypes.object.isRequired,
+  created: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired
 }
 
 export default AnswerSummary

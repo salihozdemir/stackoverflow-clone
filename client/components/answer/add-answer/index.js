@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react'
+import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
@@ -61,7 +62,12 @@ const AddAnswer = ({ id, tags, setAnswers }) => {
           />
           <p className={styles.status}>{status}</p>
           <div className={styles.button}>
-            <Button type="submit" primary isLoading={loading} disabled={isSubmitting}>
+            <Button
+              type="submit"
+              primary
+              isLoading={loading}
+              disabled={isSubmitting}
+            >
               Post Your Answer
             </Button>
           </div>
@@ -79,6 +85,12 @@ const AddAnswer = ({ id, tags, setAnswers }) => {
       )}
     </Formik>
   )
+}
+
+AddAnswer.propTypes = {
+  id: PropTypes.string.isRequired,
+  tags: PropTypes.array.isRequired,
+  setAnswers: PropTypes.func.isRequired
 }
 
 export default AddAnswer
