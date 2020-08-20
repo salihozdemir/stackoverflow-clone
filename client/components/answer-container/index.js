@@ -9,7 +9,7 @@ import CommentItem from '../answer/comment-list/comment-item'
 
 import styles from './answer-container.module.css'
 
-const AnswerContainer = ({ answers, questionId }) => {
+const AnswerContainer = ({ answers, questionId, setAnswers }) => {
   const [selected, setSelected] = useState('Votes')
 
   const handleSorting = () => {
@@ -39,9 +39,9 @@ const AnswerContainer = ({ answers, questionId }) => {
       {answers.length > 0 &&
         answers
           .sort(handleSorting())
-          .map(({ id, score, author, created, comments, text, votes }) => (
+          .map(({ id, score, author, created, comments, text, votes }, index) => (
             <AnswerWrapper key={id}>
-              <AnswerVote score={score} votes={votes} answerId={id} questionId={questionId} />
+              <AnswerVote score={score} votes={votes} answerId={id} questionId={questionId} setAnswers={setAnswers} index={index}/>
               <AnswerSummary author={author} created={created}>
                 {text}
               </AnswerSummary>
