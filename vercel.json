@@ -12,7 +12,7 @@
     }
   },
   "builds": [
-    { "src": "client/package.json", "use": "@vercel/static" },
+    { "src": "client/package.json", "use": "@vercel/next" },
     { "src": "server/index.js", "use": "@vercel/node" }
   ],
   "routes": [
