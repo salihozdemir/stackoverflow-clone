@@ -2,13 +2,19 @@
   "version": 2,
   "name": "stackoverflow",
   "env": {
-    "DATABASE_URL": "@database_url",
-    "JWT_SECRET": "@jwt_secret"
+    "DATABASE_URL": "@DATABASE-URL",
+    "JWT_SECRET": "@JWT_SECRET"
+  },
+  "build": {
+    "env": {
+      "DATABASE_URL": "@DATABASE-URL",
+      "JWT_SECRET": "@JWT_SECRET"
+    }
   },
   "builds": [
     { "src": "client/package.json", "use": "@vercel/static" },
     { "src": "server/index.js", "use": "@vercel/node" }
-  ],    
+  ],
   "routes": [
     { "src": "/api/?(.*)", "dest": "/server/server.js" },
     { "src": "/.*", "dest": "/client" }
