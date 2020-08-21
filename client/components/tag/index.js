@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'next/link'
-
 import cn from 'classnames'
 
 import styles from './tag.module.css'

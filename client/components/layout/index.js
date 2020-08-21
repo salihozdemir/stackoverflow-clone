@@ -1,5 +1,4 @@
 import React from 'react'
-
 import cn from 'classnames'
 
 import CONST from '../../constants'
@@ -12,7 +11,7 @@ import Header from './header'
 
 import styles from './layout.module.css'
 
-function Layout({ extra = true, children }) {
+const Layout = ({ extra = true, children }) => {
   const size = useWindowSize()
   return (
     <div className={styles.layout}>

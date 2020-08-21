@@ -14,7 +14,7 @@ const TextArea = ({
 }) => {
   return (
     <div className={styles.container}>
-      <label className={styles.label}>{label}</label>
+      {label && <label className={styles.label}>{label}</label>}
       {inputInfo && <p className={styles.inputInfo}>{inputInfo}</p>}
       <textarea
         className={cn(styles.textarea, className, hasError && styles.hasError)}

@@ -16,7 +16,7 @@ import { Spinner } from '../../components/icons'
 
 const QuestionDetail = ({ id, title }) => {
   const [question, setQuestion] = useState(null)
-  const [answers, setAnswers] = useState(null);
+  const [answers, setAnswers] = useState(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -48,7 +48,12 @@ const QuestionDetail = ({ id, title }) => {
         {!loading && (
           <>
             <AnswerWrapper borderBottom={false}>
-              <AnswerVote score={question.score} votes={question.votes} questionId={id} setQuestion={setQuestion} />
+              <AnswerVote
+                score={question.score}
+                votes={question.votes}
+                questionId={id}
+                setQuestion={setQuestion}
+              />
               <AnswerSummary
                 tags={question.tags}
                 author={question.author}
@@ -70,7 +75,14 @@ const QuestionDetail = ({ id, title }) => {
               </CommentList>
             </AnswerWrapper>
 
-            {answers.length > 0 && <AnswerContainer answers={answers} questionId={id} setAnswers={setAnswers} />}
+            {answers.length > 0 && (
+              <AnswerContainer
+                answers={answers}
+                questionId={id}
+                setAnswers={setAnswers}
+                questionAuthor={question.author.username}
+              />
+            )}
             <AddAnswer tags={question.tags} setAnswers={setAnswers} id={id} />
           </>
         )}

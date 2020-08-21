@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Link from 'next/link'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 
@@ -40,13 +39,6 @@ const AnswerSummary = ({ tags, author, created, children }) => {
       </div>
     </div>
   )
-}
-
-AnswerSummary.propTypes = {
-  tags: PropTypes.array,
-  author: PropTypes.object.isRequired,
-  created: PropTypes.string.isRequired,
-  children: PropTypes.string.isRequired
 }
 
 export default AnswerSummary

@@ -14,7 +14,7 @@ import { Menu, Close } from '../../icons'
 
 import styles from './header.module.css'
 
-function Header({ className, ...props }) {
+const Header = ({ className, ...props }) => {
   const { handleComponentVisible } = useContext(ModalContext)
   const { isAuthenticated, authState, logout } = useContext(AuthContext)
 

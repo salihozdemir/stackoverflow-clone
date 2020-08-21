@@ -1,18 +1,17 @@
 import React from 'react'
-
 import cn from 'classnames'
 
 import { Alert } from '../icons'
 
 import styles from './form-input.module.css'
 
-function FormInput({
+const FormInput = ({
   label,
   inputInfo,
   hasError = false,
   errorMessage,
   ...props
-}) {
+}) => {
   return (
     <div className={styles.container}>
       <label className={styles.label}>{label}</label>

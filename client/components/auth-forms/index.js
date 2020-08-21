@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 
 import { Logo } from '../icons'
 import LoginForm from './login-form'
-import SignUpForm from './signup-form/signup-form'
+import SignUpForm from './signup-form'
 
 import styles from './auth-forms.module.css'
 
-function AuthForms({ screen = 'signup' }) {
+const AuthForms = ({ screen = 'signup' }) => {
   const [form, setForm] = useState(screen)
 
   return (

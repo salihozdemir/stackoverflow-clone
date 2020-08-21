@@ -11,7 +11,7 @@ import Button from '../../button'
 
 import styles from './login-form.module.css'
 
-function LoginForm() {
+const LoginForm = () => {
   const router = useRouter()
   const { setAuthState } = useContext(AuthContext)
 

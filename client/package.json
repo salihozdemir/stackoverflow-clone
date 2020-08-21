@@ -21,7 +21,6 @@
     "date-fns": "^2.15.0",
     "formik": "^2.1.5",
     "next": "^9.4.4",
-    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-tagsinput": "^3.19.0",

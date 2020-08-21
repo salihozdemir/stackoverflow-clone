@@ -16,6 +16,7 @@
   line-height: 1.15;
   box-sizing: border-box;
   padding-left: 32px;
+  padding-bottom: 9px;
 
   &:focus {
     border-color: var(--blue-300);

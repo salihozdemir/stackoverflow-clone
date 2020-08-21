@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 
 import { AuthContext } from '../../../store/auth'
 import { FetchContext } from '../../../store/fetch'
@@ -8,7 +8,14 @@ import { ArrowUp, ArrowDown } from '../../icons'
 
 import styles from './answer-vote.module.css'
 
-function AnswerVote({ score, votes, questionId, answerId, setQuestion, setAnswers, index }) {
+const AnswerVote = ({
+  score,
+  votes,
+  questionId,
+  answerId,
+  setQuestion,
+  setAnswers
+}) => {
   const { authState } = useContext(AuthContext)
   const { authAxios } = useContext(FetchContext)
 
@@ -23,7 +30,9 @@ function AnswerVote({ score, votes, questionId, answerId, setQuestion, setAnswer
   const upVote = async () => {
     try {
       const { data } = await authAxios.get(
-        answerId ? `/answer/upvote/${questionId}/${answerId}` : `/question/upvote/${questionId}`
+        answerId
+          ? `/answer/upvote/${questionId}/${answerId}`
+          : `/question/upvote/${questionId}`
       )
       if (answerId) {
         setAnswers((prevState) => {
@@ -44,7 +53,9 @@ function AnswerVote({ score, votes, questionId, answerId, setQuestion, setAnswer
   const downVote = async () => {
     try {
       const { data } = await authAxios.get(
-        answerId ? `/answer/downvote/${questionId}/${answerId}` : `/question/downvote/${questionId}`
+        answerId
+          ? `/answer/downvote/${questionId}/${answerId}`
+          : `/question/downvote/${questionId}`
       )
       if (answerId) {
         setAnswers((prevState) => {
@@ -65,7 +76,9 @@ function AnswerVote({ score, votes, questionId, answerId, setQuestion, setAnswer
   const unVote = async () => {
     try {
       const { data } = await authAxios.get(
-        answerId ? `/answer/unvote/${questionId}/${answerId}` : `/question/unvote/${questionId}`
+        answerId
+          ? `/answer/unvote/${questionId}/${answerId}`
+          : `/question/unvote/${questionId}`
       )
       if (answerId) {
         setAnswers((prevState) => {
@@ -85,11 +98,17 @@ function AnswerVote({ score, votes, questionId, answerId, setQuestion, setAnswer
 
   return (
     <div className={styles.voteCell}>
-      <Button className={styles.voteButton} onClick={() => (isUpVoted() ? unVote() : upVote())}>
+      <Button
+        className={styles.voteButton}
+        onClick={() => (isUpVoted() ? unVote() : upVote())}
+      >
         <ArrowUp className={isUpVoted() ? styles.voted : ''} />
       </Button>
       <div className={styles.score}>{score}</div>
-      <Button className={styles.voteButton} onClick={() => (isDownVoted() ? unVote() : downVote())}>
+      <Button
+        className={styles.voteButton}
+        onClick={() => (isDownVoted() ? unVote() : downVote())}
+      >
         <ArrowDown className={isDownVoted() ? styles.voted : ''} />
       </Button>
     </div>

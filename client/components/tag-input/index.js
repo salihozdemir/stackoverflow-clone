@@ -6,13 +6,13 @@ import { Alert } from '../icons'
 
 import styles from './tag-input.module.css'
 
-function FormInput({
+const FormInput = ({
   label,
   inputInfo,
   hasError = false,
   errorMessage,
   ...props
-}) {
+}) => {
   return (
     <div className={styles.container}>
       <label className={styles.label}>{label}</label>
