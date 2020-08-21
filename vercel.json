@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "name": "stackoverflow",
+  "env": {
+    "DATABASE_URL": "@database-url"
+  },
+  "builds": [
+    { "src": "client/package.json", "use": "@vercel/static" },
+    { "src": "server/index.js", "use": "@vercel/node" }
+  ],    
+  "routes": [
+    { "src": "/api/?(.*)", "dest": "/server/server.js" },
+    { "src": "/.*", "dest": "/client" }
+  ]
+}
