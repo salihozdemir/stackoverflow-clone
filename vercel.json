@@ -2,8 +2,8 @@
   "version": 2,
   "name": "stackoverflow",
   "env": {
-    "DATABASE_URL": "@DATABASE_URL",
-    "JWT_SECRET": "@JWT_SECRET"
+    "DATABASE_URL": "@database_url",
+    "JWT_SECRET": "@jwt_secret"
   },
   "builds": [
     { "src": "client/package.json", "use": "@vercel/static" },
