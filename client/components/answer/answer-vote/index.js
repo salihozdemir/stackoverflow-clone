@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 
 import { AuthContext } from '../../../store/auth'
 import { FetchContext } from '../../../store/fetch'
+import ModalContext from '../../../store/modal'
 
 import Button from '../../button'
 import { ArrowUp, ArrowDown } from '../../icons'
@@ -16,8 +17,9 @@ const AnswerVote = ({
   setQuestion,
   setAnswers
 }) => {
-  const { authState } = useContext(AuthContext)
+  const { authState, isAuthenticated } = useContext(AuthContext)
   const { authAxios } = useContext(FetchContext)
+  const { handleComponentVisible } = useContext(ModalContext)
 
   const isUpVoted = () => {
     return votes.find((v) => v.user === authState.userInfo?.id)?.vote === 1
@@ -100,14 +102,26 @@ const AnswerVote = ({
     <div className={styles.voteCell}>
       <Button
         className={styles.voteButton}
-        onClick={() => (isUpVoted() ? unVote() : upVote())}
+        onClick={() =>
+          isAuthenticated()
+            ? isUpVoted()
+              ? unVote()
+              : upVote()
+            : handleComponentVisible(true, 'login')
+        }
       >
         <ArrowUp className={isUpVoted() ? styles.voted : ''} />
       </Button>
       <div className={styles.score}>{score}</div>
       <Button
         className={styles.voteButton}
-        onClick={() => (isDownVoted() ? unVote() : downVote())}
+        onClick={() =>
+          isAuthenticated()
+            ? isDownVoted()
+              ? unVote()
+              : downVote()
+            : handleComponentVisible(true, 'login')
+        }
       >
         <ArrowDown className={isDownVoted() ? styles.voted : ''} />
       </Button>
