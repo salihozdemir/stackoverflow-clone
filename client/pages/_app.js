@@ -11,6 +11,7 @@ import { TagProvider } from '../store/tag'
 import Modal from '../components/modal'
 import AuthForms from '../components/auth-forms'
 
+import '../styles/variables.css'
 import '../styles/nprogress.css'
 import 'react-tagsinput/react-tagsinput.css'
 import '../styles/app.css'
