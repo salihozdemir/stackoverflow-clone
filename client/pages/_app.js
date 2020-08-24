@@ -35,7 +35,9 @@ function MyApp({ Component, pageProps }) {
   }
 
   return (
-    <ModalContext.Provider value={{ ref, handleComponentVisible }}>
+    <ModalContext.Provider
+      value={{ ref, handleComponentVisible, setIsComponentVisible }}
+    >
       <AuthProvider>
         <FetchProvider>
           <TagProvider>
