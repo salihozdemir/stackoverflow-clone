@@ -5,6 +5,12 @@ function useComponentVisible(initialIsVisible) {
   const ref = useRef(null)
   const toggleRef = useRef(null)
 
+  const handleHide = (event) => {
+    if (event.key === 'Escape') {
+      setIsComponentVisible(false)
+    }
+  }
+
   const handleClickOutside = (event) => {
     if (
       ref.current &&
@@ -17,7 +23,9 @@ function useComponentVisible(initialIsVisible) {
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside, true)
+    document.addEventListener('keydown', handleHide, true)
     return () => {
+      document.removeEventListener('keydown', handleHide, true)
       document.removeEventListener('click', handleClickOutside, true)
     }
   })
