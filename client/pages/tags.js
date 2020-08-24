@@ -17,26 +17,18 @@ function TagsPage() {
   useEffect(() => {
     if (searchTerm === null) {
       const fetchUser = async () => {
-        try {
-          const { data } = await publicFetch.get('/tags')
-          setTags(data)
-        } catch (error) {
-          console.log(error)
-        }
+        const { data } = await publicFetch.get('/tags')
+        setTags(data)
       }
 
       fetchUser()
     } else {
       const delayDebounceFn = setTimeout(async () => {
         setLoading(true)
-        try {
-          const { data } = await publicFetch.get(
-            searchTerm ? `/tags/${searchTerm}` : `/tags`
-          )
-          setTags(data)
-        } catch (error) {
-          console.log(error)
-        }
+        const { data } = await publicFetch.get(
+          searchTerm ? `/tags/${searchTerm}` : `/tags`
+        )
+        setTags(data)
         setLoading(false)
       }, 500)
 
@@ -69,7 +61,9 @@ function TagsPage() {
       {tags && (
         <TagList>
           {tags?.map(({ count, _id }) => (
-            <TagItem key={_id} count={count}>{_id}</TagItem>
+            <TagItem key={_id} count={count}>
+              {_id}
+            </TagItem>
           ))}
         </TagList>
       )}

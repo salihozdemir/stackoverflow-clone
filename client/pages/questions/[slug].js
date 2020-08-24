@@ -22,13 +22,9 @@ const QuestionDetail = ({ id, title }) => {
   useEffect(() => {
     const fetchQuestion = async () => {
       setLoading(true)
-      try {
-        const { data } = await publicFetch.get(`/question/${id}`)
-        setQuestion(data)
-        setAnswers(data.answers)
-      } catch (error) {
-        console.log(error)
-      }
+      const { data } = await publicFetch.get(`/question/${id}`)
+      setQuestion(data)
+      setAnswers(data.answers)
       setLoading(false)
     }
 

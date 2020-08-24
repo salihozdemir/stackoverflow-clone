@@ -14,12 +14,8 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchQuestion = async () => {
-      try {
-        const { data } = await publicFetch.get('/question')
-        setQuestions(data)
-      } catch (error) {
-        console.log(error)
-      }
+      const { data } = await publicFetch.get('/question')
+      setQuestions(data)
     }
 
     fetchQuestion()

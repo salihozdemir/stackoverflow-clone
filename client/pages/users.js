@@ -17,26 +17,18 @@ function UsersPage() {
   useEffect(() => {
     if (searchTerm === null) {
       const fetchUser = async () => {
-        try {
-          const { data } = await publicFetch.get('/users')
-          setUsers(data)
-        } catch (error) {
-          console.log(error)
-        }
+        const { data } = await publicFetch.get('/users')
+        setUsers(data)
       }
 
       fetchUser()
     } else {
       const delayDebounceFn = setTimeout(async () => {
         setLoading(true)
-        try {
-          const { data } = await publicFetch.get(
-            searchTerm ? `/users/${searchTerm}` : `/users`
-          )
-          setUsers(data)
-        } catch (error) {
-          console.log(error)
-        }
+        const { data } = await publicFetch.get(
+          searchTerm ? `/users/${searchTerm}` : `/users`
+        )
+        setUsers(data)
         setLoading(false)
       }, 500)
 

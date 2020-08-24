@@ -30,71 +30,59 @@ const AnswerVote = ({
   }
 
   const upVote = async () => {
-    try {
-      const { data } = await authAxios.get(
-        answerId
-          ? `/answer/upvote/${questionId}/${answerId}`
-          : `/question/upvote/${questionId}`
-      )
-      if (answerId) {
-        setAnswers((prevState) => {
-          return prevState.map((el) => (el.id === answerId ? data : el))
-        })
-      } else {
-        setQuestion((prevState) => ({
-          ...prevState,
-          votes: data.votes,
-          score: data.score
-        }))
-      }
-    } catch (error) {
-      console.log(error)
+    const { data } = await authAxios.get(
+      answerId
+        ? `/answer/upvote/${questionId}/${answerId}`
+        : `/question/upvote/${questionId}`
+    )
+    if (answerId) {
+      setAnswers((prevState) => {
+        return prevState.map((el) => (el.id === answerId ? data : el))
+      })
+    } else {
+      setQuestion((prevState) => ({
+        ...prevState,
+        votes: data.votes,
+        score: data.score
+      }))
     }
   }
 
   const downVote = async () => {
-    try {
-      const { data } = await authAxios.get(
-        answerId
-          ? `/answer/downvote/${questionId}/${answerId}`
-          : `/question/downvote/${questionId}`
-      )
-      if (answerId) {
-        setAnswers((prevState) => {
-          return prevState.map((el) => (el.id === answerId ? data : el))
-        })
-      } else {
-        setQuestion((prevState) => ({
-          ...prevState,
-          votes: data.votes,
-          score: data.score
-        }))
-      }
-    } catch (error) {
-      console.log(error)
+    const { data } = await authAxios.get(
+      answerId
+        ? `/answer/downvote/${questionId}/${answerId}`
+        : `/question/downvote/${questionId}`
+    )
+    if (answerId) {
+      setAnswers((prevState) => {
+        return prevState.map((el) => (el.id === answerId ? data : el))
+      })
+    } else {
+      setQuestion((prevState) => ({
+        ...prevState,
+        votes: data.votes,
+        score: data.score
+      }))
     }
   }
 
   const unVote = async () => {
-    try {
-      const { data } = await authAxios.get(
-        answerId
-          ? `/answer/unvote/${questionId}/${answerId}`
-          : `/question/unvote/${questionId}`
-      )
-      if (answerId) {
-        setAnswers((prevState) => {
-          return prevState.map((el) => (el.id === answerId ? data : el))
-        })
-      } else {
-        setQuestion((prevState) => ({
-          ...prevState,
-          votes: data.votes,
-          score: data.score
-        }))
-      }
-    } catch (error) {
-      console.log(error)
+    const { data } = await authAxios.get(
+      answerId
+        ? `/answer/unvote/${questionId}/${answerId}`
+        : `/question/unvote/${questionId}`
+    )
+    if (answerId) {
+      setAnswers((prevState) => {
+        return prevState.map((el) => (el.id === answerId ? data : el))
+      })
+    } else {
+      setQuestion((prevState) => ({
+        ...prevState,
+        votes: data.votes,
+        score: data.score
+      }))
     }
   }
 
