@@ -6,7 +6,7 @@ import styles from './nav-item.module.css'
 
 const NavItem = ({ href, children, selected, ...props }) => {
   return (
-    <Link href={href}>
+    <Link href={href} as={href}>
       <a
         className={cn(styles.navItem, selected && styles.navItemSelected)}
         {...props}
