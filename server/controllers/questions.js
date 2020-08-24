@@ -39,7 +39,11 @@ exports.create = async (req, res, next) => {
 exports.show = async (req, res, next) => {
   try {
     const { id } = req.question;
-    const question = await Question.findByIdAndUpdate(id, { $inc: { views: 1 } }, { new: true }).populate('answers');
+    const question = await Question.findByIdAndUpdate(
+      id,
+      { $inc: { views: 1 } },
+      { new: true }
+    ).populate('answers');
     res.json(question);
   } catch (error) {
     next(error);
@@ -124,24 +128,6 @@ exports.deleteComment = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-};
-
-exports.upvote = async (req, res) => {
-  const { id } = req.user;
-  const question = await req.question.vote(id, 1);
-  res.json(question);
-};
-
-exports.downvote = async (req, res) => {
-  const { id } = req.user;
-  const question = await req.question.vote(id, -1);
-  res.json(question);
-};
-
-exports.unvote = async (req, res) => {
-  const { id } = req.user;
-  const question = await req.question.vote(id, 0);
-  res.json(question);
 };
 
 exports.questionValidate = [
