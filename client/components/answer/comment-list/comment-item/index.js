@@ -9,7 +9,7 @@ const CommentItem = ({ author, created, isOwner, children }) => {
     <div className={styles.commentContainer}>
       <p>{children}</p> – &nbsp;
       <Link href="/users/[user]" as={`/users/${author}`}>
-        <a className={isOwner && styles.owner}>salih</a>
+        <a className={isOwner ? styles.owner: undefined}>salih</a>
       </Link>
       <p className={styles.dateText}>
         {' '}
