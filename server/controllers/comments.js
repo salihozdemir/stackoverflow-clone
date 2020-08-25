@@ -3,8 +3,7 @@ const { body, validationResult } = require('express-validator');
 exports.load = async (req, res, next, id) => {
   try {
     let comment;
-
-    if (req.params.answer) {
+    if (req.answer) {
       comment = await req.answer.comments.id(id);
     } else {
       comment = await req.question.comments.id(id);

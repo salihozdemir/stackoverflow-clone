@@ -103,33 +103,6 @@ exports.loadComment = async (req, res, next, id) => {
   next();
 };
 
-exports.createComment = async (req, res, next) => {
-  const result = validationResult(req);
-  if (!result.isEmpty()) {
-    const errors = result.array({ onlyFirstError: true });
-    return res.status(422).json({ errors });
-  }
-
-  try {
-    const { id } = req.user;
-    const { comment } = req.body;
-    const question = await req.question.addComment(id, comment);
-    res.status(201).json(question);
-  } catch (error) {
-    next(error);
-  }
-};
-
-exports.deleteComment = async (req, res, next) => {
-  try {
-    const { questionComment } = req.params;
-    const question = await req.question.removeComment(questionComment);
-    res.json(question);
-  } catch (error) {
-    next(error);
-  }
-};
-
 exports.questionValidate = [
   body('title')
     .exists()
@@ -154,17 +127,4 @@ exports.questionValidate = [
     .withMessage('must be at most 5000 characters long'),
 
   body('tags').exists().withMessage('is required')
-];
-
-exports.commentValidate = [
-  body('comment')
-    .exists()
-    .trim()
-    .withMessage('is required')
-
-    .notEmpty()
-    .withMessage('cannot be blank')
-
-    .isLength({ max: 2000 })
-    .withMessage('must be at most 2000 characters long')
 ];

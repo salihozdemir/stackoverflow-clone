@@ -25,7 +25,7 @@ router.param('question', questions.load);
 router.post('/questions', [requireAuth, questions.questionValidate], questions.create);
 router.get('/question/:question', questions.show);
 router.get('/question', questions.list);
-router.get('/questions/tags', questions.listByTags);
+router.get('/questions/:tags', questions.listByTags);
 router.get('/user/:username', questions.listByUser);
 router.delete('/question/:question', [requireAuth, questionAuth], questions.delete);
 
@@ -47,32 +47,8 @@ router.get('/votes/unvote/:question/:answer?', requireAuth, votes.unvote);
 //comments
 router.param('comment', comments.load);
 router.post('/comment/:question/:answer?', [requireAuth, comments.validate], comments.create);
-router.delete('/comment/:comment/:question/:answer?', [requireAuth, commentAuth], comments.delete);
-
-//comments of questions
-router.post(
-  '/question/:question',
-  [requireAuth, questions.commentValidate],
-  questions.createComment
-);
-router.delete(
-  '/question/:question/:questionComment',
-  [requireAuth, commentAuth],
-  questions.deleteComment
-);
-
-//comments of answers
-router.param('answerComment', answers.loadComment);
-router.post(
-  '/answer/:question/:answer',
-  [requireAuth, answers.commentValidate],
-  answers.createComment
-);
-router.delete(
-  '/answer/:question/:answer/:answerComment',
-  [requireAuth, commentAuth],
-  answers.deleteComment
-);
+router.delete('/comment/:question/:comment', [requireAuth, commentAuth], comments.delete);
+router.delete('/comment/:question/:answer/:comment', [requireAuth, commentAuth], comments.delete);
 
 module.exports = (app) => {
   app.use('/api', router);
