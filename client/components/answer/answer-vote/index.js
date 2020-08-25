@@ -31,9 +31,7 @@ const AnswerVote = ({
 
   const upVote = async () => {
     const { data } = await authAxios.get(
-      answerId
-        ? `/answer/upvote/${questionId}/${answerId}`
-        : `/question/upvote/${questionId}`
+      `/votes/upvote/${questionId}/${answerId ? answerId : ''}`
     )
     if (answerId) {
       setAnswers((prevState) => {
@@ -50,9 +48,7 @@ const AnswerVote = ({
 
   const downVote = async () => {
     const { data } = await authAxios.get(
-      answerId
-        ? `/answer/downvote/${questionId}/${answerId}`
-        : `/question/downvote/${questionId}`
+      `/votes/downvote/${questionId}/${answerId ? answerId : ''}`
     )
     if (answerId) {
       setAnswers((prevState) => {
@@ -69,9 +65,7 @@ const AnswerVote = ({
 
   const unVote = async () => {
     const { data } = await authAxios.get(
-      answerId
-        ? `/answer/unvote/${questionId}/${answerId}`
-        : `/question/unvote/${questionId}`
+      `/votes/unvote/${questionId}/${answerId ? answerId : ''}`
     )
     if (answerId) {
       setAnswers((prevState) => {

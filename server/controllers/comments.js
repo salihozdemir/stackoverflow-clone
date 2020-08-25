@@ -3,6 +3,7 @@ const { body, validationResult } = require('express-validator');
 exports.load = async (req, res, next, id) => {
   try {
     let comment;
+
     if (req.answer) {
       comment = await req.answer.comments.id(id);
     } else {
@@ -20,6 +21,7 @@ exports.load = async (req, res, next, id) => {
 
 exports.create = async (req, res, next) => {
   const result = validationResult(req);
+
   if (!result.isEmpty()) {
     const errors = result.array({ onlyFirstError: true });
     return res.status(422).json({ errors });
@@ -31,26 +33,28 @@ exports.create = async (req, res, next) => {
 
     if (req.params.answer) {
       const answer = await req.answer.addComment(id, comment);
-      res.status(201).json(answer);
-    } else {
-      const question = await req.question.addComment(id, comment);
-      res.status(201).json(question);
+      return res.status(201).json(answer);
     }
+
+    const question = await req.question.addComment(id, comment);
+    return res.status(201).json(question);
   } catch (error) {
     next(error);
   }
 };
 
 exports.delete = async (req, res, next) => {
+  const { comment } = req.params;
+
   try {
-    const { comment } = req.params;
     if (req.params.answer) {
       const answer = await req.answer.removeComment(comment);
-      res.json(answer);
-    } else {
-      const question = await req.question.removeComment(comment);
-      res.json(question);
+      return res.json(answer);
     }
+
+    const question = await req.question.removeComment(comment);
+    return res.json(question);
+    
   } catch (error) {
     next(error);
   }
