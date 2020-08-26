@@ -54,6 +54,7 @@ const QuestionDetail = ({ questionId, title }) => {
                 tags={question.tags}
                 author={question.author}
                 created={question.created}
+                questionId={questionId}
               >
                 {question.text}
               </AnswerSummary>

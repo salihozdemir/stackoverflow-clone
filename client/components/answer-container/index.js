@@ -42,38 +42,46 @@ const AnswerContainer = ({
         />
       </div>
       {answers.length > 0 &&
-        answers
-          .sort(handleSorting())
-          .map((answer) => (
-            <AnswerWrapper key={answer.id}>
-              <AnswerVote
-                score={answer.score}
-                votes={answer.votes}
-                answerId={answer.id}
-                questionId={questionId}
-                setAnswers={setAnswers}
-              />
-              <AnswerSummary author={answer.author} created={answer.created}>
-                {answer.text}
-              </AnswerSummary>
-              <CommentList questionId={questionId} answerId={answer.id} setAnswers={setAnswers}>
-                {answer.comments.map(({ id, author, created, body }) => (
-                  <CommentItem
-                    key={id}
-                    commentId={id}
-                    questionId={questionId}
-                    answerId={answer.id}
-                    author={author.username}
-                    isOwner={author.username === questionAuthor}
-                    created={created}
-                    setAnswers={setAnswers}
-                  >
-                    {body}
-                  </CommentItem>
-                ))}
-              </CommentList>
-            </AnswerWrapper>
-          ))}
+        answers.sort(handleSorting()).map((answer) => (
+          <AnswerWrapper key={answer.id}>
+            <AnswerVote
+              score={answer.score}
+              votes={answer.votes}
+              answerId={answer.id}
+              questionId={questionId}
+              setAnswers={setAnswers}
+            />
+            <AnswerSummary
+              author={answer.author}
+              created={answer.created}
+              questionId={questionId}
+              answerId={answer.id}
+              setAnswers={setAnswers}
+            >
+              {answer.text}
+            </AnswerSummary>
+            <CommentList
+              questionId={questionId}
+              answerId={answer.id}
+              setAnswers={setAnswers}
+            >
+              {answer.comments.map(({ id, author, created, body }) => (
+                <CommentItem
+                  key={id}
+                  commentId={id}
+                  questionId={questionId}
+                  answerId={answer.id}
+                  author={author.username}
+                  isOwner={author.username === questionAuthor}
+                  created={created}
+                  setAnswers={setAnswers}
+                >
+                  {body}
+                </CommentItem>
+              ))}
+            </CommentList>
+          </AnswerWrapper>
+        ))}
     </div>
   )
 }
