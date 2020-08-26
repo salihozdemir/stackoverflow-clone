@@ -14,7 +14,7 @@ import AnswerContainer from '../../components/answer-container'
 import AddAnswer from '../../components/answer/add-answer'
 import { Spinner } from '../../components/icons'
 
-const QuestionDetail = ({ id, title }) => {
+const QuestionDetail = ({ questionId, title }) => {
   const [question, setQuestion] = useState(null)
   const [answers, setAnswers] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -22,7 +22,7 @@ const QuestionDetail = ({ id, title }) => {
   useEffect(() => {
     const fetchQuestion = async () => {
       setLoading(true)
-      const { data } = await publicFetch.get(`/question/${id}`)
+      const { data } = await publicFetch.get(`/question/${questionId}`)
       setQuestion(data)
       setAnswers(data.answers)
       setLoading(false)
@@ -47,7 +47,7 @@ const QuestionDetail = ({ id, title }) => {
               <AnswerVote
                 score={question.score}
                 votes={question.votes}
-                questionId={id}
+                questionId={questionId}
                 setQuestion={setQuestion}
               />
               <AnswerSummary
@@ -57,13 +57,16 @@ const QuestionDetail = ({ id, title }) => {
               >
                 {question.text}
               </AnswerSummary>
-              <CommentList questionId={id} setQuestion={setQuestion}>
+              <CommentList questionId={questionId} setQuestion={setQuestion}>
                 {question.comments.map(({ id, author, created, body }) => (
                   <CommentItem
                     key={id}
+                    commentId={id}
+                    questionId={questionId}
                     author={author.username}
                     isOwner={author.username === question.author.username}
                     created={created}
+                    setQuestion={setQuestion}
                   >
                     {body}
                   </CommentItem>
@@ -74,12 +77,16 @@ const QuestionDetail = ({ id, title }) => {
             {answers.length > 0 && (
               <AnswerContainer
                 answers={answers}
-                questionId={id}
+                questionId={questionId}
                 setAnswers={setAnswers}
                 questionAuthor={question.author.username}
               />
             )}
-            <AddAnswer tags={question.tags} setAnswers={setAnswers} id={id} />
+            <AddAnswer
+              tags={question.tags}
+              setAnswers={setAnswers}
+              id={questionId}
+            />
           </>
         )}
       </DetailPageContainer>
@@ -89,7 +96,7 @@ const QuestionDetail = ({ id, title }) => {
 
 export async function getServerSideProps(context) {
   const slug = context.params.slug
-  const id = slug.split('-').shift()
+  const questionId = slug.split('-').shift()
   const title = slug
     ?.substr(slug.indexOf('-') + 1)
     .split('-')
@@ -97,7 +104,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      id,
+      questionId,
       title
     }
   }

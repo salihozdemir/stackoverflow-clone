@@ -44,25 +44,29 @@ const AnswerContainer = ({
       {answers.length > 0 &&
         answers
           .sort(handleSorting())
-          .map(({ id, score, author, created, comments, text, votes }) => (
-            <AnswerWrapper key={id}>
+          .map((answer) => (
+            <AnswerWrapper key={answer.id}>
               <AnswerVote
-                score={score}
-                votes={votes}
-                answerId={id}
+                score={answer.score}
+                votes={answer.votes}
+                answerId={answer.id}
                 questionId={questionId}
                 setAnswers={setAnswers}
               />
-              <AnswerSummary author={author} created={created}>
-                {text}
+              <AnswerSummary author={answer.author} created={answer.created}>
+                {answer.text}
               </AnswerSummary>
-              <CommentList questionId={questionId} answerId={id} setAnswers={setAnswers}>
-                {comments.map(({ id, author, created, body }) => (
+              <CommentList questionId={questionId} answerId={answer.id} setAnswers={setAnswers}>
+                {answer.comments.map(({ id, author, created, body }) => (
                   <CommentItem
                     key={id}
+                    commentId={id}
+                    questionId={questionId}
+                    answerId={answer.id}
                     author={author.username}
                     isOwner={author.username === questionAuthor}
                     created={created}
+                    setAnswers={setAnswers}
                   >
                     {body}
                   </CommentItem>

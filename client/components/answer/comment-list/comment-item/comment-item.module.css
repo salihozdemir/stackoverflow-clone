@@ -22,3 +22,11 @@
 .dateText {
   color: var(--black-350);
 }
+
+.delete {
+  color: var(--red-400);
+
+  &:hover {
+    color: var(--red-500);
+  }
+}
