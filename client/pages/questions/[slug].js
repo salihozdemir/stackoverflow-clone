@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Head from 'next/head'
 
 import { publicFetch } from '../../util/fetcher'
 
@@ -33,7 +34,12 @@ const QuestionDetail = ({ questionId, title }) => {
 
   return (
     <Layout extra={false}>
+      <Head>
+        <title>{title}</title>
+      </Head>
+
       <PageTitle title={title} button />
+
       <DetailPageContainer>
         {loading && (
           <div className="loading">

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Head from 'next/head'
 
 import { Logo } from '../icons'
 import LoginForm from './login-form'
@@ -11,6 +12,10 @@ const AuthForms = ({ screen = 'signup' }) => {
 
   return (
     <div className={styles.authModal}>
+      <Head>
+        <title>{form == 'login' ? 'Log In' : 'Sign Up'} - Clone of Stackoverflow</title>
+      </Head>
+
       <Logo className={styles.logo} />
 
       {form === 'login' ? <LoginForm /> : <SignUpForm />}

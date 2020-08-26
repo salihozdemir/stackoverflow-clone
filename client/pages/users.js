@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Head from 'next/head'
 
 import { publicFetch } from '../util/fetcher'
 
@@ -38,7 +39,12 @@ function UsersPage() {
 
   return (
     <Layout extra={false}>
+       <Head>
+        <title>Users - Clone of Stackoverflow</title>
+      </Head>
+
       <PageTitle title="Users" borderBottom={false} />
+
       <SearchInput
         placeholder="Search by user"
         isLoading={loading}

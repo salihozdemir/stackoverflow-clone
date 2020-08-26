@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Head from 'next/head'
 
 import { publicFetch } from '../util/fetcher'
 
@@ -23,6 +24,10 @@ const HomePage = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>Questions - Clone of Stackoverflow</title>
+      </Head>
+
       <PageTitle title="All Questions" button />
 
       {!questions && (
