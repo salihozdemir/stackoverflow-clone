@@ -1,9 +1,10 @@
 .container {
   width: 100%;
   padding-left: 24px;
+  padding-right: 24px;
   padding-top: 24px;
   margin-bottom: 24px;
   display: grid;
   grid-gap: 12px;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
 }
