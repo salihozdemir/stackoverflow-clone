@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react'
-import { useRouter } from 'next/router'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 
 import { publicFetch } from '../../../util/fetcher'
 import { AuthContext } from '../../../store/auth'
+import ModalContext from '../../../store/modal'
 
 import FormInput from '../../form-input'
 import Button from '../../button'
@@ -12,10 +12,11 @@ import Button from '../../button'
 import styles from './signup-form.module.css'
 
 const SignupForm = () => {
-  const router = useRouter()
   const { setAuthState } = useContext(AuthContext)
+  const { setIsComponentVisible } = useContext(ModalContext)
 
   const [loading, setLoading] = useState(false)
+
   return (
     <Formik
       initialValues={{ username: '', password: '', passwordConfirmation: '' }}
@@ -25,8 +26,8 @@ const SignupForm = () => {
           const { data } = await publicFetch.post('signup', values)
           const { token, expiresAt, userInfo } = data
           setAuthState({ token, expiresAt, userInfo })
-          router.reload()
           resetForm({})
+          setIsComponentVisible(false)
         } catch (error) {
           setStatus(error.response.data.message)
         }
