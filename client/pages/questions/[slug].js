@@ -57,7 +57,7 @@ const QuestionDetail = ({ id, title }) => {
               >
                 {question.text}
               </AnswerSummary>
-              <CommentList>
+              <CommentList questionId={id} setQuestion={setQuestion}>
                 {question.comments.map(({ id, author, created, body }) => (
                   <CommentItem
                     key={id}

@@ -69,6 +69,6 @@ exports.validate = [
     .notEmpty()
     .withMessage('cannot be blank')
 
-    .isLength({ max: 2000 })
-    .withMessage('must be at most 2000 characters long')
+    .isLength({ max: 1000 })
+    .withMessage('must be at most 1000 characters long')
 ];

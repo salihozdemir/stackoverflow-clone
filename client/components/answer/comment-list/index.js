@@ -1,19 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import AddComment from '../add-comment'
 
 import styles from './comment-list.module.css'
 
-const CommentList = ({ children }) => {
+const CommentList = ({
+  children,
+  questionId,
+  answerId,
+  setQuestion,
+  setAnswers
+}) => {
   const [showAddComment, setShowAddComment] = useState(false)
   const [visibleComments, setVisibleComments] = useState(children.slice(0, 3))
-  const difference = children.length - visibleComments.length
+  const [difference, setDiffrence] = useState(null)
+  
+  useEffect(() => {
+    setVisibleComments(children.slice(0,3))  
+  }, [children])
+
+  useEffect(() => {
+    setDiffrence(children.length - visibleComments.length)
+  }, [visibleComments])
+
 
   return (
     <div className={styles.commentCell}>
       {visibleComments}
 
-      {difference > 0 ? (
+      {difference > 0  ? (
         <a
           className={styles.showMore}
           onClick={() => setVisibleComments(children)}
@@ -31,7 +46,15 @@ const CommentList = ({ children }) => {
         )
       )}
 
-      {showAddComment && <AddComment />}
+      {showAddComment && (
+        <AddComment
+          questionId={questionId}
+          answerId={answerId}
+          setShowAddComment={setShowAddComment}
+          setAnswers={setAnswers}
+          setQuestion={setQuestion}
+        />
+      )}
     </div>
   )
 }

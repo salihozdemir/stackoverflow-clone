@@ -56,7 +56,7 @@ const AnswerContainer = ({
               <AnswerSummary author={author} created={created}>
                 {text}
               </AnswerSummary>
-              <CommentList>
+              <CommentList questionId={questionId} answerId={id} setAnswers={setAnswers}>
                 {comments.map(({ id, author, created, body }) => (
                   <CommentItem
                     key={id}

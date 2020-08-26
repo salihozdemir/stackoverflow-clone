@@ -12,3 +12,8 @@
 .button {
   max-height: 34px;
 }
+
+.status {
+  color: var(--red-500);
+  font-size: 12px;
+}

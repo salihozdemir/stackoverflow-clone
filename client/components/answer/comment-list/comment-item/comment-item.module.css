@@ -5,6 +5,7 @@
 
   p {
     display: inline;
+    word-break: break-word;
   }
 
   &:first-child {
