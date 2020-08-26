@@ -32,10 +32,12 @@ const QuestionDetail = ({ questionId, title }) => {
     fetchQuestion()
   }, [])
 
+  const isClient = typeof window === 'object'
   return (
     <Layout extra={false}>
       <Head>
         <title>{title}</title>
+        <link rel="canonical" href={isClient && window.location.href}></link>
       </Head>
 
       <PageTitle title={title} button />
