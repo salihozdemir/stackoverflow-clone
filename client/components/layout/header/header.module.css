@@ -79,6 +79,7 @@
   display: grid;
   grid-template-columns: 1fr 43px;
   grid-gap: 5px;
+  margin-right: 5px;
 
   p {
     padding-right: 5px;
