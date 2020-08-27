@@ -48,7 +48,7 @@ function TagsPage() {
         similar questions. Using the right tags makes it easier for others to
         find and answer your question.
       </PageTitle>
-      
+
       <SearchInput
         placeholder="Filter by tag name"
         autoFocus
@@ -65,13 +65,17 @@ function TagsPage() {
       )}
 
       {tags && (
-        <TagList>
-          {tags?.map(({ count, _id }) => (
-            <TagItem key={_id} count={count}>
-              {_id}
-            </TagItem>
-          ))}
-        </TagList>
+        <>
+          <TagList>
+            {tags?.map(({ count, _id }) => (
+              <TagItem key={_id} count={count}>
+                {_id}
+              </TagItem>
+            ))}
+          </TagList>
+
+          {tags.length == 0 && <p className="not-found">No tags matched your search.</p>}
+        </>
       )}
     </Layout>
   )

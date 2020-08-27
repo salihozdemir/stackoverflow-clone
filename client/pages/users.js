@@ -39,7 +39,7 @@ function UsersPage() {
 
   return (
     <Layout extra={false}>
-       <Head>
+      <Head>
         <title>Users - Clone of Stackoverflow</title>
       </Head>
 
@@ -61,16 +61,22 @@ function UsersPage() {
       )}
 
       {users && (
-        <UserList>
-          {users?.map(({ username, profilePhoto, created, id }) => (
-            <UserItem
-              key={id}
-              username={username}
-              profilePhoto={profilePhoto}
-              created={created}
-            />
-          ))}
-        </UserList>
+        <>
+          <UserList>
+            {users?.map(({ username, profilePhoto, created, id }) => (
+              <UserItem
+                key={id}
+                username={username}
+                profilePhoto={profilePhoto}
+                created={created}
+              />
+            ))}
+          </UserList>
+
+          {users.length == 0 && (
+            <p className="not-found">No users matched your search.</p>
+          )}
+        </>
       )}
     </Layout>
   )
