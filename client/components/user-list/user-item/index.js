@@ -10,7 +10,7 @@ const UserItem = ({ username, profilePhoto, created }) => {
       <div className={styles.avatar}>
         <Link href="/users/[username]" as={`/users/${username}`}>
           <a>
-            <img src={profilePhoto} />
+            <img src={profilePhoto} alt={username} />
           </a>
         </Link>
       </div>

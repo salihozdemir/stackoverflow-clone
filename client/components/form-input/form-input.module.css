@@ -35,6 +35,7 @@
   color: var(--black-900);
   font-size: 13px;
   line-height: 1.3;
+  font-weight: normal;
   box-sizing: border-box;
 
   &::placeholder {

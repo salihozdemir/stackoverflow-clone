@@ -16,7 +16,7 @@ const Extra = ({ marginTop = 24 }) => {
         className={styles.tagContainer}
         style={{ marginTop: `${marginTop}px` }}
       >
-        <h4>Popular Tags</h4>
+        <h2>Popular Tags</h2>
         <div>
           {!tagState && (
             <div className="loading">

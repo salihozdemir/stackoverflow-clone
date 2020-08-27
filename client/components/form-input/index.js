@@ -14,16 +14,18 @@ const FormInput = ({
 }) => {
   return (
     <div className={styles.container}>
-      <label className={styles.label}>{label}</label>
-      {inputInfo && <p className={styles.inputInfo}>{inputInfo}</p>}
-      <p></p>
-      <div className={styles.inputContainer}>
-        <input
-          className={cn(styles.input, hasError && styles.hasError)}
-          {...props}
-        />
-        {hasError && <Alert className={styles.alert} />}
-      </div>
+      <label id={label} className={styles.label}>
+        {label}
+        {inputInfo && <p className={styles.inputInfo}>{inputInfo}</p>}
+        <div className={styles.inputContainer}>
+          <input
+            className={cn(styles.input, hasError && styles.hasError)}
+            htmlFor={label}
+            {...props}
+          />
+          {hasError && <Alert className={styles.alert} />}
+        </div>
+      </label>
       {hasError && <p className={styles.inputMessage}>{errorMessage}</p>}
     </div>
   )

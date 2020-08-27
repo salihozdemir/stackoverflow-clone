@@ -32,6 +32,7 @@ const QuestionSummary = ({
             <a>
               <img
                 src={`https://secure.gravatar.com/avatar/${author.id}?s=32&d=identicon`}
+                alt={author.username}
               />
             </a>
           </Link>

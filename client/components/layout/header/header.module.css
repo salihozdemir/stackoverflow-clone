@@ -60,6 +60,7 @@
     height: 30px;
     background-image: url('/images/sprites.svg');
     background-position: 0 -500px;
+    text-indent: -9999em;
 
     @media (--m) {
       width: 150px;

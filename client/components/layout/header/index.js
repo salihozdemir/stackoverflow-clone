@@ -44,7 +44,7 @@ const Header = ({ className, ...props }) => {
           </Button>
         </div>
         <Button className={styles.logo} href="/">
-          <span></span>
+          <span>Stackoverflow</span>
         </Button>
         <div style={{ flex: 1 }}></div>
 

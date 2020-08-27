@@ -9,7 +9,7 @@
   flex-direction: column;
   padding-left: 24px;
 
-  h4 {
+  h2 {
     color: var(--black-700);
     font-size: 18px;
     font-weight: 400;
