@@ -89,7 +89,7 @@ const AnswerVote = ({
             ? isUpVoted()
               ? unVote()
               : upVote()
-            : handleComponentVisible(true, 'login')
+            : handleComponentVisible(true, 'signup')
         }
       >
         <ArrowUp className={isUpVoted() ? styles.voted : ''} />
@@ -102,7 +102,7 @@ const AnswerVote = ({
             ? isDownVoted()
               ? unVote()
               : downVote()
-            : handleComponentVisible(true, 'login')
+            : handleComponentVisible(true, 'signup')
         }
       >
         <ArrowDown className={isDownVoted() ? styles.voted : ''} />

@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+
+import { AuthContext } from '../../../store/auth'
+import ModalContext from '../../../store/modal'
 
 import AddComment from '../add-comment'
 
@@ -11,6 +14,9 @@ const CommentList = ({
   setQuestion,
   setAnswers
 }) => {
+  const { isAuthenticated } = useContext(AuthContext)
+  const { handleComponentVisible } = useContext(ModalContext)
+
   const [showAddComment, setShowAddComment] = useState(false)
   const [visibleComments, setVisibleComments] = useState(children.slice(0, 3))
   const [difference, setDiffrence] = useState(null)
@@ -39,7 +45,7 @@ const CommentList = ({
         !showAddComment && (
           <a
             className={styles.addComment}
-            onClick={() => setShowAddComment(true)}
+            onClick={() => isAuthenticated() ? setShowAddComment(true) : handleComponentVisible(true, 'signup')}
           >
             add comment
           </a>

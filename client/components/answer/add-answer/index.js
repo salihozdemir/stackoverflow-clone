@@ -4,6 +4,8 @@ import { Formik } from 'formik'
 import * as Yup from 'yup'
 
 import { FetchContext } from '../../../store/fetch'
+import { AuthContext } from '../../../store/auth'
+import ModalContext from '../../../store/modal'
 
 import TextArea from '../../textarea'
 import Button from '../../button'
@@ -13,6 +15,8 @@ import styles from './add-answer.module.css'
 
 const AddAnswer = ({ id, tags, setAnswers }) => {
   const { authAxios } = useContext(FetchContext)
+  const { isAuthenticated } = useContext(AuthContext)
+  const { handleComponentVisible } = useContext(ModalContext)
 
   const [loading, setLoading] = useState(false)
 
@@ -45,7 +49,7 @@ const AddAnswer = ({ id, tags, setAnswers }) => {
         handleChange,
         handleBlur,
         handleSubmit,
-        isSubmitting
+        isSubmitting,
       }) => (
         <form className={styles.container} onSubmit={handleSubmit}>
           <h2>Your answer</h2>
@@ -66,6 +70,7 @@ const AddAnswer = ({ id, tags, setAnswers }) => {
               primary
               isLoading={loading}
               disabled={isSubmitting}
+              onClick={() => !isAuthenticated() && handleComponentVisible(true, 'signup')}
             >
               Post Your Answer
             </Button>
