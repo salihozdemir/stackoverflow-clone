@@ -1,6 +1,7 @@
 .container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
 
   button {
     color: var(--black-500);
@@ -40,4 +41,9 @@
   &:hover {
     background-color: var(--black-075) !important;
   }
+}
+
+.borderBottom {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--black-100);
 }

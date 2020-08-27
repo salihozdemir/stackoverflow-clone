@@ -8,10 +8,12 @@ import QuestionWrapper from '../components/question/question-wrapper'
 import QuestionStats from '../components/question/question-stats'
 import QuestionSummary from '../components/question/question-summary'
 import PageTitle from '../components/page-title'
+import ButtonGroup from '../components/button-group'
 import { Spinner } from '../components/icons'
 
 const HomePage = () => {
   const [questions, setQuestions] = useState(null)
+  const [sortType, setSortType] = useState('Votes')
 
   useEffect(() => {
     const fetchQuestion = async () => {
@@ -22,13 +24,35 @@ const HomePage = () => {
     fetchQuestion()
   }, [])
 
+  const handleSorting = () => {
+    switch (sortType) {
+      case 'Votes':
+        return (a, b) => b.score - a.score
+      case 'Views':
+        return (a, b) => b.views - a.views
+      case 'Newest':
+        return (a, b) => new Date(b.created) - new Date(a.created)
+      case 'Oldest':
+        return (a, b) => new Date(a.created) - new Date(b.created)
+      default:
+        break
+    }
+  }
+
   return (
     <Layout>
       <Head>
         <title>Questions - Clone of Stackoverflow</title>
       </Head>
 
-      <PageTitle title="All Questions" button />
+      <PageTitle title="All Questions" button borderBottom={false} />
+
+      <ButtonGroup
+        borderBottom
+        buttons={['Votes', 'Views', 'Newest', 'Oldest']}
+        selected={sortType}
+        setSelected={setSortType}
+      />
 
       {!questions && (
         <div className="loading">
@@ -36,7 +60,7 @@ const HomePage = () => {
         </div>
       )}
 
-      {questions?.map(
+      {questions?.sort(handleSorting()).map(
         ({ id, votes, answers, views, title, text, tags, author, created }) => (
           <QuestionWrapper key={id}>
             <QuestionStats
