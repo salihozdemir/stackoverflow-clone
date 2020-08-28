@@ -18,16 +18,7 @@ const PostList = ({ username }) => {
       setPosts(data)
     }
 
-    const fetchAnswers = async () => {
-      const { data } = await publicFetch.get(`/user/`)
-      setPosts(data)
-    }
-
-    if (postType == 'Questions') {
-      fetchQuestions()
-    } else {
-      fetchAnswers()
-    }
+    fetchQuestions()
   }, [postType])
 
   return (
@@ -35,7 +26,7 @@ const PostList = ({ username }) => {
       <div className={styles.header}>
         <h2>Last Questions</h2>
         <ButtonGroup
-          buttons={['Questions', 'Answers']}
+          buttons={['Questions']}
           selected={postType}
           setSelected={setPostType}
         />
