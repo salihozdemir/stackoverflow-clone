@@ -33,7 +33,7 @@ const UserDetail = ({ username }) => {
           )}
 
           {posts?.map(({ id, title, score, created }) => (
-            <PostItem key={id} title={title} vote={score} created={created} />
+            <PostItem key={id} title={title} vote={score} created={created} id={id} />
           ))}
 
           {posts?.length == 0 && (
