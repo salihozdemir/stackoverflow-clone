@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 import { publicFetch } from '../util/fetcher'
 
@@ -12,6 +13,8 @@ import ButtonGroup from '../components/button-group'
 import { Spinner } from '../components/icons'
 
 const HomePage = () => {
+  const router = useRouter()
+
   const [questions, setQuestions] = useState(null)
   const [sortType, setSortType] = useState('Votes')
 
@@ -21,8 +24,17 @@ const HomePage = () => {
       setQuestions(data)
     }
 
-    fetchQuestion()
-  }, [])
+    const fetchQuestionByTag = async () => {
+      const { data } = await publicFetch.get(`/questions/${router.query.tag}`)
+      setQuestions(data)
+    }
+
+    if (router.query.tag) {
+      fetchQuestionByTag()
+    } else {
+      fetchQuestion()
+    }
+  }, [router.query.tag])
 
   const handleSorting = () => {
     switch (sortType) {
@@ -60,26 +72,38 @@ const HomePage = () => {
         </div>
       )}
 
-      {questions?.sort(handleSorting()).map(
-        ({ id, votes, answers, views, title, text, tags, author, created }) => (
-          <QuestionWrapper key={id}>
-            <QuestionStats
-              voteCount={votes.length}
-              answerCount={answers.length}
-              view={views}
-            />
-            <QuestionSummary
-              id={id}
-              title={title}
-              tags={tags}
-              author={author}
-              createdTime={created}
-            >
-              {text}
-            </QuestionSummary>
-          </QuestionWrapper>
-        )
-      )}
+      {questions
+        ?.sort(handleSorting())
+        .map(
+          ({
+            id,
+            votes,
+            answers,
+            views,
+            title,
+            text,
+            tags,
+            author,
+            created
+          }) => (
+            <QuestionWrapper key={id}>
+              <QuestionStats
+                voteCount={votes.length}
+                answerCount={answers.length}
+                view={views}
+              />
+              <QuestionSummary
+                id={id}
+                title={title}
+                tags={tags}
+                author={author}
+                createdTime={created}
+              >
+                {text}
+              </QuestionSummary>
+            </QuestionWrapper>
+          )
+        )}
     </Layout>
   )
 }
