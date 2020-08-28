@@ -46,4 +46,5 @@
 .borderBottom {
   padding-bottom: 12px;
   border-bottom: 1px solid var(--black-100);
+  margin-right: 5px;
 }
