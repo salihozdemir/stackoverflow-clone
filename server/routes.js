@@ -26,7 +26,7 @@ router.post('/questions', [requireAuth, questions.questionValidate], questions.c
 router.get('/question/:question', questions.show);
 router.get('/question', questions.list);
 router.get('/questions/:tags', questions.listByTags);
-router.get('/user/:username', questions.listByUser);
+router.get('/question/user/:username', questions.listByUser);
 router.delete('/question/:question', [requireAuth, questionAuth], questions.delete);
 
 //tags

@@ -14,7 +14,7 @@ const PostList = ({ username }) => {
 
   useEffect(() => {
     const fetchQuestions = async () => {
-      const { data } = await publicFetch.get(`/user/${username}`)
+      const { data } = await publicFetch.get(`/question/user/${username}`)
       setPosts(data)
     }
 
