@@ -73,9 +73,9 @@ exports.listByTags = async (req, res, next) => {
 exports.listByUser = async (req, res, next) => {
   try {
     const { username } = req.params;
-    const { sortType = '-score' } = req.body;
+    const { sortType = '-created' } = req.body;
     const author = await User.findOne({ username });
-    const questions = await Question.find({ author: author.id }).sort(sortType);
+    const questions = await Question.find({ author: author.id }).sort(sortType).limit(10);
     res.json(questions);
   } catch (error) {
     next(error);
