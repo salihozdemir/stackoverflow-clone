@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding: 10px 0px;
+  border-bottom: 1px solid var(--black-075);
+}
+
+.vote {
+  text-align: center;
+  color: var(--black-500);
+  min-width: 36px;
+  padding: 3px 6px;
+  margin-right: 10px;
+  border: 1px solid var(--black-300);
+  border-radius: 2px;
+}
+
+.title {
+  flex: 1;
+  font-size: 15px;
+}
+
+.created {
+  color: var(--black-300);
+  margin-left: 6px;
+  display: none;
+
+  @media (--m) {
+    display: block;
+  }
+}
