@@ -1,0 +1,50 @@
+.avatarCard {
+  box-shadow: inset 0 10em 0 var(--black-050);
+  border: 1px solid var(--black-100);
+  border-radius: 3px;
+  padding: 12px;
+}
+
+.avatar {
+  width: 164px;
+  height: 164px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 16px;
+
+  img {
+    border-radius: 3px;
+  }
+}
+
+.username {
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.counts {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+    p {
+    font-family: monospace;
+    padding: 5px;
+  }
+
+  span {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
