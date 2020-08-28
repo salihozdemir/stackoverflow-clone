@@ -3,6 +3,7 @@
   border: 1px solid var(--black-100);
   border-radius: 3px;
   padding: 12px;
+  min-height: 265px;
 }
 
 .avatar {
@@ -25,26 +26,18 @@
   text-align: center;
 }
 
-.counts {
-  display: flex;
-  justify-content: space-around;
+.created {
   margin-top: 10px;
-}
-
-.cell {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-    p {
+  text-align: center;
+  p {
     font-family: monospace;
-    padding: 5px;
   }
 
   span {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol';
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
   }
 }

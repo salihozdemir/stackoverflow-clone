@@ -89,3 +89,8 @@ a {
   color: var(--red-500);
   margin-left: 24px;
 }
+
+.not-found-questions {
+  margin-top: 10px;
+  text-align: center;
+} 

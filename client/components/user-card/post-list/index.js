@@ -1,26 +1,10 @@
-import React, { useEffect, useState } from 'react'
-
-import { publicFetch } from '../../../util/fetcher'
+import React from 'react'
 
 import ButtonGroup from '../../button-group'
-import PostItem from './post-item'
-import { Spinner } from '../../icons'
 
 import styles from './post-list.module.css'
 
-const PostList = ({ username }) => {
-  const [posts, setPosts] = useState(null)
-  const [postType, setPostType] = useState('Questions')
-
-  useEffect(() => {
-    const fetchQuestions = async () => {
-      const { data } = await publicFetch.get(`/question/user/${username}`)
-      setPosts(data)
-    }
-
-    fetchQuestions()
-  }, [postType])
-
+const PostList = ({ postType, setPostType, children }) => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -31,16 +15,7 @@ const PostList = ({ username }) => {
           setSelected={setPostType}
         />
       </div>
-
-      {!posts && (
-        <div className="loading">
-          <Spinner />
-        </div>
-      )}
-
-      {posts?.map(({ id, title, score, created }) => (
-        <PostItem key={id} title={title} vote={score} created={created} />
-      ))}
+      {children}
     </div>
   )
 }
