@@ -130,6 +130,15 @@ exports.search = async (req, res, next) => {
   }
 };
 
+exports.show = async (req, res, next) => {
+  try {
+    const users = await User.findOne({ username: req.params.username});
+    res.json(users);
+  } catch (error) {
+    next(error);
+  }
+};
+
 exports.validate = [
   body('username')
     .exists()
