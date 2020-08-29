@@ -33,6 +33,7 @@ const UserAvatar = ({ username }) => {
               <a>
                 <img
                   src={`https://secure.gravatar.com/avatar/${userInfo.id}?s=164&d=identicon`}
+                  alt={username}
                 />
               </a>
             </Link>

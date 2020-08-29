@@ -54,10 +54,13 @@ const HomePage = () => {
   return (
     <Layout>
       <Head>
-        <title>Questions - Clone of Stackoverflow</title>
+        <title>
+          {router.query.tag ? router.query.tag : 'Questions'} - Clone of
+          Stackoverflow
+        </title>
       </Head>
 
-      <PageTitle title="All Questions" button borderBottom={false} />
+      <PageTitle title={router.query.tag ? `Questions tagged [${router.query.tag}]` : 'All Questions'} button borderBottom={false} />
 
       <ButtonGroup
         borderBottom

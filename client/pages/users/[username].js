@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Head from 'next/head'
 
 import { publicFetch } from '../../util/fetcher'
 
@@ -23,6 +24,10 @@ const UserDetail = ({ username }) => {
 
   return (
     <Layout extra={false}>
+      <Head>
+        <title>Users {username} - Clone of Stackoverflow</title>
+      </Head>
+
       <UserCard>
         <AvatarCard username={username} />
         <PostList postType={postType} setPostType={setPostType}>
@@ -33,7 +38,13 @@ const UserDetail = ({ username }) => {
           )}
 
           {posts?.map(({ id, title, score, created }) => (
-            <PostItem key={id} title={title} vote={score} created={created} id={id} />
+            <PostItem
+              key={id}
+              title={title}
+              vote={score}
+              created={created}
+              id={id}
+            />
           ))}
 
           {posts?.length == 0 && (
