@@ -18,6 +18,7 @@
   overflow: hidden;
   margin-bottom: 5px;
   white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .footer {
@@ -52,5 +53,9 @@
     display: flex;
     flex-direction: column;
     margin-left: 10px;
+
+    a {
+      width: min-content;
+    }
   }
 }

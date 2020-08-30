@@ -11,6 +11,7 @@
   justify-content: space-between;
   height: 60px;
   margin: 10px 0px;
+  padding-left: 16px;
 }
 
 .status {

@@ -26,6 +26,7 @@
 
   h1 {
     font-size: 22px;
+    padding-left: 16px;
 
     @media (--m) {
       font-size: 27px;
