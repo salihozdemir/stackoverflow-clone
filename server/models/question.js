@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const voteSchema = require('./vote');
 const commentSchema = require('./comment');
+const answerSchema = require('./answer');
 
 const questionSchema = new Schema({
   author: {
@@ -16,7 +17,7 @@ const questionSchema = new Schema({
   score: { type: Number, default: 0 },
   votes: [voteSchema],
   comments: [commentSchema],
-  answers: [{ type: Schema.Types.ObjectId, ref: 'Answer' }],
+  answers: [answerSchema],
   created: { type: Date, default: Date.now },
   views: { type: Number, default: 0 }
 });
@@ -66,19 +67,24 @@ questionSchema.methods = {
     return this.save();
   },
 
-  addAnswer: function (id) {
-    this.answers.push(id);
+  addAnswer: function (author, text) {
+    this.answers.push({ author, text });
     return this.save();
   },
 
   removeAnswer: function (id) {
-    this.answers.pull(id)
+    const answer = this.answers.id(id);
+    if (!answer) throw new Error('Answer not found');
+    answer.remove();
     return this.save();
   }
 };
 
 questionSchema.pre(/^find/, function () {
-  this.populate('author').populate('comments.author', '-role');
+  this.populate('author')
+    .populate('comments.author', '-role')
+    .populate('answers.author', '-role')
+    .populate('answers.comments.author', '-role');
 });
 
 questionSchema.pre('save', function (next) {
@@ -90,9 +96,9 @@ questionSchema.post('save', function (doc, next) {
   if (this.wasNew) this.vote(this.author._id, 1);
   doc
     .populate('author')
-    .populate('answers')
     .populate('answers.author', '-role')
     .populate('comments.author', '-role')
+    .populate('answers.comments.author', '-role')
     .execPopulate()
     .then(() => next());
 });

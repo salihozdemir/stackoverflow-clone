@@ -32,8 +32,9 @@ exports.create = async (req, res, next) => {
     const { comment } = req.body;
 
     if (req.params.answer) {
-      const answer = await req.answer.addComment(id, comment);
-      return res.status(201).json(answer);
+      req.answer.addComment(id, comment);
+      const question = await req.question.save();
+      return res.status(201).json(question);
     }
 
     const question = await req.question.addComment(id, comment);
@@ -48,8 +49,9 @@ exports.delete = async (req, res, next) => {
 
   try {
     if (req.params.answer) {
-      const answer = await req.answer.removeComment(comment);
-      return res.json(answer);
+      req.answer.removeComment(comment);
+      const question = await req.question.save();
+      return res.json(question);
     }
 
     const question = await req.question.removeComment(comment);

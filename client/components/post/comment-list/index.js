@@ -12,7 +12,6 @@ const CommentList = ({
   questionId,
   answerId,
   setQuestion,
-  setAnswers
 }) => {
   const { isAuthenticated } = useContext(AuthContext)
   const { handleComponentVisible } = useContext(ModalContext)
@@ -57,7 +56,6 @@ const CommentList = ({
           questionId={questionId}
           answerId={answerId}
           setShowAddComment={setShowAddComment}
-          setAnswers={setAnswers}
           setQuestion={setQuestion}
         />
       )}

@@ -9,14 +9,7 @@ import { ArrowUp, ArrowDown } from '../../icons'
 
 import styles from './post-vote.module.css'
 
-const PostVote = ({
-  score,
-  votes,
-  questionId,
-  answerId,
-  setQuestion,
-  setAnswers
-}) => {
+const PostVote = ({ score, votes, questionId, answerId, setQuestion }) => {
   const { authState, isAuthenticated } = useContext(AuthContext)
   const { authAxios } = useContext(FetchContext)
   const { handleComponentVisible } = useContext(ModalContext)
@@ -33,51 +26,21 @@ const PostVote = ({
     const { data } = await authAxios.get(
       `/votes/upvote/${questionId}/${answerId ? answerId : ''}`
     )
-    if (answerId) {
-      setAnswers((prevState) => {
-        return prevState.map((el) => (el.id === answerId ? data : el))
-      })
-    } else {
-      setQuestion((prevState) => ({
-        ...prevState,
-        votes: data.votes,
-        score: data.score
-      }))
-    }
+    setQuestion(data)
   }
 
   const downVote = async () => {
     const { data } = await authAxios.get(
       `/votes/downvote/${questionId}/${answerId ? answerId : ''}`
     )
-    if (answerId) {
-      setAnswers((prevState) => {
-        return prevState.map((el) => (el.id === answerId ? data : el))
-      })
-    } else {
-      setQuestion((prevState) => ({
-        ...prevState,
-        votes: data.votes,
-        score: data.score
-      }))
-    }
+    setQuestion(data)
   }
 
   const unVote = async () => {
     const { data } = await authAxios.get(
       `/votes/unvote/${questionId}/${answerId ? answerId : ''}`
     )
-    if (answerId) {
-      setAnswers((prevState) => {
-        return prevState.map((el) => (el.id === answerId ? data : el))
-      })
-    } else {
-      setQuestion((prevState) => ({
-        ...prevState,
-        votes: data.votes,
-        score: data.score
-      }))
-    }
+    setQuestion(data)
   }
 
   return (
