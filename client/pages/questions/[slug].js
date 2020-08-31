@@ -17,22 +17,32 @@ import { Spinner } from '../../components/icons'
 
 const QuestionDetail = ({ questionId, title }) => {
   const [question, setQuestion] = useState(null)
-  const [answers, setAnswers] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [answerSortType, setAnswersSortType] = useState('Votes')
 
   useEffect(() => {
     const fetchQuestion = async () => {
-      setLoading(true)
       const { data } = await publicFetch.get(`/question/${questionId}`)
       setQuestion(data)
-      setAnswers(data.answers)
-      setLoading(false)
     }
 
     fetchQuestion()
   }, [])
 
+  const handleSorting = () => {
+    switch (answerSortType) {
+      case 'Votes':
+        return (a, b) => b.score - a.score
+      case 'Newest':
+        return (a, b) => new Date(b.created) - new Date(a.created)
+      case 'Oldest':
+        return (a, b) => new Date(a.created) - new Date(b.created)
+      default:
+        break
+    }
+  }
+
   const isClient = typeof window === 'object'
+
   return (
     <Layout extra={false}>
       <Head>
@@ -43,13 +53,13 @@ const QuestionDetail = ({ questionId, title }) => {
       <PageTitle title={title} button />
 
       <DetailPageContainer>
-        {loading && (
+        {!question && (
           <div className="loading">
             <Spinner />
           </div>
         )}
 
-        {!loading && (
+        {question && (
           <>
             <PostWrapper borderBottom={false}>
               <PostVote
@@ -83,18 +93,59 @@ const QuestionDetail = ({ questionId, title }) => {
               </CommentList>
             </PostWrapper>
 
-            {answers.length > 0 && (
+            {question.answers.length > 0 && (
               <AnswerContainer
-                answers={answers}
-                questionId={questionId}
-                setAnswers={setAnswers}
-                questionAuthor={question.author.username}
-              />
+                answersCount={question.answers.length}
+                answerSortType={answerSortType}
+                setAnswerSortType={setAnswersSortType}
+              >
+                {question.answers.sort(handleSorting()).map((answer) => (
+                  <PostWrapper key={answer.id}>
+                    <PostVote
+                      score={answer.score}
+                      votes={answer.votes}
+                      answerId={answer.id}
+                      questionId={questionId}
+                      setQuestion={setQuestion}
+                    />
+                    <PostSummary
+                      author={answer.author}
+                      created={answer.created}
+                      questionId={questionId}
+                      answerId={answer.id}
+                      setQuestion={setQuestion}
+                    >
+                      {answer.text}
+                    </PostSummary>
+                    <CommentList
+                      questionId={questionId}
+                      answerId={answer.id}
+                      setQuestion={setQuestion}
+                    >
+                      {answer.comments.map(({ id, author, created, body }) => (
+                        <CommentItem
+                          key={id}
+                          commentId={id}
+                          questionId={questionId}
+                          answerId={answer.id}
+                          author={author.username}
+                          isOwner={author.username === question.author.username}
+                          created={created}
+                          setQuestion={setQuestion}
+                        >
+                          {body}
+                        </CommentItem>
+                      ))}
+                    </CommentList>
+                  </PostWrapper>
+                ))}
+              </AnswerContainer>
             )}
+
             <AddAnswer
               tags={question.tags}
-              setAnswers={setAnswers}
               id={questionId}
+              setQuestion={setQuestion}
             />
           </>
         )}

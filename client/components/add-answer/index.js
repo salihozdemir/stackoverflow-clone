@@ -13,7 +13,7 @@ import Tag from '../tag'
 
 import styles from './add-answer.module.css'
 
-const AddAnswer = ({ id, tags, setAnswers }) => {
+const AddAnswer = ({ id, tags, setQuestion }) => {
   const { authAxios } = useContext(FetchContext)
   const { isAuthenticated } = useContext(AuthContext)
   const { handleComponentVisible } = useContext(ModalContext)
@@ -27,7 +27,7 @@ const AddAnswer = ({ id, tags, setAnswers }) => {
         setLoading(true)
         try {
           const { data } = await authAxios.post(`/answer/${id}`, values)
-          setAnswers(data.answers)
+          setQuestion(data)
           resetForm({})
         } catch (error) {
           setStatus(error.response.data.message)

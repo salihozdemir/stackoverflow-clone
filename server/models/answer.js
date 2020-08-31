@@ -39,38 +39,20 @@ answerSchema.methods = {
       this.score += vote;
       this.votes.push({ user, vote });
     }
-    return this.save();
+    return this;
   },
 
   addComment: function (author, body) {
     this.comments.push({ author, body });
-    return this.save();
+    return this;
   },
 
   removeComment: function (id) {
     const comment = this.comments.id(id);
     if (!comment) throw new Error('Comment not found');
     comment.remove();
-    return this.save();
+    return this;
   }
 };
 
-answerSchema.pre(/^find/, function () {
-  this.populate('author').populate('comments.author', '-role');
-});
-
-answerSchema.pre('save', function (next) {
-  this.wasNew = this.isNew;
-  next();
-});
-
-answerSchema.post('save', function (doc, next) {
-  if (this.wasNew) this.vote(this.author._id, 1);
-  doc
-    .populate('author')
-    .populate('comments.author', '-role')
-    .execPopulate()
-    .then(() => next());
-});
-
-module.exports = mongoose.model('Answer', answerSchema);
+module.exports = answerSchema;
