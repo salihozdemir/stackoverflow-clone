@@ -35,8 +35,8 @@
 }
 
 .active {
-  color: var(--black-700);
-  background-color: var(--black-075);
+  color: var(--black-700) !important;
+  background-color: var(--black-075) !important;
 
   &:hover {
     background-color: var(--black-075) !important;
