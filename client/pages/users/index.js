@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 
-import { publicFetch } from '../util/fetcher'
+import { publicFetch } from '../../util/fetcher'
 
-import Layout from '../components/layout'
-import PageTitle from '../components/page-title'
-import SearchInput from '../components/search-input'
-import UserList from '../components/user-list'
-import UserItem from '../components/user-list/user-item'
-import { Spinner } from '../components/icons'
+import Layout from '../../components/layout'
+import PageTitle from '../../components/page-title'
+import SearchInput from '../../components/search-input'
+import UserList from '../../components/user-list'
+import UserItem from '../../components/user-list/user-item'
+import { Spinner } from '../../components/icons'
 
 function UsersPage() {
   const [searchTerm, setSearchTerm] = useState(null)
