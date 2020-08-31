@@ -1,9 +1,8 @@
-const Answer = require('../models/answer');
 const { body, validationResult } = require('express-validator');
 
 exports.load = async (req, res, next, id) => {
   try {
-    const answer = await Answer.findById(id);
+    const answer = await req.question.answers.id(id);
     if (!answer) return res.status(404).json({ message: 'Answer not found.' });
     req.answer = answer;
   } catch (error) {
@@ -23,12 +22,11 @@ exports.create = async (req, res, next) => {
   try {
     const { id } = req.user;
     const { text } = req.body;
-    const answer = await Answer.create({
-      author: id,
-      text
-    });
-    const question = await req.question.addAnswer(answer._id);
+
+    const question = await req.question.addAnswer(id, text);
+    
     res.status(201).json(question);
+
   } catch (error) {
     next(error);
   }
@@ -36,8 +34,8 @@ exports.create = async (req, res, next) => {
 
 exports.delete = async (req, res, next) => {
   try {
-    await req.answer.remove();
-    const question = await req.question.removeAnswer(req.answer._id);
+    const { answer } = req.params;
+    const question = await req.question.removeAnswer(answer);
     res.json(question);
   } catch (error) {
     next(error);

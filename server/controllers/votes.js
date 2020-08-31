@@ -3,6 +3,7 @@ exports.upvote = async (req, res) => {
 
   if (req.answer) {
     const answer = await req.answer.vote(id, 1);
+    req.question.save();
     return res.json(answer);
   }
   const question = await req.question.vote(id, 1);
@@ -14,6 +15,7 @@ exports.downvote = async (req, res) => {
 
   if (req.answer) {
     const answer = await req.answer.vote(id, -1);
+    req.question.save();
     return res.json(answer);
   }
   const question = await req.question.vote(id, -1);
@@ -25,6 +27,7 @@ exports.unvote = async (req, res) => {
 
   if (req.answer) {
     const answer = await req.answer.vote(id, 0);
+    req.question.save();
     return res.json(answer);
   }
   const question = await req.question.vote(id, 0);
