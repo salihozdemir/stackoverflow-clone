@@ -91,7 +91,7 @@ $ yarn test
         $ git subtree push --prefix server heroku master
 
 
-#### Deploying Client App on Heroku
+#### Deploying Client App on Vercel
 
 - [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/git?s=https%3A%2F%2Fgithub.com%2Fsalihozdemir%2Fstackoverflow-clone&env=SITE_NAME&envDescription=SITE_NAME%20needed%20for%20api%20url)
 
