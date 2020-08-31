@@ -98,6 +98,7 @@ questionSchema.post('save', function (doc, next) {
     .populate('author')
     .populate('answers.author', '-role')
     .populate('comments.author', '-role')
+    .populate('answers.comments.author', '-role')
     .execPopulate()
     .then(() => next());
 });

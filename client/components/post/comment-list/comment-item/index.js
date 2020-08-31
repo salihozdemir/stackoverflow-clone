@@ -15,24 +15,20 @@ const CommentItem = ({
   questionId,
   commentId,
   setQuestion,
-  setAnswers,
   children
 }) => {
   const { authState, isAdmin } = useContext(AuthContext)
   const { authAxios } = useContext(FetchContext)
 
   const handleDeleteComment = async () => {
-    const { data } = await authAxios.delete(
-      answerId
-        ? `/comment/${questionId}/${answerId}/${commentId}`
-        : `/comment/${questionId}/${commentId}`
-    )
-    
-    if (answerId) {
-      setAnswers((prevState) => {
-        return prevState.map((el) => (el.id === answerId ? data : el))
-      })
-    } else {
+    const res = window.confirm('Are you sure delete your comment?')
+    if (res) {
+      const { data } = await authAxios.delete(
+        answerId
+          ? `/comment/${questionId}/${answerId}/${commentId}`
+          : `/comment/${questionId}/${commentId}`
+      )
+
       setQuestion(data)
     }
   }

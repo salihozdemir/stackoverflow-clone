@@ -13,7 +13,6 @@ const AddComment = ({
   questionId,
   answerId,
   setShowAddComment,
-  setAnswers,
   setQuestion
 }) => {
   const { authAxios } = useContext(FetchContext)
@@ -31,17 +30,10 @@ const AddComment = ({
             values
           )
 
-          if (answerId) {
-            setAnswers((prevState) => {
-              return prevState.map((el) => (el.id === answerId ? data : el))
-            })
-          } else {
-            setQuestion(data)
-          }
+          setQuestion(data)
 
           resetForm({})
           setShowAddComment(false)
-
         } catch (error) {
           setStatus(error.response.data.message)
         }

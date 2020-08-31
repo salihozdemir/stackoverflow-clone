@@ -16,7 +16,7 @@ const PostSummary = ({
   created,
   questionId,
   answerId,
-  setAnswers,
+  setQuestion,
   children
 }) => {
   const { authState, isAdmin } = useContext(AuthContext)
@@ -24,14 +24,19 @@ const PostSummary = ({
   const router = useRouter()
 
   const handleDeleteComment = async () => {
-    const { data } = await authAxios.delete(
-      answerId ? `/answer/${questionId}/${answerId}` : `/question/${questionId}`
-    )
+    const res = window.confirm('Are you sure delete your post?')
+    if (res) {
+      const { data } = await authAxios.delete(
+        answerId
+          ? `/answer/${questionId}/${answerId}`
+          : `/question/${questionId}`
+      )
 
-    if (answerId) {
-      setAnswers(data.answers)
-    } else {
-      router.push('/')
+      if (answerId) {
+        setQuestion(data)
+      } else {
+        router.push('/')
+      }
     }
   }
 
