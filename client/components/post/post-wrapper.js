@@ -1,9 +1,9 @@
 import React from 'react'
 import cn from 'classnames'
 
-import styles from './answer-wrapper.module.css'
+import styles from './post-wrapper.module.css'
 
-const AnswerWrapper = ({ borderBottom = true, children }) => {
+const PostWrapper = ({ borderBottom = true, children }) => {
   return (
     <div className={cn(styles.layout, borderBottom && styles.borderBottom)}>
       {children}
@@ -11,4 +11,4 @@ const AnswerWrapper = ({ borderBottom = true, children }) => {
   )
 }
 
-export default AnswerWrapper
+export default PostWrapper

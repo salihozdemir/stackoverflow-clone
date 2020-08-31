@@ -3,13 +3,13 @@ import Link from 'next/link'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 
-import { FetchContext } from '../../../store/fetch'
-import { AuthContext } from '../../../store/auth'
-import ModalContext from '../../../store/modal'
+import { FetchContext } from '../../store/fetch'
+import { AuthContext } from '../../store/auth'
+import ModalContext from '../../store/modal'
 
-import TextArea from '../../textarea'
-import Button from '../../button'
-import Tag from '../../tag'
+import TextArea from '../textarea'
+import Button from '../button'
+import Tag from '../tag'
 
 import styles from './add-answer.module.css'
 

@@ -8,9 +8,9 @@ import { FetchContext } from '../../../store/fetch'
 
 import Tag from '../../tag'
 
-import styles from './answer-summary.module.css'
+import styles from './post-summary.module.css'
 
-const AnswerSummary = ({
+const PostSummary = ({
   tags,
   author,
   created,
@@ -79,4 +79,4 @@ const AnswerSummary = ({
   )
 }
 
-export default AnswerSummary
+export default PostSummary

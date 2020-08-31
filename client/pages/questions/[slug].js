@@ -6,13 +6,13 @@ import { publicFetch } from '../../util/fetcher'
 import Layout from '../../components/layout'
 import PageTitle from '../../components/page-title'
 import DetailPageContainer from '../../components/detail-page-container'
-import AnswerWrapper from '../../components/answer/answer-wrapper'
-import AnswerVote from '../../components/answer/answer-vote'
-import AnswerSummary from '../../components/answer/answer-summary'
-import CommentList from '../../components/answer/comment-list'
-import CommentItem from '../../components/answer/comment-list/comment-item'
+import PostWrapper from '../../components/post/post-wrapper'
+import PostVote from '../../components/post/post-vote'
+import PostSummary from '../../components/post/post-summary'
+import CommentList from '../../components/post/comment-list'
+import CommentItem from '../../components/post/comment-list/comment-item'
 import AnswerContainer from '../../components/answer-container'
-import AddAnswer from '../../components/answer/add-answer'
+import AddAnswer from '../../components/add-answer'
 import { Spinner } from '../../components/icons'
 
 const QuestionDetail = ({ questionId, title }) => {
@@ -51,21 +51,21 @@ const QuestionDetail = ({ questionId, title }) => {
 
         {!loading && (
           <>
-            <AnswerWrapper borderBottom={false}>
-              <AnswerVote
+            <PostWrapper borderBottom={false}>
+              <PostVote
                 score={question.score}
                 votes={question.votes}
                 questionId={questionId}
                 setQuestion={setQuestion}
               />
-              <AnswerSummary
+              <PostSummary
                 tags={question.tags}
                 author={question.author}
                 created={question.created}
                 questionId={questionId}
               >
                 {question.text}
-              </AnswerSummary>
+              </PostSummary>
               <CommentList questionId={questionId} setQuestion={setQuestion}>
                 {question.comments.map(({ id, author, created, body }) => (
                   <CommentItem
@@ -81,7 +81,7 @@ const QuestionDetail = ({ questionId, title }) => {
                   </CommentItem>
                 ))}
               </CommentList>
-            </AnswerWrapper>
+            </PostWrapper>
 
             {answers.length > 0 && (
               <AnswerContainer

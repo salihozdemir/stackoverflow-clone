@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 
 import ButtonGroup from '../button-group'
-import AnswerWrapper from '../answer/answer-wrapper'
-import AnswerVote from '../answer/answer-vote'
-import AnswerSummary from '../answer/answer-summary'
-import CommentList from '../answer/comment-list'
-import CommentItem from '../answer/comment-list/comment-item'
+import PostWrapper from '../post/post-wrapper'
+import PostVote from '../post/post-vote'
+import PostSummary from '../post/post-summary'
+import CommentList from '../post/comment-list'
+import CommentItem from '../post/comment-list/comment-item'
 
 import styles from './answer-container.module.css'
 
@@ -43,15 +43,15 @@ const AnswerContainer = ({
       </div>
       {answers.length > 0 &&
         answers.sort(handleSorting()).map((answer) => (
-          <AnswerWrapper key={answer.id}>
-            <AnswerVote
+          <PostWrapper key={answer.id}>
+            <PostVote
               score={answer.score}
               votes={answer.votes}
               answerId={answer.id}
               questionId={questionId}
               setAnswers={setAnswers}
             />
-            <AnswerSummary
+            <PostSummary
               author={answer.author}
               created={answer.created}
               questionId={questionId}
@@ -59,7 +59,7 @@ const AnswerContainer = ({
               setAnswers={setAnswers}
             >
               {answer.text}
-            </AnswerSummary>
+            </PostSummary>
             <CommentList
               questionId={questionId}
               answerId={answer.id}
@@ -80,7 +80,7 @@ const AnswerContainer = ({
                 </CommentItem>
               ))}
             </CommentList>
-          </AnswerWrapper>
+          </PostWrapper>
         ))}
     </div>
   )

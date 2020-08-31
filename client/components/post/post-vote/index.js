@@ -7,9 +7,9 @@ import ModalContext from '../../../store/modal'
 import Button from '../../button'
 import { ArrowUp, ArrowDown } from '../../icons'
 
-import styles from './answer-vote.module.css'
+import styles from './post-vote.module.css'
 
-const AnswerVote = ({
+const PostVote = ({
   score,
   votes,
   questionId,
@@ -111,4 +111,4 @@ const AnswerVote = ({
   )
 }
 
-export default AnswerVote
+export default PostVote
