@@ -63,7 +63,7 @@ $ cd server
 $ yarn test
 ```
 
-<sub>There are missing tests on the server side and there are no tests on the client side yet</sub>
+<sub>There are missing tests on the server side and there are no tests on the client side yet.</sub>
 
 ## :scroll: Todo
 
