@@ -10,6 +10,7 @@
   display: flex;
   flex-wrap: wrap-reverse;
   align-items: center;
+  word-break: break-word;
 
   h1 {
     font-size: 27px;
@@ -27,6 +28,7 @@
   display: flex;
   flex: 1;
   justify-content: flex-end;
+  min-width: fit-content;
 
   button {
     flex-shrink: 0;
