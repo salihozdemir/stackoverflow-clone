@@ -1,6 +1,7 @@
-## About
+## Stackoverflow Clone
+ - Demo: http://clone-of-stackoverflow.vercel.app/
 
-It is a full stack stackoverflow clone that I wrote to learn more about Nodejs, React/Next, and NoSQL databases.
+This project is a simplified a full stack clone of Stackoverflow. I wrote it to learn more about Nodejs, React/Next, Pixel perfect design and NoSQL databases in general. Feel free to contribute!
 
 ## :rocket: Tech Stack
 
