@@ -10,7 +10,7 @@ import { AuthContext } from '../../../store/auth'
 
 import Button from '../../button'
 import NavigationDropdown from '../../navigation-dropdown'
-import { Menu, Close } from '../../icons'
+import { Menu, Close, Logo } from '../../icons'
 
 import styles from './header.module.css'
 
@@ -44,7 +44,10 @@ const Header = ({ className, ...props }) => {
           </Button>
         </div>
         <Button className={styles.logo} href="/">
-          <span>Stackoverflow</span>
+          <Logo />
+          <p>
+            clone-of-stack<span>overflow</span>
+          </p>
         </Button>
         <div style={{ flex: 1 }}></div>
 

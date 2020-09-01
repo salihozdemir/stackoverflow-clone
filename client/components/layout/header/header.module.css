@@ -24,7 +24,6 @@
 
 .menuContainer {
   height: 100%;
-  
 }
 
 .menu {
@@ -50,21 +49,34 @@
   margin-left: 0;
   height: 100%;
   padding: 0 8px;
+  font-size: 22px;
+  color: var(--black-800);
+  font-family: sans-serif;
+
+  &:hover {
+    color: var(--black-700);
+  }
 
   @media (--m) {
     margin-left: 5px;
   }
 
-  span {
-    width: 25px;
-    height: 30px;
-    background-image: url('/images/sprites.svg');
-    background-position: 0 -500px;
-    text-indent: -9999em;
+  p {
+    display: none;
+    margin-top: 3px;
 
     @media (--m) {
-      width: 150px;
+      display: block;
     }
+  }
+
+  span {
+    font-weight: bold;
+  }
+
+  svg {
+    font-size: 27px;
+    margin-right: 3px;
   }
 }
 
@@ -83,6 +95,6 @@
 
   p {
     padding-right: 5px;
-    border-right: 1px solid var(--black-200)
+    border-right: 1px solid var(--black-200);
   }
 }
