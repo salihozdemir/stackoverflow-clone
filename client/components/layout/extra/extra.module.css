@@ -16,3 +16,8 @@
     margin-bottom: 1em;
   }
 }
+
+.popularTags {
+  display: grid;
+  grid-template-columns: auto auto;
+}
