@@ -3,6 +3,7 @@
   padding-left: 24px;
   padding-right: 24px;
   padding-top: 12px;
+  padding-bottom: 12px;
   display: grid;
   grid-gap: 12px;
   grid-template-columns: repeat(auto-fill, minmax(157px, 1fr));
