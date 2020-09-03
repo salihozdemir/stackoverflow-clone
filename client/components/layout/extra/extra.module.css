@@ -7,7 +7,7 @@
   top: 74px;
   display: flex;
   flex-direction: column;
-  padding-left: 24px;
+  padding-left: 12px;
 
   h2 {
     color: var(--black-700);
