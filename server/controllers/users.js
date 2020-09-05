@@ -111,7 +111,7 @@ exports.authenticate = async (req, res) => {
   }
 };
 
-exports.list = async (req, res, next) => {
+exports.listUsers = async (req, res, next) => {
   try {
     const { sortType = '-created' } = req.body;
     const users = await User.find().sort(sortType);
@@ -130,16 +130,16 @@ exports.search = async (req, res, next) => {
   }
 };
 
-exports.show = async (req, res, next) => {
+exports.find = async (req, res, next) => {
   try {
-    const users = await User.findOne({ username: req.params.username});
+    const users = await User.findOne({ username: req.params.username });
     res.json(users);
   } catch (error) {
     next(error);
   }
 };
 
-exports.validate = [
+exports.validateUser = [
   body('username')
     .exists()
     .trim()

@@ -15,7 +15,7 @@ exports.listPopulerTags = async (req, res, next) => {
   }
 };
 
-exports.list = async (req, res, next) => {
+exports.listTags = async (req, res, next) => {
   try {
     const tags = await Question.aggregate([
       { $project: { tags: 1 } },

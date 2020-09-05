@@ -1,6 +1,6 @@
 const { body, validationResult } = require('express-validator');
 
-exports.load = async (req, res, next, id) => {
+exports.loadAnswers = async (req, res, next, id) => {
   try {
     const answer = await req.question.answers.id(id);
     if (!answer) return res.status(404).json({ message: 'Answer not found.' });
@@ -12,7 +12,7 @@ exports.load = async (req, res, next, id) => {
   next();
 };
 
-exports.create = async (req, res, next) => {
+exports.createAnswer = async (req, res, next) => {
   const result = validationResult(req);
   if (!result.isEmpty()) {
     const errors = result.array({ onlyFirstError: true });
@@ -24,15 +24,14 @@ exports.create = async (req, res, next) => {
     const { text } = req.body;
 
     const question = await req.question.addAnswer(id, text);
-    
-    res.status(201).json(question);
 
+    res.status(201).json(question);
   } catch (error) {
     next(error);
   }
 };
 
-exports.delete = async (req, res, next) => {
+exports.removeAnswer = async (req, res, next) => {
   try {
     const { answer } = req.params;
     const question = await req.question.removeAnswer(answer);

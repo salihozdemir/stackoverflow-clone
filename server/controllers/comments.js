@@ -1,6 +1,6 @@
 const { body, validationResult } = require('express-validator');
 
-exports.load = async (req, res, next, id) => {
+exports.loadComments = async (req, res, next, id) => {
   try {
     let comment;
 
@@ -19,7 +19,7 @@ exports.load = async (req, res, next, id) => {
   next();
 };
 
-exports.create = async (req, res, next) => {
+exports.createComment = async (req, res, next) => {
   const result = validationResult(req);
 
   if (!result.isEmpty()) {
@@ -44,7 +44,7 @@ exports.create = async (req, res, next) => {
   }
 };
 
-exports.delete = async (req, res, next) => {
+exports.removeComment = async (req, res, next) => {
   const { comment } = req.params;
 
   try {
@@ -56,7 +56,6 @@ exports.delete = async (req, res, next) => {
 
     const question = await req.question.removeComment(comment);
     return res.json(question);
-    
   } catch (error) {
     next(error);
   }
