@@ -2,7 +2,7 @@ const Question = require('../models/question');
 const User = require('../models/user');
 const { body, validationResult } = require('express-validator');
 
-exports.load = async (req, res, next, id) => {
+exports.loadQuestions = async (req, res, next, id) => {
   try {
     const question = await Question.findById(id);
     if (!question) return res.status(404).json({ message: 'Question not found.' });
@@ -15,7 +15,7 @@ exports.load = async (req, res, next, id) => {
   next();
 };
 
-exports.create = async (req, res, next) => {
+exports.createQuestion = async (req, res, next) => {
   const result = validationResult(req);
   if (!result.isEmpty()) {
     const errors = result.array({ onlyFirstError: true });
@@ -50,7 +50,7 @@ exports.show = async (req, res, next) => {
   }
 };
 
-exports.list = async (req, res, next) => {
+exports.listQuestions = async (req, res, next) => {
   try {
     const { sortType = '-score' } = req.body;
     const questions = await Question.find().sort(sortType);
@@ -82,7 +82,7 @@ exports.listByUser = async (req, res, next) => {
   }
 };
 
-exports.delete = async (req, res, next) => {
+exports.removeQuestion = async (req, res, next) => {
   try {
     await req.question.remove();
     res.json({ message: 'Your question successfully deleted.' });
