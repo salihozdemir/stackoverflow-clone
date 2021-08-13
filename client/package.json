@@ -20,7 +20,7 @@
     "classnames": "^2.2.6",
     "date-fns": "^2.15.0",
     "formik": "^2.1.5",
-    "next": "^9.4.4",
+    "next": "^11.1.0",
     "nprogress": "^0.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
