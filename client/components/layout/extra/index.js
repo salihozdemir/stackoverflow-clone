@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import AdSense from 'react-adsense'
 
 import { TagContext } from '../../../store/tag'
 
@@ -29,6 +30,15 @@ const Extra = ({ marginTop = 24 }) => {
             </Tag>
           ))}
         </div>
+        <br />
+        <AdSense.Google
+          client="pub-6334314630314298"
+          slot="9982692432"
+          style={{ display: 'block' }}
+          format="auto"
+          responsive="true"
+          layoutKey="-gw-1+2a-9x+5c"
+        />
       </div>
     </div>
   )
