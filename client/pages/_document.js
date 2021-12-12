@@ -45,7 +45,11 @@ class MyDocument extends Document {
               />
             </>
           )}
-
+          <script
+            async
+            src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          
           {/* favicon */}
           <link rel="shortcut icon" href="/images/logo.svg" />
         </Head>

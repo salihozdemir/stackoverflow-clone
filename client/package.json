@@ -23,6 +23,7 @@
     "next": "^9.4.4",
     "nprogress": "^0.2.0",
     "react": "^16.13.1",
+    "react-adsense": "^0.1.0",
     "react-dom": "^16.13.1",
     "react-tagsinput": "^3.19.0",
     "slug": "^3.3.2",
