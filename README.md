@@ -47,7 +47,7 @@ $ cd ../client
 # Install dependencies
 $ npm install
 
-# Use the command below for Android devices
+# Use the command below for browser or Android devices
 $ npm run dev
 
 # To see the incomplete storybook components
